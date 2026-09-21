@@ -1,253 +1,154 @@
 /**
- * RAPHAEL RAMOS — PORTFOLIO JAVASCRIPT
+ * RAPHAEL RAMOS — PORTFOLIO SCRIPT
  * Features:
- * - Full i18n Translation (PT-BR / EN)
- * - Interactive BINGO Radio Telescope Spectrometer Canvas (FFT Simulation)
- * - Dark / Light Theme Toggle
- * - Copy-to-Clipboard with Toast Notifications
- * - Responsive Mobile Menu & Smooth Navigation
+ * - Humanized i18n translation (PT-BR / EN)
+ * - Scientific Spectrum Analyzer with Interactive Crosshair (BINGO Telescope)
+ * - Dark / Light theme persistence (Radix Zinc palette)
+ * - Subtle clipboard copy & feedback
  */
 
 // =============================================================================
-// 1. Translations Dictionary (i18n)
+// 1. Translations (Humanizer applied: direct, factual, zero marketing filler)
 // =============================================================================
 const translations = {
   pt: {
-    "nav.status": "Disponível para contratação",
-    "nav.telemetry": "Telemetria",
-    "nav.projects": "Projetos",
-    "nav.skills": "Habilidades",
-    "nav.experience": "Trajetória",
-    "nav.contact": "Contato",
+    "header.role": "Engenheiro de Software",
+    "intro.greeting": "Sistemas backend, telemetria e computação científica.",
+    "intro.bio": "Trabalho com arquitetura de software para processamento de sinais e dados científicos no radiotelescópio <strong>BINGO</strong>. Graduando em Ciência da Computação pela UFCG e ex-aluno de Engenharia Mecatrônica pela USP, com atuação como monitor de algoritmos avançados e administração de sistemas Linux.",
+    "intro.copy_email": "Copiar e-mail",
 
-    "hero.badge": "Backend • Telemetria • Clean Architecture",
-    "hero.role": "Software Engineer • Backend, Data Systems & Distributed Telemetry",
-    "hero.description": "Desenvolvo sistemas de software robustos para alta taxa de transferência, pipelines de telemetria em tempo real e arquiteturas modulares. Engenharia Mecatrônica (USP) e Ciência da Computação (UFCG), atuando na vanguarda da computação científica com o <strong>Telescópio BINGO</strong>.",
-    "hero.cta_telemetry": "Explorar Telemetria",
-    "hero.download_cv": "Baixar CV (PDF)",
-    "hero.copy_email": "Copiar E-mail",
+    "section.telemetry": "Telemetria em Tempo Real · Radiotelescópio BINGO",
+    "instrument.live": "FLUXO ATIVO",
+    "hud.freq": "FREQ. CENTRAL",
+    "hud.rate": "AMOSTRAGEM",
+    "hud.coords": "COORD. CELESTES",
+    "hud.storage": "STORAGE",
+    "controls.pause": "Pausar",
+    "controls.resume": "Retomar",
+    "controls.pulse": "Injetar pulso",
+    "controls.reset": "Calibrar base",
+    "controls.preset": "Banda:",
+    "crosshair.default": "Passe o cursor no espectro",
 
-    "stats.project": "Projeto Principal",
-    "stats.project_sub": "Espectrômetro de Radioastronomia",
-    "stats.stack": "Especialidade",
-    "stats.stack_sub": "Python, C++, Linux & HDF5",
-    "stats.acad": "Formação • UFCG & USP",
-    "stats.acad_sub": "Ex-Mecatrônica USP • Monitor ATAL/ADSI",
-    "stats.languages": "Idiomas",
-    "stats.languages_sub": "Português, Inglês (Fluente), FR & ES",
+    "section.projects": "Projetos Selecionados",
+    "proj.bingo.title": "Espectrômetro de Radioastronomia MiniHorn (Telescópio BINGO)",
+    "proj.bingo.desc": "Desenvolvi a infraestrutura de software e o console de visualização para a análise em tempo real do espectro eletromagnético captado pelo instrumento MiniHorn do radiotelescópio BINGO.",
+    "proj.bingo.n1": "Separação de responsabilidades sob Clean Architecture, desacoplando o driver de hardware USRP SDR da lógica de processamento e da interface.",
+    "proj.bingo.n2": "Pipeline de persistência gravando telemetria RF em formato binário HDF5 com ciclos de escrita sub-segundo e tolerância zero a perda de amostras.",
+    "proj.bingo.n3": "Cálculo de efemérides celestes e apontamento astronômico integrado via biblioteca Skyfield.",
 
-    "telemetry.title": "Console Tático de Radioastronomia (BINGO)",
-    "telemetry.desc": "Simulador interativo do console desenvolvido para o espectrômetro <strong>MiniHorn do Telescópio BINGO</strong>. Demonstra processamento de sinais de radiofrequência em tempo real, integração com hardware SDR USRP, efemérides astronômicas e persistência HDF5.",
-    
-    "hud.center_freq": "FREQ. CENTRAL",
-    "hud.sample_rate": "TAXA DE AMOSTRAGEM",
-    "hud.sdr_gain": "GANHO SDR",
-    "hud.celestial": "COORD. CELESTES (SKYFIELD)",
-    "hud.storage": "PIPELINE HDF5",
+    "proj.stats.title": "Pipeline de Inferência Estatística e Aprendizado de Máquina",
+    "proj.stats.desc": "Modelagem quantitativa e testes de hipóteses estatísticas para extração de padrões em sinais e análise preditiva de bases de dados multidimensionais.",
+    "proj.stats.n1": "Seleção de variáveis (feature selection) baseada em análise de variância (ANOVA) e métricas de informação.",
+    "proj.stats.n2": "Computação vetorizada para otimizar tempo de convergência e validação cruzada dos modelos.",
 
-    "controls.pause": "Pausar Fluxo",
-    "controls.resume": "Retomar Fluxo",
-    "controls.inject": "Injetar Pulso de Sinal",
-    "controls.reset": "Calibrar Ruído Base",
-    "controls.preset": "Preset da Banda:",
+    "proj.db.title": "Sistema de Gerenciamento Transacional e Banco Relacional",
+    "proj.db.desc": "Aplicação de controle de estoque com modelagem relacional estrita em 3ª Forma Normal (3FN), garantindo propriedades ACID em cenários de concorrência.",
+    "proj.db.n1": "Análise de planos de execução de consultas complexas via EXPLAIN ANALYZE para redução de custo de I/O.",
+    "proj.db.n2": "Controle transacional com isolamento de leituras e integridade referencial.",
 
-    "projects.title": "Projetos em Destaque",
-    "projects.desc": "Sistemas distribuídos, pipelines de dados de alta taxa e arquiteturas de backend com foco em consistência, escalabilidade e rigor científico.",
+    "proj.web.title": "Serviço Web Desacoplado e APIs RESTful",
+    "proj.web.desc": "Arquitetura cliente-servidor desacoplada com endpoints RESTful assíncronos e sincronização de estado no cliente.",
+    "proj.web.n1": "Estrutura de dados flexível com MongoDB para persistência de documentos de catálogo.",
+    "proj.web.n2": "Interface responsiva construída com componentes funcionais e consumo assíncrono.",
 
-    "projects.b1.badge": "Projeto Principal • Radioastronomia",
-    "projects.b1.title": "Telescópio BINGO — Espectrômetro de Radioastronomia MiniHorn",
-    "projects.b1.subtitle": "Colaboração Internacional de Radioastronomia • Campina Grande, Brasil (2026 – Presente)",
-    "projects.b1.desc": "Projetei e desenvolvi a infraestrutura de software e console tático em Python para o espectrômetro de radioastronomia MiniHorn do Telescópio BINGO. Arquitetura modular sob <strong>Clean Architecture</strong> (camadas de Domínio, Aplicação e Infraestrutura), integrando hardware SDR USRP para controle em tempo real de frequência central, ganho e amostragem.",
-    "projects.b1.h1": "<strong>Clean Architecture:</strong> Desacoplamento total entre drivers de hardware (USRP), lógica de processamento de sinal e camadas de visualização.",
-    "projects.b1.h2": "<strong>Streaming de Alta Performance:</strong> Pipeline de aquisição gravando telemetria em formato binário <strong>HDF5</strong> com sub-second write cycles e taxa zero de perda de amostras.",
-    "projects.b1.h3": "<strong>Cômputo Astronômico:</strong> Integração com a biblioteca <strong>Skyfield</strong> para cálculo dinâmico de efemérides celestes e apontamento astronômico.",
+    "section.skills": "Domínio Técnico",
+    "skill.languages": "Linguagens",
+    "skill.scientific": "Telemetria e Dados",
+    "skill.systems": "Sistemas e Infraestrutura",
+    "skill.algorithms": "Fundamentos Teóricos",
 
-    "projects.b2.badge": "Data Science & Pesquisa Quantitativa",
-    "projects.b2.title": "Pipeline de Inferência Estatística & Machine Learning",
-    "projects.b2.subtitle": "Pesquisa Quantitativa Aplicada • Campina Grande, Brasil",
-    "projects.b2.desc": "Desenvolvi modelos de análise quantitativa e testes de hipóteses estatísticas em Python para extração de padrões em sinais complexos e modelagem preditiva em bases de dados multidimensionais.",
-    "projects.b2.h1": "Testes de hipóteses e modelos de regressão/classificação para validação de convergência.",
-    "projects.b2.h2": "Feature selection avançada através de análise de variância (ANOVA) e métricas de informação.",
-    "projects.b2.h3": "Otimização de pipelines com computação vetorializada via NumPy, SciPy e Scikit-Learn.",
+    "section.experience": "Trajetória Acadêmica e Monitoria",
+    "exp.atal.role": "Monitor · Análise e Técnicas de Algoritmos (LEDA / ATAL)",
+    "exp.atal.desc": "Orientação a estudantes em projeto e análise de algoritmos avançados (grafos, divisão e conquista, programação dinâmica e complexidade assintótica de tempo e espaço).",
+    "exp.adsi.role": "Monitor · Administração de Sistemas (ADSI)",
+    "exp.adsi.desc": "Instrução prática em administração de servidores Linux, automação via Shell Scripts, processos do kernel, redes e gerenciamento de permissões.",
+    "exp.ufcg.role": "Bacharelado em Ciência da Computação",
+    "exp.ufcg.desc": "Disciplinas: Estruturas de Dados, Inteligência Artificial, Banco de Dados, Redes de Computadores, Sistemas Operacionais.",
+    "exp.usp.role": "Engenharia Mecatrônica (Transferência)",
+    "exp.usp.desc": "Fundamentos de Cálculo Diferencial e Integral, Física Geral, Controle e Dinâmica de Sistemas, Álgebra Linear e Circuitos Elétricos.",
 
-    "projects.b3.badge": "Engenharia de Banco de Dados • Backend",
-    "projects.b3.title": "Sistema de Gerenciamento Transacional & Banco Relacional",
-    "projects.b3.subtitle": "Sistemas de Bancos de Dados • Campina Grande, Brasil",
-    "projects.b3.desc": "Construí uma aplicação completa de gerenciamento transacional em Python integrada ao PostgreSQL, com modelagem relacional normalizada em 3FN e otimização de índices para garantir consistência ACID e alta vazão em consultas concorrentes.",
-    "projects.b3.h1": "Modelagem relacional estrita com garantia de integridade referencial e isolamento de transações.",
-    "projects.b3.h2": "Otimização de planos de execução de queries SQL com análise de EXPLAIN ANALYZE.",
-    "projects.b3.h3": "Backend modular com controle transacional e testes de carga.",
-
-    "projects.b4.badge": "Full-Stack & Web Systems",
-    "projects.b4.title": "Aplicação Web Desacoplada & APIs RESTful",
-    "projects.b4.subtitle": "Projeto de Engenharia Web • Campina Grande, Brasil",
-    "projects.b4.desc": "Desenvolvi uma arquitetura web full-stack desacoplada utilizando React.js e Node.js/Express com MongoDB, implementando endpoints RESTful eficientes, gerenciamento de estado em tempo real e autenticação.",
-    "projects.b4.h1": "Arquitetura cliente-servidor desacoplada com consumo assíncrono de APIs RESTful.",
-    "projects.b4.h2": "Modelagem de dados flexível com MongoDB e persistência orientada a documentos.",
-    "projects.b4.h3": "Interface responsiva e dinâmica construída em React.js.",
-
-    "skills.title": "Habilidades Técnicas & Ferramentas",
-    "skills.desc": "Domínio aprofundado em linguagens de baixo e alto nível, computação científica, telemetria em tempo real e infraestrutura Linux.",
-    "skills.cat1": "Linguagens de Programação",
-    "skills.cat2": "Telemetria & Computação Científica",
-    "skills.cat3": "Sistemas, Dados & Infraestrutura",
-    "skills.cat4": "Fundamentos & Algoritmos",
-
-    "experience.title": "Experiência Acadêmica & Educação",
-    "experience.desc": "Base teórica sólida combinando engenharia e computação, aliada à experiência de ensino e liderança técnica na universidade.",
-    
-    "timeline.bingo.role": "Software Engineer • Projeto Telescópio BINGO",
-    "timeline.bingo.org": "Colaboração Internacional de Radioastronomia • Campina Grande, Brasil",
-    "timeline.bingo.text": "Responsável pelo desenvolvimento do console de visualização científica, arquitetura limpa de software para controle de hardware SDR USRP e pipelines de gravação de telemetria astronômica em HDF5.",
-
-    "timeline.atal.role": "Monitor Acadêmico • Análise e Técnicas de Algoritmos (LEDA / ATAL)",
-    "timeline.atal.text": "Instruí graduandos em técnicas avançadas de algoritmos (algoritmos em grafos, programação dinâmica, recursão, análise rigorosa de complexidade assintótica de tempo e memória) e estruturas de dados de alta eficiência.",
-
-    "timeline.adsi.role": "Monitor Acadêmico • Administração de Sistemas (ADSI)",
-    "timeline.adsi.text": "Orientei estudantes em administração avançada de sistemas Linux, automação via Shell Scripts, escalonamento de processos do kernel, serviços de rede e configuração de segurança de infraestrutura.",
-
-    "timeline.ufcg.role": "Bacharelado em Ciência da Computação",
-    "timeline.ufcg.text": "Foco em Estruturas de Dados, Algoritmos Avançados, Inteligência Artificial, Sistemas Operacionais, Banco de Dados e Redes de Computadores.",
-
-    "timeline.usp.role": "Engenharia Mecatrônica (Transferência)",
-    "timeline.usp.text": "Sólida base em Cálculo Avançado, Física Geral, Controle e Dinâmica de Sistemas, Álgebra Linear, Eletrônica Digital e Analógica.",
-
-    "lang.title": "Proficiência em Idiomas",
     "lang.pt": "Português",
-    "lang.pt_level": "Nativo",
+    "lang.pt_desc": "Nativo",
     "lang.en": "Inglês",
-    "lang.en_level": "Fluente • C2 Proficiente",
+    "lang.en_desc": "Fluente (C2)",
     "lang.fr": "Francês",
-    "lang.fr_level": "Bom Domínio",
+    "lang.fr_desc": "Bom domínio",
     "lang.es": "Espanhol",
-    "lang.es_level": "Bom Domínio",
+    "lang.es_desc": "Bom domínio",
 
-    "contact.title": "Pronto para construir sistemas de alto impacto?",
-    "contact.desc": "Estou disponível para oportunidades técnicas em engenharia de software, sistemas de dados, computação científica e infraestrutura de telemetria. Entre em contato diretamente:",
-    "contact.email_label": "E-mail Principal:",
-    "contact.phone_label": "Telefone / WhatsApp:",
-
-    "footer.built_with": "Construído com HTML5 semântico, CSS moderno & Canvas",
-    "toast.copied": "E-mail copiado para a área de transferência!"
+    "toast.copied": "E-mail copiado: raphaelramosc@gmail.com",
+    "cv.label": "Currículo (PDF)"
   },
 
   en: {
-    "nav.status": "Available for opportunities",
-    "nav.telemetry": "Telemetry",
-    "nav.projects": "Projects",
-    "nav.skills": "Skills",
-    "nav.experience": "Experience",
-    "nav.contact": "Contact",
+    "header.role": "Software Engineer",
+    "intro.greeting": "Backend systems, telemetry & scientific computing.",
+    "intro.bio": "Engineering software infrastructure for real-time signal processing and scientific data at the <strong>BINGO</strong> radio telescope. Computer Science undergraduate at UFCG and former Mechatronic Engineering student at USP. Teaching assistant in advanced algorithms and Linux systems administration.",
+    "intro.copy_email": "Copy email",
 
-    "hero.badge": "Backend • Telemetry • Clean Architecture",
-    "hero.role": "Software Engineer • Backend, Data Systems & Distributed Telemetry",
-    "hero.description": "Engineering high-throughput software systems, real-time telemetry pipelines, and modular architectures. Mechatronic Engineering background (USP) and Computer Science (UFCG), working at the cutting edge of scientific computing with the <strong>BINGO Telescope</strong>.",
-    "hero.cta_telemetry": "Explore Telemetry",
-    "hero.download_cv": "Download Resume (PDF)",
-    "hero.copy_email": "Copy Email",
+    "section.telemetry": "Real-Time Telemetry · BINGO Radio Telescope",
+    "instrument.live": "LIVE STREAM",
+    "hud.freq": "CENTER FREQ.",
+    "hud.rate": "SAMPLE RATE",
+    "hud.coords": "CELESTIAL COORDS",
+    "hud.storage": "STORAGE",
+    "controls.pause": "Pause",
+    "controls.resume": "Resume",
+    "controls.pulse": "Inject pulse",
+    "controls.reset": "Calibrate baseline",
+    "controls.preset": "Band:",
+    "crosshair.default": "Hover over spectrum",
 
-    "stats.project": "Featured Project",
-    "stats.project_sub": "Radio Astronomy Spectrometer",
-    "stats.stack": "Core Stack",
-    "stats.stack_sub": "Python, C++, Linux & HDF5",
-    "stats.acad": "Education • UFCG & USP",
-    "stats.acad_sub": "Ex-Mechatronics USP • TA in Algorithms & SysAdmin",
-    "stats.languages": "Languages",
-    "stats.languages_sub": "Portuguese, English (Fluent C2), FR & ES",
+    "section.projects": "Selected Projects",
+    "proj.bingo.title": "MiniHorn Radio Astronomy Spectrometer (BINGO Telescope)",
+    "proj.bingo.desc": "Designed and built the software infrastructure and visualization console for real-time RF spectrum analysis captured by the MiniHorn instrument of the BINGO radio telescope.",
+    "proj.bingo.n1": "Clean Architecture separation, decoupling USRP SDR hardware drivers from signal processing routines and visual interfaces.",
+    "proj.bingo.n2": "Persistence pipeline recording RF telemetry into binary HDF5 format with sub-second write cycles and zero sample loss.",
+    "proj.bingo.n3": "Astronomical celestial pointing and ephemeris computation integrated via the Skyfield library.",
 
-    "telemetry.title": "Tactical Radio Astronomy Console (BINGO)",
-    "telemetry.desc": "Interactive simulator of the tactical dashboard engineered for the <strong>BINGO Telescope MiniHorn spectrometer</strong>. Demonstrates real-time RF signal processing, SDR USRP hardware integration, astronomical ephemeris calculations, and HDF5 storage.",
+    "proj.stats.title": "Statistical Inference & Machine Learning Pipeline",
+    "proj.stats.desc": "Quantitative modeling and statistical hypothesis testing for signal pattern extraction and predictive analysis on high-dimensional datasets.",
+    "proj.stats.n1": "Feature selection based on Analysis of Variance (ANOVA) and information metrics.",
+    "proj.stats.n2": "Vectorized computation to optimize model convergence and cross-validation throughput.",
 
-    "hud.center_freq": "CENTER FREQUENCY",
-    "hud.sample_rate": "SAMPLE RATE",
-    "hud.sdr_gain": "SDR GAIN",
-    "hud.celestial": "CELESTIAL COORDS (SKYFIELD)",
-    "hud.storage": "HDF5 PIPELINE",
+    "proj.db.title": "Transactional Inventory System & Relational Database",
+    "proj.db.desc": "Inventory control service designed with strict 3rd Normal Form (3NF) relational modeling, enforcing ACID properties under concurrent workloads.",
+    "proj.db.n1": "Query execution plan analysis using EXPLAIN ANALYZE to reduce disk I/O overhead.",
+    "proj.db.n2": "Transactional control with isolation guarantees and referential integrity.",
 
-    "controls.pause": "Pause Stream",
-    "controls.resume": "Resume Stream",
-    "controls.inject": "Inject Signal Pulse",
-    "controls.reset": "Calibrate Baseline Noise",
-    "controls.preset": "Band Preset:",
+    "proj.web.title": "Decoupled Web Service & RESTful APIs",
+    "proj.web.desc": "Decoupled client-server architecture with asynchronous RESTful endpoints and client-side state synchronization.",
+    "proj.web.n1": "Flexible document modeling with MongoDB for catalog data storage.",
+    "proj.web.n2": "Responsive frontend built with functional components and asynchronous API consumption.",
 
-    "projects.title": "Featured Engineering Projects",
-    "projects.desc": "Distributed systems, high-throughput data pipelines, and backend architectures designed for transactional consistency, scalability, and scientific rigor.",
+    "section.skills": "Technical Foundations",
+    "skill.languages": "Languages",
+    "skill.scientific": "Telemetry & Scientific Computing",
+    "skill.systems": "Systems & Infrastructure",
+    "skill.algorithms": "Theoretical Foundations",
 
-    "projects.b1.badge": "Lead Project • Radio Astronomy",
-    "projects.b1.title": "BINGO Telescope — MiniHorn Radio Astronomy Spectrometer",
-    "projects.b1.subtitle": "International Radio Astronomy Collaboration • Campina Grande, Brazil (2026 – Present)",
-    "projects.b1.desc": "Designed and built the software infrastructure and tactical visualization console in Python for the BINGO Telescope MiniHorn spectrometer. Architected under <strong>Clean Architecture</strong> (Domain, Application, Infrastructure layers), integrating USRP SDR hardware for real-time frequency, gain, and sampling control.",
-    "projects.b1.h1": "<strong>Clean Architecture:</strong> Decoupled SDR hardware drivers from signal processing algorithms and visualization layers.",
-    "projects.b1.h2": "<strong>High-Throughput Streaming:</strong> Acquisition pipeline streaming RF telemetry directly into binary <strong>HDF5</strong> storage with sub-second write cycles and zero sample loss.",
-    "projects.b1.h3": "<strong>Celestial Pointing:</strong> Integrated <strong>Skyfield</strong> astronomical library for dynamic celestial ephemeris calculations and coordinate transformations.",
+    "section.experience": "Academic Background & Teaching",
+    "exp.atal.role": "Teaching Assistant · Analysis & Techniques of Algorithms (LEDA / ATAL)",
+    "exp.atal.desc": "Mentoring undergraduates in advanced algorithm design (graphs, divide-and-conquer, dynamic programming, and asymptotic time/space complexity analysis).",
+    "exp.adsi.role": "Teaching Assistant · Systems Administration (ADSI)",
+    "exp.adsi.desc": "Practical instruction in Linux server administration, Bash automation, kernel process management, networking, and access control.",
+    "exp.ufcg.role": "Bachelor of Science in Computer Science",
+    "exp.ufcg.desc": "Relevant coursework: Data Structures, Artificial Intelligence, Database Systems, Computer Networks, Operating Systems.",
+    "exp.usp.role": "Mechatronic Engineering (Transferred)",
+    "exp.usp.desc": "Foundations in Calculus, General Physics, System Dynamics & Control, Linear Algebra, and Electric Circuits.",
 
-    "projects.b2.badge": "Data Science & Quantitative Research",
-    "projects.b2.title": "Statistical Inference & Machine Learning Pipeline",
-    "projects.b2.subtitle": "Applied Quantitative Research • Campina Grande, Brazil",
-    "projects.b2.desc": "Developed quantitative analysis models and statistical hypothesis testing pipelines in Python to extract signal patterns and perform predictive modeling on complex high-dimensional datasets.",
-    "projects.b2.h1": "Hypothesis testing and regression/classification models benchmarking statistical convergence.",
-    "projects.b2.h2": "Advanced feature selection via Analysis of Variance (ANOVA) and information metrics.",
-    "projects.b2.h3": "Vectorized pipeline optimization using NumPy, SciPy, and Scikit-Learn.",
-
-    "projects.b3.badge": "Database Engineering • Backend",
-    "projects.b3.title": "Transactional Inventory System & Relational Database",
-    "projects.b3.subtitle": "Database Systems Engineering Project • Campina Grande, Brazil",
-    "projects.b3.desc": "Engineered a transactional backend application in Python backed by PostgreSQL, designing a 3NF normalized schema with optimized indexes and complex queries ensuring ACID compliance and high query throughput.",
-    "projects.b3.h1": "Strict relational modeling ensuring referential integrity and transaction isolation.",
-    "projects.b3.h2": "SQL query execution plan optimization leveraging EXPLAIN ANALYZE.",
-    "projects.b3.h3": "Modular backend service with transactional control and load testing.",
-
-    "projects.b4.badge": "Full-Stack & Web Systems",
-    "projects.b4.title": "Decoupled Web Application & RESTful APIs",
-    "projects.b4.subtitle": "Web Systems Engineering Project • Campina Grande, Brazil",
-    "projects.b4.desc": "Architected a decoupled full-stack web service with React.js, Node.js/Express, and MongoDB, implementing high-throughput RESTful endpoints, asynchronous request pipelines, and state synchronization.",
-    "projects.b4.h1": "Decoupled client-server architecture consuming asynchronous RESTful endpoints.",
-    "projects.b4.h2": "Flexible document data modeling using MongoDB.",
-    "projects.b4.h3": "Responsive, dynamic frontend interface engineered with React.js.",
-
-    "skills.title": "Technical Skills & Tooling",
-    "skills.desc": "In-depth proficiency in low and high-level languages, scientific computing, real-time telemetry, and Linux systems administration.",
-    "skills.cat1": "Programming Languages",
-    "skills.cat2": "Telemetry & Scientific Computing",
-    "skills.cat3": "Systems, Data & Infrastructure",
-    "skills.cat4": "Foundations & Algorithms",
-
-    "experience.title": "Teaching & Academic Experience",
-    "experience.desc": "Rigorous scientific foundation combining engineering and computer science, backed by academic mentoring and technical leadership.",
-
-    "timeline.bingo.role": "Software Engineer • BINGO Telescope Project",
-    "timeline.bingo.org": "International Radio Astronomy Collaboration • Campina Grande, Brazil",
-    "timeline.bingo.text": "Engineering tactical scientific visualization dashboards, clean software architecture for USRP SDR hardware control, and real-time HDF5 astronomical telemetry recording pipelines.",
-
-    "timeline.atal.role": "Teaching Assistant • Analysis and Techniques of Algorithms (LEDA / ATAL)",
-    "timeline.atal.text": "Mentored undergraduates in advanced algorithmic problem solving (graph algorithms, dynamic programming, divide-and-conquer, greedy approaches) and rigorous asymptotic time/space complexity analysis.",
-
-    "timeline.adsi.role": "Teaching Assistant • Systems Administration (ADSI)",
-    "timeline.adsi.text": "Guided students in Linux internals, Bash automation scripting, system process scheduling, network protocol configuration, and infrastructure containerization with Docker.",
-
-    "timeline.ufcg.role": "Bachelor of Science in Computer Science",
-    "timeline.ufcg.text": "Focus on Data Structures, Advanced Algorithms, Artificial Intelligence, Operating Systems, Database Systems, and Computer Networks.",
-
-    "timeline.usp.role": "Mechatronic Engineering (Transferred)",
-    "timeline.usp.text": "Scientific foundation in Advanced Calculus, General Physics, System Dynamics & Control, Linear Algebra, Digital and Analog Electronics.",
-
-    "lang.title": "Language Proficiency",
     "lang.pt": "Portuguese",
-    "lang.pt_level": "Native",
+    "lang.pt_desc": "Native",
     "lang.en": "English",
-    "lang.en_level": "Fluent • C2 Full Professional",
+    "lang.en_desc": "Fluent (C2)",
     "lang.fr": "French",
-    "lang.fr_level": "Good Working Knowledge",
+    "lang.fr_desc": "Good working knowledge",
     "lang.es": "Spanish",
-    "lang.es_level": "Good Working Knowledge",
+    "lang.es_desc": "Good working knowledge",
 
-    "contact.title": "Ready to build high-impact systems?",
-    "contact.desc": "I am open to technical opportunities in backend engineering, data systems, scientific computing, and telemetry infrastructure. Reach out directly:",
-    "contact.email_label": "Direct Email:",
-    "contact.phone_label": "Phone / WhatsApp:",
-
-    "footer.built_with": "Built with semantic HTML5, modern CSS & Canvas",
-    "toast.copied": "Email address copied to clipboard!"
+    "toast.copied": "Email copied: raphaelramosc@gmail.com",
+    "cv.label": "Resume (PDF)"
   }
 };
 
@@ -263,7 +164,7 @@ function setLanguage(lang) {
     langTag.textContent = lang === "pt" ? "EN" : "PT";
   }
 
-  // Update all DOM elements with data-i18n
+  // Update all data-i18n elements
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (translations[lang] && translations[lang][key]) {
@@ -271,17 +172,37 @@ function setLanguage(lang) {
     }
   });
 
-  // Update button text in telemetry controls
+  // Update CV download link
+  const cvLink = document.getElementById("cvDownloadLink");
+  if (cvLink) {
+    if (lang === "pt") {
+      cvLink.href = "assets/Curriculo_Raphael_Ramos_PT.pdf";
+      cvLink.download = "Curriculo_Raphael_Ramos_PT.pdf";
+      cvLink.textContent = "Currículo (PDF)";
+    } else {
+      cvLink.href = "assets/Curriculo_Raphael_Ramos_EN.pdf";
+      cvLink.download = "Resume_Raphael_Ramos_EN.pdf";
+      cvLink.textContent = "Resume (PDF)";
+    }
+  }
+
+  // Update stream toggle button text
   const btnStreamText = document.getElementById("btnStreamText");
   if (btnStreamText) {
     btnStreamText.textContent = isStreamPaused 
       ? (translations[lang]["controls.resume"]) 
       : (translations[lang]["controls.pause"]);
   }
+
+  // Reset crosshair text if mouse not currently over canvas
+  if (!isMouseOverCanvas) {
+    const readout = document.getElementById("crosshairReadout");
+    if (readout) readout.textContent = translations[lang]["crosshair.default"];
+  }
 }
 
 // =============================================================================
-// 2. Theme Toggle (Dark / Light)
+// 2. Theme Management (Radix Zinc Palette)
 // =============================================================================
 const themeToggleBtn = document.getElementById("themeToggle");
 const currentTheme = localStorage.getItem("portfolio_theme") || "dark";
@@ -290,126 +211,63 @@ document.documentElement.setAttribute("data-theme", currentTheme);
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener("click", () => {
     const activeTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = activeTheme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("portfolio_theme", newTheme);
+    const nextTheme = activeTheme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("portfolio_theme", nextTheme);
   });
 }
 
 // =============================================================================
-// 3. Language Switcher Trigger
+// 3. Language Toggle
 // =============================================================================
 const langToggleBtn = document.getElementById("langToggle");
 if (langToggleBtn) {
   langToggleBtn.addEventListener("click", () => {
-    const newLang = currentLanguage === "pt" ? "en" : "pt";
-    setLanguage(newLang);
-    showToast(newLang === "pt" ? "Idioma alterado para Português" : "Language switched to English");
+    setLanguage(currentLanguage === "pt" ? "en" : "pt");
   });
 }
 
 // =============================================================================
-// 4. Toast Notification & Copy Email
+// 4. Subtle Toast & Clipboard
 // =============================================================================
 function showToast(message) {
   const toast = document.getElementById("toast");
   if (!toast) return;
   toast.textContent = message;
-  toast.classList.add("show");
+  toast.classList.add("active");
   setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2800);
+    toast.classList.remove("active");
+  }, 2400);
 }
 
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    const msg = translations[currentLanguage]["toast.copied"] || "Copiado para a área de transferência!";
-    showToast(msg);
-  }).catch(() => {
-    showToast("Email: " + text);
-  });
-}
-
-document.querySelectorAll("[data-email]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const email = btn.getAttribute("data-email") || "raphaelramosc@gmail.com";
-    copyToClipboard(email);
-  });
-});
-
-// =============================================================================
-// 5. CV Dropdown & Mobile Menu
-// =============================================================================
-const cvDropdownBtn = document.getElementById("cvDropdownBtn");
-const cvDropdownMenu = document.getElementById("cvDropdownMenu");
-
-if (cvDropdownBtn && cvDropdownMenu) {
-  cvDropdownBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    cvDropdownMenu.classList.toggle("show");
-  });
-
-  document.addEventListener("click", () => {
-    cvDropdownMenu.classList.remove("show");
-  });
-}
-
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const navMenu = document.getElementById("navMenu");
-
-if (mobileMenuBtn && navMenu) {
-  mobileMenuBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("mobile-active");
-  });
-
-  navMenu.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("mobile-active");
+const copyEmailBtn = document.getElementById("copyEmailBtn");
+if (copyEmailBtn) {
+  copyEmailBtn.addEventListener("click", () => {
+    const email = copyEmailBtn.getAttribute("data-email") || "raphaelramosc@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      showToast(translations[currentLanguage]["toast.copied"]);
+    }).catch(() => {
+      showToast(email);
     });
   });
 }
 
-// Active Nav Link On Scroll
-const sections = document.querySelectorAll("section[id]");
-window.addEventListener("scroll", () => {
-  const scrollY = window.pageYOffset + 120;
-  sections.forEach(current => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop;
-    const sectionId = current.getAttribute("id");
-    const link = document.querySelector(`.nav-link[href*="${sectionId}"]`);
-    if (link) {
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    }
-  });
-});
-
 // =============================================================================
-// 6. Interactive BINGO Radio Telescope Spectrometer Canvas (FFT Simulator)
+// 5. Scientific Spectrum Analyzer Canvas (High Precision Instrument)
 // =============================================================================
 const canvas = document.getElementById("spectrumCanvas");
 const ctx = canvas ? canvas.getContext("2d") : null;
+const crosshairReadout = document.getElementById("crosshairReadout");
 
 let isStreamPaused = false;
 let centerFrequency = 1100.0; // MHz
-let sdrGain = 42.5; // dB
-let injectedPulseTime = 0; // for transient signals
-let noiseBaseline = -85; // dBm
+let noiseBaseline = -84.0; // dBm
+let injectedPulseTime = 0;
 let animationFrameId;
 
-// HUD Elements
-const hudFreq = document.getElementById("hudFreq");
-const hudGain = document.getElementById("hudGain");
-const canvasPeakText = document.getElementById("canvasPeakText");
-const btnToggleStream = document.getElementById("btnToggleStream");
-const btnStreamText = document.getElementById("btnStreamText");
-const btnInjectSignal = document.getElementById("btnInjectSignal");
-const btnResetBaseline = document.getElementById("btnResetBaseline");
-const presetButtons = document.querySelectorAll(".preset-btn");
+let isMouseOverCanvas = false;
+let mouseCanvasX = -1;
+let lastSpectrumData = null;
 
 function resizeCanvas() {
   if (!canvas) return;
@@ -420,106 +278,96 @@ function resizeCanvas() {
 
 window.addEventListener("resize", resizeCanvas);
 
-// Simulated Spectral Calculation
-function getPowerSpectrum(points, time) {
-  const spectrum = new Float32Array(points);
-  const bandwidth = 20.0; // 20 MHz
+// Generate Realistic RF Spectrum
+function computeSpectrum(numPoints, time) {
+  const spectrum = new Float32Array(numPoints);
+  const bandwidth = 20.0; // MHz
   const freqStart = centerFrequency - bandwidth / 2;
-  const freqStep = bandwidth / points;
+  const freqStep = bandwidth / numPoints;
 
-  let maxVal = -120;
-  let peakFreq = centerFrequency;
-
-  // Signal parameters based on band
-  let signalCenter = centerFrequency + 2.4; // slight offset
+  let signalCenter = centerFrequency + 2.15;
   if (Math.abs(centerFrequency - 1420.4) < 10) {
-    signalCenter = 1420.405; // 21cm Hydrogen line
+    signalCenter = 1420.405; // 21cm Neutral Hydrogen line
   }
 
-  for (let i = 0; i < points; i++) {
+  for (let i = 0; i < numPoints; i++) {
     const f = freqStart + i * freqStep;
     
-    // Thermal Johnson-Nyquist Noise Floor (-85 dBm to -82 dBm)
-    const noise = noiseBaseline + (Math.random() * 4 - 2) + Math.sin(i * 0.05 + time * 0.002) * 1.5;
+    // Thermal Johnson-Nyquist noise (-84 dBm baseline with slight ripple)
+    const noise = noiseBaseline + (Math.random() * 3.2 - 1.6) + Math.sin(i * 0.08 + time * 0.001) * 1.2;
 
-    // Main cosmic signal peak (e.g. Neutral Hydrogen or Galactic Synchrotron)
+    // Cosmic signal peak (Gaussian profile)
     const dist = f - signalCenter;
-    const peakSignal = 32.0 * Math.exp(-(dist * dist) / (2 * 0.4 * 0.4)); // Gaussian peak
+    const peakPower = 34.0 * Math.exp(-(dist * dist) / (2 * 0.35 * 0.35));
 
-    // Transient injected pulse (e.g. Pulsar / FRB simulation)
-    let injectedSignal = 0;
+    // Injected transient pulse (decaying over 2.5s)
+    let injectedPower = 0;
     if (injectedPulseTime > 0) {
-      const pDist = f - (centerFrequency - 4.2);
-      const pulseDecay = Math.max(0, 1 - (Date.now() - injectedPulseTime) / 3000);
-      injectedSignal = 40.0 * pulseDecay * Math.exp(-(pDist * pDist) / (2 * 0.25 * 0.25));
+      const pDist = f - (centerFrequency - 3.8);
+      const decay = Math.max(0, 1 - (Date.now() - injectedPulseTime) / 2500);
+      injectedPower = 42.0 * decay * Math.exp(-(pDist * pDist) / (2 * 0.2 * 0.2));
     }
 
-    const totalPower = noise + peakSignal + injectedSignal;
-    spectrum[i] = totalPower;
-
-    if (totalPower > maxVal) {
-      maxVal = totalPower;
-      peakFreq = f;
-    }
+    spectrum[i] = noise + peakPower + injectedPower;
   }
 
-  return { spectrum, maxVal, peakFreq };
+  return spectrum;
 }
 
-function renderSpectrometer(time) {
+function renderInstrument(time) {
   if (!ctx || !canvas) return;
 
   const w = canvas.width;
   const h = canvas.height;
   const numPoints = 256;
+  const dpr = window.devicePixelRatio || 1;
 
   ctx.clearRect(0, 0, w, h);
 
-  // Background gradient
-  const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
-  bgGrad.addColorStop(0, "rgba(6, 9, 16, 0.95)");
-  bgGrad.addColorStop(1, "rgba(4, 6, 10, 1)");
-  ctx.fillStyle = bgGrad;
+  // Deep neutral background
+  ctx.fillStyle = "#09090b";
   ctx.fillRect(0, 0, w, h);
 
-  // Draw Grid Lines (Frequency & Power dBm)
-  ctx.strokeStyle = "rgba(56, 189, 248, 0.08)";
-  ctx.lineWidth = 1;
-
-  // Horizontal dBm grid (-30 dBm to -90 dBm)
+  // Precise 1px Grid Lines
   const minDbm = -95;
   const maxDbm = -35;
-  for (let db = -40; db >= -90; db -= 10) {
-    const y = ((maxDbm - db) / (maxDbm - minDbm)) * h;
+  ctx.lineWidth = 1 * dpr;
+
+  // Horizontal Power lines (-40 to -90 dBm)
+  for (let db = -40; db >= -90; db -= 15) {
+    const y = Math.round(((maxDbm - db) / (maxDbm - minDbm)) * h);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
     ctx.beginPath();
     ctx.moveTo(0, y);
     ctx.lineTo(w, y);
     ctx.stroke();
 
-    ctx.fillStyle = "rgba(148, 163, 184, 0.4)";
-    ctx.font = `${10 * window.devicePixelRatio}px 'Fira Code', monospace`;
-    ctx.fillText(`${db} dBm`, 12 * window.devicePixelRatio, y - 4);
+    ctx.fillStyle = "rgba(161, 161, 170, 0.5)";
+    ctx.font = `${9 * dpr}px 'JetBrains Mono', monospace`;
+    ctx.fillText(`${db} dBm`, 10 * dpr, y - 4 * dpr);
   }
 
-  // Vertical Frequency grid (5 columns)
+  // Vertical Frequency lines
   const bandwidth = 20.0;
   for (let i = 0; i <= 4; i++) {
-    const x = (i / 4) * w;
+    const x = Math.round((i / 4) * w);
     const f = (centerFrequency - bandwidth / 2 + (i / 4) * bandwidth).toFixed(1);
+
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
     ctx.beginPath();
     ctx.moveTo(x, 0);
     ctx.lineTo(x, h);
     ctx.stroke();
 
-    ctx.fillStyle = "rgba(148, 163, 184, 0.4)";
-    ctx.font = `${10 * window.devicePixelRatio}px 'Fira Code', monospace`;
-    ctx.fillText(`${f} MHz`, x + 6, h - 10 * window.devicePixelRatio);
+    ctx.fillStyle = "rgba(161, 161, 170, 0.5)";
+    ctx.font = `${9 * dpr}px 'JetBrains Mono', monospace`;
+    ctx.fillText(`${f} MHz`, x + 6 * dpr, h - 8 * dpr);
   }
 
-  // Get Simulated Data
-  const { spectrum, maxVal, peakFreq } = getPowerSpectrum(numPoints, time);
+  // Calculate & Draw Spectrum Trace
+  const spectrum = computeSpectrum(numPoints, time);
+  lastSpectrumData = spectrum;
 
-  // Draw Spectrum Curve (Cyan Glow)
   ctx.beginPath();
   for (let i = 0; i < numPoints; i++) {
     const x = (i / (numPoints - 1)) * w;
@@ -533,37 +381,83 @@ function renderSpectrometer(time) {
     }
   }
 
-  // Stroke with Neon Cyan
-  ctx.strokeStyle = "#38bdf8";
-  ctx.lineWidth = 2 * window.devicePixelRatio;
-  ctx.shadowColor = "rgba(56, 189, 248, 0.6)";
-  ctx.shadowBlur = 12;
+  // Thin, clean 1px hairline stroke (Phosphor Amber / Cyan)
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  ctx.strokeStyle = isDark ? "#38bdf8" : "#0284c7";
+  ctx.lineWidth = 1.2 * dpr;
   ctx.stroke();
 
-  // Fill gradient below curve
-  ctx.lineTo(w, h);
-  ctx.lineTo(0, h);
-  ctx.closePath();
-  const fillGrad = ctx.createLinearGradient(0, 0, 0, h);
-  fillGrad.addColorStop(0, "rgba(56, 189, 248, 0.2)");
-  fillGrad.addColorStop(1, "rgba(56, 189, 248, 0.0)");
-  ctx.fillStyle = fillGrad;
-  ctx.fill();
-  ctx.shadowBlur = 0; // reset shadow
+  // Draw Crosshair on Mouse Hover
+  if (isMouseOverCanvas && mouseCanvasX >= 0) {
+    const normX = Math.max(0, Math.min(1, mouseCanvasX / canvas.clientWidth));
+    const ptIndex = Math.round(normX * (numPoints - 1));
+    const freqAtX = (centerFrequency - bandwidth / 2 + normX * bandwidth).toFixed(2);
+    const powerAtX = spectrum[ptIndex].toFixed(1);
 
-  // Update Peak Detector Text
-  if (canvasPeakText) {
-    const isPT = currentLanguage === "pt";
-    const label = isPT ? "Pico Detectado" : "Peak Detected";
-    canvasPeakText.textContent = `${label}: ${peakFreq.toFixed(2)} MHz (${maxVal.toFixed(1)} dBm)`;
+    const canvasX = normX * w;
+    const canvasY = Math.max(0, Math.min(h, ((maxDbm - spectrum[ptIndex]) / (maxDbm - minDbm)) * h));
+
+    // Vertical Hairline
+    ctx.strokeStyle = "rgba(244, 244, 245, 0.4)";
+    ctx.lineWidth = 1 * dpr;
+    ctx.setLineDash([4 * dpr, 4 * dpr]);
+    ctx.beginPath();
+    ctx.moveTo(canvasX, 0);
+    ctx.lineTo(canvasX, h);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Intersection Indicator Dot
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(canvasX, canvasY, 3 * dpr, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Update Readout Text
+    if (crosshairReadout) {
+      crosshairReadout.textContent = `${freqAtX} MHz  |  ${powerAtX} dBm`;
+    }
   }
 
   if (!isStreamPaused) {
-    animationFrameId = requestAnimationFrame(renderSpectrometer);
+    animationFrameId = requestAnimationFrame(renderInstrument);
   }
 }
 
-// Control Event Listeners
+// Mouse Crosshair Listeners
+if (canvas) {
+  canvas.addEventListener("mouseenter", () => {
+    isMouseOverCanvas = true;
+  });
+
+  canvas.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouseCanvasX = e.clientX - rect.left;
+    if (isStreamPaused) {
+      renderInstrument(performance.now());
+    }
+  });
+
+  canvas.addEventListener("mouseleave", () => {
+    isMouseOverCanvas = false;
+    mouseCanvasX = -1;
+    if (crosshairReadout) {
+      crosshairReadout.textContent = translations[currentLanguage]["crosshair.default"];
+    }
+    if (isStreamPaused) {
+      renderInstrument(performance.now());
+    }
+  });
+}
+
+// Controls
+const btnToggleStream = document.getElementById("btnToggleStream");
+const btnStreamText = document.getElementById("btnStreamText");
+const btnInjectSignal = document.getElementById("btnInjectSignal");
+const btnResetBaseline = document.getElementById("btnResetBaseline");
+const presetChips = document.querySelectorAll(".preset-chip");
+const hudFreq = document.getElementById("hudFreq");
+
 if (btnToggleStream) {
   btnToggleStream.addEventListener("click", () => {
     isStreamPaused = !isStreamPaused;
@@ -572,12 +466,12 @@ if (btnToggleStream) {
     if (btnStreamText) {
       const isPT = currentLanguage === "pt";
       btnStreamText.textContent = isStreamPaused 
-        ? (isPT ? "Retomar Fluxo" : "Resume Stream") 
-        : (isPT ? "Pausar Fluxo" : "Pause Stream");
+        ? (translations[currentLanguage]["controls.resume"]) 
+        : (translations[currentLanguage]["controls.pause"]);
     }
 
     if (!isStreamPaused) {
-      animationFrameId = requestAnimationFrame(renderSpectrometer);
+      animationFrameId = requestAnimationFrame(renderInstrument);
     }
   });
 }
@@ -585,34 +479,37 @@ if (btnToggleStream) {
 if (btnInjectSignal) {
   btnInjectSignal.addEventListener("click", () => {
     injectedPulseTime = Date.now();
-    showToast(currentLanguage === "pt" ? "Pulso de sinal cósmico injetado!" : "Cosmic signal pulse injected!");
+    showToast(currentLanguage === "pt" ? "Pulso transitório injetado." : "Transient pulse injected.");
+    if (isStreamPaused) renderInstrument(performance.now());
   });
 }
 
 if (btnResetBaseline) {
   btnResetBaseline.addEventListener("click", () => {
-    noiseBaseline = -85;
+    noiseBaseline = -84.0;
     injectedPulseTime = 0;
-    showToast(currentLanguage === "pt" ? "Calibração de ruído efetuada." : "Baseline noise recalibrated.");
+    showToast(currentLanguage === "pt" ? "Base de ruído calibrada." : "Baseline recalibrated.");
+    if (isStreamPaused) renderInstrument(performance.now());
   });
 }
 
-presetButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    presetButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    centerFrequency = parseFloat(btn.getAttribute("data-freq")) || 1100.0;
+presetChips.forEach(chip => {
+  chip.addEventListener("click", () => {
+    presetChips.forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    centerFrequency = parseFloat(chip.getAttribute("data-freq")) || 1100.0;
     if (hudFreq) {
       hudFreq.textContent = `${centerFrequency.toFixed(2)} MHz`;
     }
+    if (isStreamPaused) renderInstrument(performance.now());
   });
 });
 
 // =============================================================================
-// 7. Initialization
+// 6. Init
 // =============================================================================
 document.addEventListener("DOMContentLoaded", () => {
   setLanguage(currentLanguage);
   resizeCanvas();
-  animationFrameId = requestAnimationFrame(renderSpectrometer);
+  animationFrameId = requestAnimationFrame(renderInstrument);
 });

@@ -3,631 +3,299 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raphael Ramos | Software Engineer & Data Systems</title>
-  <meta name="description" content="Portfólio de Raphael Ramos — Software Engineer especializado em Backend, Sistemas de Dados, Telemetria Distribuída e Computação Científica (Telescópio BINGO).">
-  
-  <!-- Open Graph / Meta -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Raphael Ramos | Software Engineer">
-  <meta property="og:description" content="Backend, Data Systems & Distributed Telemetry. BINGO Radio Telescope, Python, Linux, Clean Architecture.">
-  <meta property="og:url" content="https://github.com/raphacramos">
+  <title>Raphael Ramos</title>
+  <meta name="description" content="Engenheiro de software focado em sistemas backend, dados e telemetria distribuída. Pesquisa no Telescópio BINGO e formação em Ciência da Computação (UFCG) e Engenharia Mecatrônica (USP).">
 
-  <!-- Google Fonts -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Raphael Ramos">
+  <meta property="og:description" content="Software Engineer · Backend, Data Systems & Distributed Telemetry.">
+  <meta property="og:url" content="https://raphacramos.github.io">
+
+  <!-- Typography: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
-  <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Background Ambient Glow & Grid -->
-  <div class="ambient-grid"></div>
-  <div class="ambient-glow top-glow"></div>
-  <div class="ambient-glow bottom-glow"></div>
+  <div class="page-wrapper">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <div>
+        <a href="/" class="brand-title">Raphael Ramos</a>
+        <span class="brand-role" data-i18n="header.role">Engenheiro de Software</span>
+      </div>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
-
-  <!-- Header / Navigation -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="#hero" class="brand-logo">
-        <span class="logo-symbol">&lt;RR /&gt;</span>
-        <span class="status-indicator">
-          <span class="status-dot"></span>
-          <span class="status-text" data-i18n="nav.status">Disponível para contratação</span>
-        </span>
-      </a>
-
-      <nav class="nav-menu" id="navMenu">
-        <a href="#telemetry" class="nav-link" data-i18n="nav.telemetry">Telemetria</a>
-        <a href="#projects" class="nav-link" data-i18n="nav.projects">Projetos</a>
-        <a href="#skills" class="nav-link" data-i18n="nav.skills">Habilidades</a>
-        <a href="#experience" class="nav-link" data-i18n="nav.experience">Trajetória</a>
-        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contato</a>
-      </nav>
-
-      <div class="nav-actions">
-        <!-- Language Switcher -->
-        <button id="langToggle" class="btn-icon" aria-label="Alterar idioma / Change language">
-          <span class="lang-tag" id="currentLang">EN</span>
+      <div class="header-controls">
+        <button id="langToggle" class="control-btn" aria-label="Mudar idioma">
+          <span id="currentLang">EN</span>
         </button>
-
-        <!-- Theme Toggle -->
-        <button id="themeToggle" class="btn-icon" aria-label="Alternar tema">
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-
-        <!-- Mobile Menu Toggle -->
-        <button id="mobileMenuBtn" class="btn-icon mobile-only" aria-label="Abrir menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <button id="themeToggle" class="control-btn" aria-label="Alternar tema">
+          <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-      <div class="container hero-container">
-        <div class="hero-badge">
-          <span class="badge-tag">Radioastronomia &bull; BINGO Telescope</span>
-          <span class="badge-text" data-i18n="hero.badge">Backend &bull; Telemetria &bull; Clean Architecture</span>
-        </div>
-
-        <h1 class="hero-title">
-          Raphael Ramos
-        </h1>
-
-        <p class="hero-role" data-i18n="hero.role">
-          Software Engineer &bull; Backend, Data Systems &amp; Distributed Telemetry
+    <main>
+      <!-- Introduction / Bio -->
+      <section class="intro-section">
+        <h1 class="intro-name" data-i18n="intro.greeting">Sistemas backend, telemetria e computação científica.</h1>
+        <p class="intro-bio" data-i18n="intro.bio">
+          Trabalho com arquitetura de software para processamento de sinais e dados científicos no radiotelescópio <strong>BINGO</strong>. Graduando em Ciência da Computação pela UFCG e ex-aluno de Engenharia Mecatrônica pela USP, com atuação como monitor de algoritmos avançados e administração de sistemas Linux.
         </p>
 
-        <p class="hero-description" data-i18n="hero.description">
-          Desenvolvo sistemas de software robustos para alta taxa de transferência, pipelines de telemetria em tempo real e arquiteturas modulares. Engenharia Mecatrônica (USP) e Ciência da Computação (UFCG), atuando na vanguarda da computação científica com o <strong>Telescópio BINGO</strong>.
-        </p>
-
-        <div class="hero-ctas">
-          <a href="#telemetry" class="btn btn-primary" data-i18n="hero.cta_telemetry">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            Explorar Telemetria
-          </a>
-          
-          <div class="cv-dropdown-wrapper">
-            <button class="btn btn-secondary" id="cvDropdownBtn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              <span data-i18n="hero.download_cv">Baixar CV (PDF)</span>
-              <span class="chevron">&dtrif;</span>
-            </button>
-            <div class="cv-dropdown-menu" id="cvDropdownMenu">
-              <a href="assets/Curriculo_Raphael_Ramos_PT.pdf" download="Curriculo_Raphael_Ramos_PT.pdf" class="dropdown-item">
-                <span class="flag">🇧🇷</span> Currículo em Português
-              </a>
-              <a href="assets/Curriculo_Raphael_Ramos_EN.pdf" download="Resume_Raphael_Ramos_EN.pdf" class="dropdown-item">
-                <span class="flag">🇺🇸</span> Resume in English
-              </a>
-            </div>
-          </div>
-
-          <button class="btn btn-ghost" id="copyEmailBtn" data-email="raphaelramosc@gmail.com">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span data-i18n="hero.copy_email">Copiar E-mail</span>
-          </button>
+        <div class="intro-links">
+          <button class="action-btn-clean" id="copyEmailBtn" data-email="raphaelramosc@gmail.com" data-i18n="intro.copy_email">Copiar e-mail</button>
+          <a href="https://github.com/raphacramos" target="_blank" rel="noopener noreferrer" class="text-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/raphael-c-1a7430108/" target="_blank" rel="noopener noreferrer" class="text-link">LinkedIn</a>
+          <a href="assets/Curriculo_Raphael_Ramos_PT.pdf" download="Curriculo_Raphael_Ramos_PT.pdf" class="text-link" id="cvDownloadLink">Currículo (PDF)</a>
         </div>
+      </section>
 
-        <!-- Social Links Strip -->
-        <div class="hero-socials">
-          <a href="https://github.com/raphacramos" target="_blank" rel="noopener noreferrer" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>github.com/raphacramos</span>
-          </a>
-          <a href="https://www.linkedin.com/in/raphael-c-1a7430108/" target="_blank" rel="noopener noreferrer" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            <span>linkedin.com/in/raphael-c</span>
-          </a>
-          <a href="mailto:raphaelramosc@gmail.com" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <span>raphaelramosc@gmail.com</span>
-          </a>
-        </div>
-
-        <!-- Quick Stats Grid -->
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-label" data-i18n="stats.project">Projeto Principal</span>
-            <strong class="stat-value">Telescópio BINGO</strong>
-            <span class="stat-sub" data-i18n="stats.project_sub">Espectrômetro de Radioastronomia</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label" data-i18n="stats.stack">Especialidade</span>
-            <strong class="stat-value">Backend &amp; Dados</strong>
-            <span class="stat-sub" data-i18n="stats.stack_sub">Python, C++, Linux &amp; HDF5</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label" data-i18n="stats.acad">Formação &bull; UFCG &amp; USP</span>
-            <strong class="stat-value">Ciência da Computação</strong>
-            <span class="stat-sub" data-i18n="stats.acad_sub">Ex-Mecatrônica USP &bull; Monitor ATAL/ADSI</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label" data-i18n="stats.languages">Idiomas</span>
-            <strong class="stat-value">4 Línguas</strong>
-            <span class="stat-sub" data-i18n="stats.languages_sub">Português, Inglês (Fluente), FR &amp; ES</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Telemetry Console Section -->
-    <section id="telemetry" class="section telemetry-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-pretitle">01 // LIVE TELEMETRY LAB</div>
-          <h2 class="section-title" data-i18n="telemetry.title">Console Tático de Radioastronomia (BINGO)</h2>
-          <p class="section-description" data-i18n="telemetry.desc">
-            Simulador interativo do console desenvolvido para o espectrômetro <strong>MiniHorn do Telescópio BINGO</strong>. Demonstra processamento de sinais de radiofrequência em tempo real, integração com hardware SDR USRP, efemérides astronômicas e persistência HDF5.
-          </p>
-        </div>
-
-        <div class="telemetry-console">
-          <!-- Console Topbar -->
-          <div class="console-topbar">
-            <div class="console-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <div class="console-title">
-              <code>bingo_minihorn_spectrometer.py &bull; [USRP B210 @ 1100.00 MHz]</code>
-            </div>
-            <div class="console-live-tag">
-              <span class="pulsing-led"></span> LIVE STREAM
+      <!-- Scientific Instrument: BINGO Telemetry -->
+      <section class="content-section">
+        <div class="section-label" data-i18n="section.telemetry">Telemetria em Tempo Real · Radiotelescópio BINGO</div>
+        
+        <div class="instrument-container">
+          <div class="instrument-topbar">
+            <span class="instrument-title">espectrômetro_minihorn.py · USRP SDR</span>
+            <div class="instrument-status">
+              <span class="status-indicator-dot"></span>
+              <span data-i18n="instrument.live">FLUXO ATIVO</span>
             </div>
           </div>
 
-          <!-- Telemetry Status Badges -->
-          <div class="console-hud">
-            <div class="hud-item">
-              <span class="hud-label" data-i18n="hud.center_freq">FREQ. CENTRAL</span>
-              <span class="hud-val" id="hudFreq">1100.00 MHz</span>
+          <div class="instrument-hud">
+            <div class="hud-cell">
+              <span class="hud-title" data-i18n="hud.freq">FREQ. CENTRAL</span>
+              <span class="hud-value" id="hudFreq">1100.00 MHz</span>
             </div>
-            <div class="hud-item">
-              <span class="hud-label" data-i18n="hud.sample_rate">TAXA DE AMOSTRAGEM</span>
-              <span class="hud-val">20.00 MS/s</span>
+            <div class="hud-cell">
+              <span class="hud-title" data-i18n="hud.rate">AMOSTRAGEM</span>
+              <span class="hud-value">20.00 MS/s</span>
             </div>
-            <div class="hud-item">
-              <span class="hud-label" data-i18n="hud.sdr_gain">GANHO SDR</span>
-              <span class="hud-val" id="hudGain">42.5 dB</span>
+            <div class="hud-cell">
+              <span class="hud-title" data-i18n="hud.coords">COORD. CELESTES</span>
+              <span class="hud-value" id="hudCoords">RA 04h 32m · Dec -15° 20'</span>
             </div>
-            <div class="hud-item">
-              <span class="hud-label" data-i18n="hud.celestial">COORD. CELESTES (SKYFIELD)</span>
-              <span class="hud-val" id="hudCoords">RA 04h 32m &bull; Dec -15° 20'</span>
-            </div>
-            <div class="hud-item">
-              <span class="hud-label" data-i18n="hud.storage">PIPELINE HDF5</span>
-              <span class="hud-val status-ok" id="hudHdf5">● ZERO PACKET LOSS</span>
+            <div class="hud-cell">
+              <span class="hud-title" data-i18n="hud.storage">STORAGE</span>
+              <span class="hud-value">HDF5 · 0% loss</span>
             </div>
           </div>
 
-          <!-- Canvas Container -->
-          <div class="canvas-wrapper">
-            <canvas id="spectrumCanvas" width="960" height="320"></canvas>
-            <div class="canvas-overlay-text">
-              <span id="canvasPeakText">Pico Detectado: 1104.2 MHz (-48.2 dBm)</span>
-            </div>
+          <div class="canvas-container">
+            <canvas id="spectrumCanvas" width="760" height="220"></canvas>
+            <div class="crosshair-readout" id="crosshairReadout">Passe o mouse no espectro</div>
           </div>
 
-          <!-- Console Controls -->
-          <div class="console-controls">
-            <div class="control-group">
-              <button id="btnToggleStream" class="ctrl-btn active">
-                <span id="btnStreamText" data-i18n="controls.pause">Pausar Fluxo</span>
+          <div class="instrument-controls">
+            <div class="btn-group">
+              <button id="btnToggleStream" class="inst-btn active">
+                <span id="btnStreamText" data-i18n="controls.pause">Pausar</span>
               </button>
-              <button id="btnInjectSignal" class="ctrl-btn">
-                <span data-i18n="controls.inject">Injetar Pulso de Sinal</span>
-              </button>
-              <button id="btnResetBaseline" class="ctrl-btn">
-                <span data-i18n="controls.reset">Calibrar Ruído Base</span>
-              </button>
+              <button id="btnInjectSignal" class="inst-btn" data-i18n="controls.pulse">Injetar pulso</button>
+              <button id="btnResetBaseline" class="inst-btn" data-i18n="controls.reset">Calibrar base</button>
             </div>
 
-            <div class="control-group presets">
-              <span class="ctrl-label" data-i18n="controls.preset">Preset da Banda:</span>
-              <button class="preset-btn active" data-freq="1100">BINGO (1.1 GHz)</button>
-              <button class="preset-btn" data-freq="1420">HI 21cm (1.42 GHz)</button>
-              <button class="preset-btn" data-freq="980">Sub-banda (980 MHz)</button>
+            <div class="band-presets">
+              <span class="band-label" data-i18n="controls.preset">Banda:</span>
+              <button class="preset-chip active" data-freq="1100">1.1 GHz (BINGO)</button>
+              <button class="preset-chip" data-freq="1420">1.42 GHz (HI 21cm)</button>
+              <button class="preset-chip" data-freq="980">980 MHz</button>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Featured Projects Section -->
-    <section id="projects" class="section projects-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-pretitle">02 // ARQUITETURA &amp; SISTEMAS</div>
-          <h2 class="section-title" data-i18n="projects.title">Projetos em Destaque</h2>
-          <p class="section-description" data-i18n="projects.desc">
-            Sistemas distribuídos, pipelines de dados de alta taxa e arquiteturas de backend com foco em consistência, escalabilidade e rigor científico.
-          </p>
-        </div>
+      <!-- Featured Projects -->
+      <section class="content-section">
+        <div class="section-label" data-i18n="section.projects">Projetos Selecionados</div>
 
-        <div class="projects-grid">
-          
-          <!-- Project 1: BINGO Telescope -->
-          <article class="project-card featured">
-            <div class="project-badge" data-i18n="projects.b1.badge">Projeto Principal &bull; Radioastronomia</div>
-            <h3 class="project-title" data-i18n="projects.b1.title">
-              Telescópio BINGO &mdash; Espectrômetro de Radioastronomia MiniHorn
-            </h3>
-            <p class="project-subtitle" data-i18n="projects.b1.subtitle">
-              Colaboração Internacional de Radioastronomia &bull; Campina Grande, Brasil (2026 – Presente)
-            </p>
-            <p class="project-desc" data-i18n="projects.b1.desc">
-              Projetei e desenvolvi a infraestrutura de software e console tático em Python para o espectrômetro de radioastronomia MiniHorn do Telescópio BINGO. Arquitetura modular sob <strong>Clean Architecture</strong> (camadas de Domínio, Aplicação e Infraestrutura), integrando hardware SDR USRP para controle em tempo real de frequência central, ganho e amostragem.
-            </p>
-            <ul class="project-highlights">
-              <li data-i18n="projects.b1.h1"><strong>Clean Architecture:</strong> Desacoplamento total entre drivers de hardware (USRP), lógica de processamento de sinal e camadas de visualização.</li>
-              <li data-i18n="projects.b1.h2"><strong>Streaming de Alta Performance:</strong> Pipeline de aquisição gravando telemetria em formato binário <strong>HDF5</strong> com sub-second write cycles e taxa zero de perda de amostras.</li>
-              <li data-i18n="projects.b1.h3"><strong>Cômputo Astronômico:</strong> Integração com a biblioteca <strong>Skyfield</strong> para cálculo dinâmico de efemérides celestes e apontamento astronômico.</li>
-            </ul>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">GNU Radio</span>
-              <span class="tech-tag">USRP SDR</span>
-              <span class="tech-tag">HDF5</span>
-              <span class="tech-tag">Panel</span>
-              <span class="tech-tag">HoloViews</span>
-              <span class="tech-tag">Skyfield</span>
-              <span class="tech-tag">Clean Architecture</span>
+        <div class="projects-list">
+          <!-- Project 1: BINGO -->
+          <article class="project-entry">
+            <div class="project-meta-line">
+              <h2 class="project-name" data-i18n="proj.bingo.title">Espectrômetro de Radioastronomia MiniHorn (Telescópio BINGO)</h2>
+              <span class="project-year">2026 – Presente</span>
             </div>
+            <div class="project-tech">Python · GNU Radio · USRP SDR · HDF5 · Skyfield · Clean Architecture</div>
+            <p class="project-summary" data-i18n="proj.bingo.desc">
+              Desenvolvi a infraestrutura de software e o console de visualização para a análise em tempo real do espectro eletromagnético captado pelo instrumento MiniHorn do radiotelescópio BINGO.
+            </p>
+            <ul class="project-notes">
+              <li data-i18n="proj.bingo.n1">Separação de responsabilidades sob Clean Architecture, desacoplando o driver de hardware USRP SDR da lógica de processamento e da interface.</li>
+              <li data-i18n="proj.bingo.n2">Pipeline de persistência gravando telemetria RF em formato binário HDF5 com ciclos de escrita sub-segundo e tolerância zero a perda de amostras.</li>
+              <li data-i18n="proj.bingo.n3">Cálculo de efemérides celestes e apontamento astronômico integrado via biblioteca Skyfield.</li>
+            </ul>
           </article>
 
-          <!-- Project 2: Statistical Inference & ML -->
-          <article class="project-card">
-            <div class="project-badge" data-i18n="projects.b2.badge">Data Science &amp; Pesquisa Quantitativa</div>
-            <h3 class="project-title" data-i18n="projects.b2.title">
-              Pipeline de Inferência Estatística &amp; Machine Learning
-            </h3>
-            <p class="project-subtitle" data-i18n="projects.b2.subtitle">
-              Pesquisa Quantitativa Aplicada &bull; Campina Grande, Brasil
-            </p>
-            <p class="project-desc" data-i18n="projects.b2.desc">
-              Desenvolvi modelos de análise quantitativa e testes de hipóteses estatísticas em Python para extração de padrões em sinais complexos e modelagem preditiva em bases de dados multidimensionais.
-            </p>
-            <ul class="project-highlights">
-              <li data-i18n="projects.b2.h1">Testes de hipóteses e modelos de regressão/classificação para validação de convergência.</li>
-              <li data-i18n="projects.b2.h2">Feature selection avançada através de análise de variância (ANOVA) e métricas de informação.</li>
-              <li data-i18n="projects.b2.h3">Otimização de pipelines com computação vetorializada via NumPy, SciPy e Scikit-Learn.</li>
-            </ul>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Scikit-Learn</span>
-              <span class="tech-tag">NumPy</span>
-              <span class="tech-tag">Pandas</span>
-              <span class="tech-tag">SciPy</span>
-              <span class="tech-tag">Estatística Inferencial</span>
+          <!-- Project 2: Stats & ML -->
+          <article class="project-entry">
+            <div class="project-meta-line">
+              <h2 class="project-name" data-i18n="proj.stats.title">Pipeline de Inferência Estatística e Aprendizado de Máquina</h2>
+              <span class="project-year">2023</span>
             </div>
+            <div class="project-tech">Python · Scikit-Learn · NumPy · SciPy · Pandas</div>
+            <p class="project-summary" data-i18n="proj.stats.desc">
+              Modelagem quantitativa e testes de hipóteses estatísticas para extração de padrões em sinais e análise preditiva de bases de dados multidimensionais.
+            </p>
+            <ul class="project-notes">
+              <li data-i18n="proj.stats.n1">Seleção de variáveis (feature selection) baseada em análise de variância (ANOVA) e métricas de informação.</li>
+              <li data-i18n="proj.stats.n2">Computação vetorizada para otimizar tempo de convergência e validação cruzada dos modelos.</li>
+            </ul>
           </article>
 
-          <!-- Project 3: Relational DB & Inventory -->
-          <article class="project-card">
-            <div class="project-badge" data-i18n="projects.b3.badge">Engenharia de Banco de Dados &bull; Backend</div>
-            <h3 class="project-title" data-i18n="projects.b3.title">
-              Sistema de Gerenciamento Transacional &amp; Banco Relacional
-            </h3>
-            <p class="project-subtitle" data-i18n="projects.b3.subtitle">
-              Sistemas de Bancos de Dados &bull; Campina Grande, Brasil
-            </p>
-            <p class="project-desc" data-i18n="projects.b3.desc">
-              Construí uma aplicação completa de gerenciamento transacional em Python integrada ao PostgreSQL, com modelagem relacional normalizada em 3FN e otimização de índices para garantir consistência ACID e alta vazão em consultas concorrentes.
-            </p>
-            <ul class="project-highlights">
-              <li data-i18n="projects.b3.h1">Modelagem relacional estrita com garantia de integridade referencial e isolamento de transações.</li>
-              <li data-i18n="projects.b3.h2">Otimização de planos de execução de queries SQL com análise de EXPLAIN ANALYZE.</li>
-              <li data-i18n="projects.b3.h3">Backend modular com controle transacional e testes de carga.</li>
-            </ul>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">SQL</span>
-              <span class="tech-tag">ACID Transactions</span>
-              <span class="tech-tag">Docker</span>
+          <!-- Project 3: Relational DB -->
+          <article class="project-entry">
+            <div class="project-meta-line">
+              <h2 class="project-name" data-i18n="proj.db.title">Sistema de Gerenciamento Transacional e Banco Relacional</h2>
+              <span class="project-year">2023</span>
             </div>
+            <div class="project-tech">Python · PostgreSQL · SQL · Docker</div>
+            <p class="project-summary" data-i18n="proj.db.desc">
+              Aplicação de controle de estoque com modelagem relacional estrita em 3ª Forma Normal (3FN), garantindo propriedades ACID em cenários de concorrência.
+            </p>
+            <ul class="project-notes">
+              <li data-i18n="proj.db.n1">Análise de planos de execução de consultas complexas via EXPLAIN ANALYZE para redução de custo de I/O.</li>
+              <li data-i18n="proj.db.n2">Controle transacional com isolamento de leituras e integridade referencial.</li>
+            </ul>
           </article>
 
-          <!-- Project 4: Full-Stack Web App -->
-          <article class="project-card">
-            <div class="project-badge" data-i18n="projects.b4.badge">Full-Stack &amp; Web Systems</div>
-            <h3 class="project-title" data-i18n="projects.b4.title">
-              Aplicação Web Desacoplada &amp; APIs RESTful
-            </h3>
-            <p class="project-subtitle" data-i18n="projects.b4.subtitle">
-              Projeto de Engenharia Web &bull; Campina Grande, Brasil
+          <!-- Project 4: Full Stack -->
+          <article class="project-entry">
+            <div class="project-meta-line">
+              <h2 class="project-name" data-i18n="proj.web.title">Serviço Web Desacoplado e APIs RESTful</h2>
+              <span class="project-year">2022</span>
+            </div>
+            <div class="project-tech">Node.js · Express · React.js · MongoDB</div>
+            <p class="project-summary" data-i18n="proj.web.desc">
+              Arquitetura cliente-servidor desacoplada com endpoints RESTful assíncronos e sincronização de estado no cliente.
             </p>
-            <p class="project-desc" data-i18n="projects.b4.desc">
-              Desenvolvi uma arquitetura web full-stack desacoplada utilizando React.js e Node.js/Express com MongoDB, implementando endpoints RESTful eficientes, gerenciamento de estado em tempo real e autenticação.
-            </p>
-            <ul class="project-highlights">
-              <li data-i18n="projects.b4.h1">Arquitetura cliente-servidor desacoplada com consumo assíncrono de APIs RESTful.</li>
-              <li data-i18n="projects.b4.h2">Modelagem de dados flexível com MongoDB e persistência orientada a documentos.</li>
-              <li data-i18n="projects.b4.h3">Interface responsiva e dinâmica construída em React.js.</li>
+            <ul class="project-notes">
+              <li data-i18n="proj.web.n1">Estrutura de dados flexível com MongoDB para persistência de documentos de catálogo.</li>
+              <li data-i18n="proj.web.n2">Interface responsiva construída com componentes funcionais e consumo assíncrono.</li>
             </ul>
-            <div class="tech-stack">
-              <span class="tech-tag">React.js</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Express</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">RESTful APIs</span>
-            </div>
           </article>
-
         </div>
+      </section>
+
+      <!-- Technical Foundations -->
+      <section class="content-section">
+        <div class="section-label" data-i18n="section.skills">Domínio Técnico</div>
+
+        <div class="skills-columns">
+          <div>
+            <h3 class="skill-group-title" data-i18n="skill.languages">Linguagens</h3>
+            <p class="skill-group-items">Python, Java, C, C++, JavaScript (Node.js), SQL, Bash / Shell Script.</p>
+          </div>
+          <div>
+            <h3 class="skill-group-title" data-i18n="skill.scientific">Telemetria e Dados</h3>
+            <p class="skill-group-items">GNU Radio (USRP SDR), HDF5, NumPy, SciPy, Pandas, Panel, HoloViews, Skyfield, FFT.</p>
+          </div>
+          <div>
+            <h3 class="skill-group-title" data-i18n="skill.systems">Sistemas e Infraestrutura</h3>
+            <p class="skill-group-items">Clean Architecture, Linux SysAdmin, Docker, Git, PostgreSQL, MongoDB.</p>
+          </div>
+          <div>
+            <h3 class="skill-group-title" data-i18n="skill.algorithms">Fundamentos Teóricos</h3>
+            <p class="skill-group-items">Algoritmos em Grafos, Programação Dinâmica, Complexidade Assintótica O(n), Análise Estatística.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Academic & Teaching -->
+      <section class="content-section">
+        <div class="section-label" data-i18n="section.experience">Trajetória Acadêmica e Monitoria</div>
+
+        <div class="timeline-entries">
+          <div class="timeline-entry">
+            <div class="timeline-header">
+              <h3 class="timeline-role" data-i18n="exp.atal.role">Monitor · Análise e Técnicas de Algoritmos (LEDA / ATAL)</h3>
+              <span class="timeline-period">2026</span>
+            </div>
+            <div class="timeline-institution">Universidade Federal de Campina Grande (UFCG)</div>
+            <p class="timeline-details" data-i18n="exp.atal.desc">
+              Orientação a estudantes em projeto e análise de algoritmos avançados (grafos, divisão e conquista, programação dinâmica e complexidade assintótica de tempo e espaço).
+            </p>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="timeline-header">
+              <h3 class="timeline-role" data-i18n="exp.adsi.role">Monitor · Administração de Sistemas (ADSI)</h3>
+              <span class="timeline-period">2025 – 2026</span>
+            </div>
+            <div class="timeline-institution">Universidade Federal de Campina Grande (UFCG)</div>
+            <p class="timeline-details" data-i18n="exp.adsi.desc">
+              Instrução prática em administração de servidores Linux, automação via Shell Scripts, processos do kernel, redes e gerenciamento de permissões.
+            </p>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="timeline-header">
+              <h3 class="timeline-role" data-i18n="exp.ufcg.role">Bacharelado em Ciência da Computação</h3>
+              <span class="timeline-period">Previsão: Ago 2026</span>
+            </div>
+            <div class="timeline-institution">Universidade Federal de Campina Grande (UFCG)</div>
+            <p class="timeline-details" data-i18n="exp.ufcg.desc">
+              Disciplinas: Estruturas de Dados, Inteligência Artificial, Banco de Dados, Redes de Computadores, Sistemas Operacionais.
+            </p>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="timeline-header">
+              <h3 class="timeline-role" data-i18n="exp.usp.role">Engenharia Mecatrônica (Transferência)</h3>
+              <span class="timeline-period">2018 – 2019</span>
+            </div>
+            <div class="timeline-institution">Universidade de São Paulo (USP)</div>
+            <p class="timeline-details" data-i18n="exp.usp.desc">
+              Fundamentos de Cálculo Diferencial e Integral, Física Geral, Controle e Dinâmica de Sistemas, Álgebra Linear e Circuitos Elétricos.
+            </p>
+          </div>
+        </div>
+
+        <div class="languages-line">
+          <div class="lang-item">
+            <span class="lang-item-name" data-i18n="lang.pt">Português</span>
+            <span class="lang-item-desc" data-i18n="lang.pt_desc">Nativo</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-item-name" data-i18n="lang.en">Inglês</span>
+            <span class="lang-item-desc" data-i18n="lang.en_desc">Fluente (C2)</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-item-name" data-i18n="lang.fr">Francês</span>
+            <span class="lang-item-desc" data-i18n="lang.fr_desc">Bom domínio</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-item-name" data-i18n="lang.es">Espanhol</span>
+            <span class="lang-item-desc" data-i18n="lang.es_desc">Bom domínio</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-meta">
+        <span>Raphael Ramos</span>
+        <span>Campina Grande, PB, Brasil</span>
       </div>
-    </section>
-
-    <!-- Technical Skills Section -->
-    <section id="skills" class="section skills-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-pretitle">03 // COMPETÊNCIAS &amp; STACK</div>
-          <h2 class="section-title" data-i18n="skills.title">Habilidades Técnicas &amp; Ferramentas</h2>
-          <p class="section-description" data-i18n="skills.desc">
-            Domínio aprofundado em linguagens de baixo e alto nível, computação científica, telemetria em tempo real e infraestrutura Linux.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-          <!-- Category 1 -->
-          <div class="skill-category-card">
-            <div class="category-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-            </div>
-            <h3 class="category-title" data-i18n="skills.cat1">Linguagens de Programação</h3>
-            <div class="skill-pill-list">
-              <span class="skill-pill highlight">Python (Avançado)</span>
-              <span class="skill-pill">Java</span>
-              <span class="skill-pill">JavaScript (Node.js)</span>
-              <span class="skill-pill">SQL</span>
-              <span class="skill-pill">C / C++</span>
-              <span class="skill-pill">Bash / Shell Script</span>
-            </div>
-          </div>
-
-          <!-- Category 2 -->
-          <div class="skill-category-card">
-            <div class="category-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3 class="category-title" data-i18n="skills.cat2">Telemetria &amp; Computação Científica</h3>
-            <div class="skill-pill-list">
-              <span class="skill-pill highlight">GNU Radio (SDR / USRP)</span>
-              <span class="skill-pill highlight">HDF5 Binary Storage</span>
-              <span class="skill-pill">NumPy &bull; SciPy &bull; Pandas</span>
-              <span class="skill-pill">Panel &bull; HoloViews</span>
-              <span class="skill-pill">Skyfield (Efemérides)</span>
-              <span class="skill-pill">Processamento de Sinais</span>
-              <span class="skill-pill">Séries Temporais &bull; FFT</span>
-            </div>
-          </div>
-
-          <!-- Category 3 -->
-          <div class="skill-category-card">
-            <div class="category-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-            </div>
-            <h3 class="category-title" data-i18n="skills.cat3">Sistemas, Dados &amp; Infraestrutura</h3>
-            <div class="skill-pill-list">
-              <span class="skill-pill highlight">Clean Architecture</span>
-              <span class="skill-pill highlight">Linux SysAdmin &amp; Shell</span>
-              <span class="skill-pill">PostgreSQL &bull; ACID</span>
-              <span class="skill-pill">MongoDB &bull; NoSQL</span>
-              <span class="skill-pill">Docker &bull; Contêineres</span>
-              <span class="skill-pill">Git &bull; Versionamento</span>
-              <span class="skill-pill">Scikit-Learn (ML)</span>
-            </div>
-          </div>
-
-          <!-- Category 4 -->
-          <div class="skill-category-card">
-            <div class="category-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            </div>
-            <h3 class="category-title" data-i18n="skills.cat4">Fundamentos &amp; Algoritmos</h3>
-            <div class="skill-pill-list">
-              <span class="skill-pill highlight">Estruturas de Dados Avançadas</span>
-              <span class="skill-pill highlight">Algoritmos em Grafos</span>
-              <span class="skill-pill">Programação Dinâmica</span>
-              <span class="skill-pill">Complexidade Assintótica O(n)</span>
-              <span class="skill-pill">Sistemas Distribuídos</span>
-              <span class="skill-pill">Inferência Estatística</span>
-            </div>
-          </div>
-        </div>
+      <div>
+        <a href="mailto:raphaelramosc@gmail.com" class="text-link">raphaelramosc@gmail.com</a>
       </div>
-    </section>
+    </footer>
 
-    <!-- Experience & Education Section -->
-    <section id="experience" class="section experience-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-pretitle">04 // TRAJETÓRIA &amp; FORMAÇÃO</div>
-          <h2 class="section-title" data-i18n="experience.title">Experiência Acadêmica &amp; Educação</h2>
-          <p class="section-description" data-i18n="experience.desc">
-            Base teórica sólida combinando engenharia e computação, aliada à experiência de ensino e liderança técnica na universidade.
-          </p>
-        </div>
+  </div>
 
-        <div class="timeline">
-          <!-- Item 1: BINGO -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">Jan 2026 &mdash; Presente</div>
-              <h3 class="timeline-role" data-i18n="timeline.bingo.role">Software Engineer &bull; Projeto Telescópio BINGO</h3>
-              <p class="timeline-org" data-i18n="timeline.bingo.org">Colaboração Internacional de Radioastronomia &bull; Campina Grande, Brasil</p>
-              <p class="timeline-text" data-i18n="timeline.bingo.text">
-                Responsável pelo desenvolvimento do console de visualização científica, arquitetura limpa de software para controle de hardware SDR USRP e pipelines de gravação de telemetria astronômica em HDF5.
-              </p>
-            </div>
-          </div>
+  <!-- Toast Box -->
+  <div id="toast" class="toast-box" role="status" aria-live="polite"></div>
 
-          <!-- Item 2: Monitoria ATAL -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">Mar 2026 &mdash; Ago 2026</div>
-              <h3 class="timeline-role" data-i18n="timeline.atal.role">Monitor Acadêmico &bull; Análise e Técnicas de Algoritmos (LEDA / ATAL)</h3>
-              <p class="timeline-org">Universidade Federal de Campina Grande (UFCG)</p>
-              <p class="timeline-text" data-i18n="timeline.atal.text">
-                Instruí graduandos em técnicas avançadas de algoritmos (algoritmos em grafos, programação dinâmica, recursão, análise rigorosa de complexidade assintótica de tempo e memória) e estruturas de dados de alta eficiência.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 3: Monitoria ADSI -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">Set 2025 &mdash; Mar 2026</div>
-              <h3 class="timeline-role" data-i18n="timeline.adsi.role">Monitor Acadêmico &bull; Administração de Sistemas (ADSI)</h3>
-              <p class="timeline-org">Universidade Federal de Campina Grande (UFCG)</p>
-              <p class="timeline-text" data-i18n="timeline.adsi.text">
-                Orientei estudantes em administração avançada de sistemas Linux, automação via Shell Scripts, escalonamento de processos do kernel, serviços de rede e configuração de segurança de infraestrutura.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 4: UFCG -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">Previsão: Ago 2026</div>
-              <h3 class="timeline-role" data-i18n="timeline.ufcg.role">Bacharelado em Ciência da Computação</h3>
-              <p class="timeline-org">Universidade Federal de Campina Grande (UFCG)</p>
-              <p class="timeline-text" data-i18n="timeline.ufcg.text">
-                Foco em Estruturas de Dados, Algoritmos Avançados, Inteligência Artificial, Sistemas Operacionais, Banco de Dados e Redes de Computadores.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 5: USP -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">Jan 2018 &mdash; Jun 2019</div>
-              <h3 class="timeline-role" data-i18n="timeline.usp.role">Engenharia Mecatrônica (Transferência)</h3>
-              <p class="timeline-org">Universidade de São Paulo (USP) &bull; São Paulo, Brasil</p>
-              <p class="timeline-text" data-i18n="timeline.usp.text">
-                Sólida base em Cálculo Avançado, Física Geral, Controle e Dinâmica de Sistemas, Álgebra Linear, Eletrônica Digital e Analógica.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Languages Cards -->
-        <div class="languages-block">
-          <h3 class="lang-block-title" data-i18n="lang.title">Proficiência em Idiomas</h3>
-          <div class="languages-grid">
-            <div class="lang-card">
-              <div class="lang-flag">🇧🇷</div>
-              <div class="lang-name" data-i18n="lang.pt">Português</div>
-              <div class="lang-level" data-i18n="lang.pt_level">Nativo</div>
-            </div>
-            <div class="lang-card highlight">
-              <div class="lang-flag">🇺🇸</div>
-              <div class="lang-name" data-i18n="lang.en">Inglês</div>
-              <div class="lang-level" data-i18n="lang.en_level">Fluente &bull; C2 Proficiente</div>
-            </div>
-            <div class="lang-card">
-              <div class="lang-flag">🇫🇷</div>
-              <div class="lang-name" data-i18n="lang.fr">Francês</div>
-              <div class="lang-level" data-i18n="lang.fr_level">Bom Domínio</div>
-            </div>
-            <div class="lang-card">
-              <div class="lang-flag">🇪🇸</div>
-              <div class="lang-name" data-i18n="lang.es">Espanhol</div>
-              <div class="lang-level" data-i18n="lang.es_level">Bom Domínio</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Call to Action Section -->
-    <section id="contact" class="section contact-section">
-      <div class="container contact-container">
-        <div class="contact-card">
-          <div class="section-pretitle">05 // VAMOS CONVERSAR</div>
-          <h2 class="contact-title" data-i18n="contact.title">Pronto para construir sistemas de alto impacto?</h2>
-          <p class="contact-desc" data-i18n="contact.desc">
-            Estou disponível para oportunidades técnicas em engenharia de software, sistemas de dados, computação científica e infraestrutura de telemetria. Entre em contato diretamente:
-          </p>
-
-          <div class="contact-methods">
-            <div class="contact-item">
-              <span class="contact-label" data-i18n="contact.email_label">E-mail Principal:</span>
-              <div class="contact-value-box">
-                <code>raphaelramosc@gmail.com</code>
-                <button class="copy-small-btn" data-email="raphaelramosc@gmail.com" title="Copiar e-mail">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <span class="contact-label">LinkedIn:</span>
-              <a href="https://www.linkedin.com/in/raphael-c-1a7430108/" target="_blank" rel="noopener noreferrer" class="contact-link">
-                linkedin.com/in/raphael-c-1a7430108 &rarr;
-              </a>
-            </div>
-
-            <div class="contact-item">
-              <span class="contact-label">GitHub:</span>
-              <a href="https://github.com/raphacramos" target="_blank" rel="noopener noreferrer" class="contact-link">
-                github.com/raphacramos &rarr;
-              </a>
-            </div>
-
-            <div class="contact-item">
-              <span class="contact-label" data-i18n="contact.phone_label">Telefone / WhatsApp:</span>
-              <span class="contact-val">+55 83 99833-3655</span>
-            </div>
-          </div>
-
-          <div class="contact-cv-actions">
-            <a href="assets/Curriculo_Raphael_Ramos_PT.pdf" download class="btn btn-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              <span>Download CV (Português)</span>
-            </a>
-            <a href="assets/Curriculo_Raphael_Ramos_EN.pdf" download class="btn btn-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              <span>Download Resume (English)</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-left">
-        <span class="footer-logo">&lt;Raphael Ramos /&gt;</span>
-        <span class="footer-copy">&copy; 2026 &bull; Campina Grande, PB, Brasil</span>
-      </div>
-      <div class="footer-right">
-        <span class="footer-tech" data-i18n="footer.built_with">Construído com HTML5 semântico, CSS moderno &amp; Canvas</span>
-        <a href="#hero" class="back-to-top" aria-label="Voltar ao topo">&uarr; Topo</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
