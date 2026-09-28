@@ -44,10 +44,12 @@ const translations = {
     "proj.agent.n3": "Modelagem de estado e memória compartilhada com schemas estritos em Pydantic e validação contínua através de testes automatizados com pytest.",
     "proj.agent.link": "Repositório no GitHub",
 
-    "proj.stats.title": "Pipeline de Inferência Estatística e Aprendizado de Máquina",
-    "proj.stats.desc": "Modelagem quantitativa e testes de hipóteses estatísticas para extração de padrões em sinais e análise preditiva de bases de dados multidimensionais.",
-    "proj.stats.n1": "Seleção de variáveis (feature selection) baseada em análise de variância (ANOVA) e métricas de informação.",
-    "proj.stats.n2": "Computação vetorizada para otimizar tempo de convergência e validação cruzada dos modelos.",
+    "proj.stats.title": "Pipeline de Extração de Dados & Machine Learning (TCC)",
+    "proj.stats.desc": "Pesquisa de conclusão de curso (UFCG) com pipeline ETL e clusterização não-supervisionada para modelagem de estratégias de prova (pacing) na natação de elite mundial.",
+    "proj.stats.n1": "Pipeline ETL com state machine e expressões regulares para extração e estruturação de telemetria não-estruturada de relatórios em PDF da Omega Timing / World Aquatics.",
+    "proj.stats.n2": "Engenharia de features com métricas normalizadas de alocação de energia e velocidade relativa ao longo de séries temporais de parciais (splits).",
+    "proj.stats.n3": "Modelagem com algoritmos de clusterização K-Means (Scikit-Learn) para identificação empírica de perfis táticos de gerenciamento de prova.",
+    "proj.stats.link": "Repositório no GitHub",
 
     "proj.db.title": "Sistema de Gerenciamento Transacional e Banco Relacional",
     "proj.db.desc": "Aplicação de controle de estoque com modelagem relacional estrita em 3ª Forma Normal (3FN), garantindo propriedades ACID em cenários de concorrência.",
@@ -121,10 +123,12 @@ const translations = {
     "proj.agent.n3": "Shared agent state and memory modeling using strict Pydantic schemas, continuously validated via automated pytest test suites.",
     "proj.agent.link": "View repository on GitHub",
 
-    "proj.stats.title": "Statistical Inference & Machine Learning Pipeline",
-    "proj.stats.desc": "Quantitative modeling and statistical hypothesis testing for signal pattern extraction and predictive analysis on high-dimensional datasets.",
-    "proj.stats.n1": "Feature selection based on Analysis of Variance (ANOVA) and information metrics.",
-    "proj.stats.n2": "Vectorized computation to optimize model convergence and cross-validation throughput.",
+    "proj.stats.title": "Data Extraction & Machine Learning Pipeline (Thesis)",
+    "proj.stats.desc": "B.Sc. thesis research (UFCG) featuring an end-to-end ETL and unsupervised clustering pipeline to model pacing strategies in elite competitive swimming.",
+    "proj.stats.n1": "Automated ETL pipeline using state machines and regex to extract and structure unstructured telemetry from multi-page Omega Timing / World Aquatics PDF reports.",
+    "proj.stats.n2": "Feature engineering computing normalized energy expenditure distributions and relative velocities across race split time series.",
+    "proj.stats.n3": "Unsupervised clustering with K-Means (Scikit-Learn) to identify and classify empirical pacing profiles adopted by world-class athletes.",
+    "proj.stats.link": "View repository on GitHub",
 
     "proj.db.title": "Transactional Inventory System & Relational Database",
     "proj.db.desc": "Inventory control service designed with strict 3rd Normal Form (3NF) relational modeling, enforcing ACID properties under concurrent workloads.",
