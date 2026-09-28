@@ -37,6 +37,13 @@ const translations = {
     "proj.bingo.n2": "Pipeline de persistência gravando telemetria RF em formato binário HDF5 com ciclos de escrita sub-segundo e tolerância zero a perda de amostras.",
     "proj.bingo.n3": "Cálculo de efemérides celestes e apontamento astronômico integrado via biblioteca Skyfield.",
 
+    "proj.agent.title": "Arquitetura de Agentes Autônomos com LLMs e LangGraph",
+    "proj.agent.desc": "Desenvolvimento da infraestrutura e do fluxo de decisão de agentes autônomos baseados em grafos de estados para atuação em tempo real sobre o ambiente estocástico do Minecraft.",
+    "proj.agent.n1": "Grafo de decisão de estados (StateGraph) desacoplado em nós modulares de planejamento (planner), segurança reativa (safety), execução de ações (tool calling) e reflexos com latência sub-500ms.",
+    "proj.agent.n2": "Roteamento condicional dinâmico (route_agent_state) e políticas determinísticas de fallback para garantia de sobrevivência e ação autônoma sob incerteza.",
+    "proj.agent.n3": "Modelagem de estado e memória compartilhada com schemas estritos em Pydantic e validação contínua através de testes automatizados com pytest.",
+    "proj.agent.link": "Repositório no GitHub",
+
     "proj.stats.title": "Pipeline de Inferência Estatística e Aprendizado de Máquina",
     "proj.stats.desc": "Modelagem quantitativa e testes de hipóteses estatísticas para extração de padrões em sinais e análise preditiva de bases de dados multidimensionais.",
     "proj.stats.n1": "Seleção de variáveis (feature selection) baseada em análise de variância (ANOVA) e métricas de informação.",
@@ -54,7 +61,7 @@ const translations = {
 
     "section.skills": "Domínio Técnico",
     "skill.languages": "Linguagens",
-    "skill.scientific": "Telemetria e Dados",
+    "skill.scientific": "Telemetria, IA e Dados",
     "skill.systems": "Sistemas e Infraestrutura",
     "skill.algorithms": "Fundamentos Teóricos",
 
@@ -107,6 +114,13 @@ const translations = {
     "proj.bingo.n2": "Persistence pipeline recording RF telemetry into binary HDF5 format with sub-second write cycles and zero sample loss.",
     "proj.bingo.n3": "Astronomical celestial pointing and ephemeris computation integrated via the Skyfield library.",
 
+    "proj.agent.title": "Autonomous Agent Architecture with LLMs & LangGraph",
+    "proj.agent.desc": "Engineered the decision-making infrastructure and stateful graph workflows for autonomous AI agents operating in real-time within the stochastic environment of Minecraft.",
+    "proj.agent.n1": "Stateful decision graph (StateGraph) decoupled into modular planning (planner), reactive safety, tool-calling execution, and reflex nodes with sub-500ms latency.",
+    "proj.agent.n2": "Dynamic conditional routing (route_agent_state) and deterministic fallback policies ensuring agent survival and autonomous operation under high uncertainty.",
+    "proj.agent.n3": "Shared agent state and memory modeling using strict Pydantic schemas, continuously validated via automated pytest test suites.",
+    "proj.agent.link": "View repository on GitHub",
+
     "proj.stats.title": "Statistical Inference & Machine Learning Pipeline",
     "proj.stats.desc": "Quantitative modeling and statistical hypothesis testing for signal pattern extraction and predictive analysis on high-dimensional datasets.",
     "proj.stats.n1": "Feature selection based on Analysis of Variance (ANOVA) and information metrics.",
@@ -124,7 +138,7 @@ const translations = {
 
     "section.skills": "Technical Foundations",
     "skill.languages": "Languages",
-    "skill.scientific": "Telemetry & Scientific Computing",
+    "skill.scientific": "AI, Telemetry & Scientific Computing",
     "skill.systems": "Systems & Infrastructure",
     "skill.algorithms": "Theoretical Foundations",
 
