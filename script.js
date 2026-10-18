@@ -14,7 +14,7 @@ const translations = {
   pt: {
     "header.role": "Engenheiro de Software",
     "intro.greeting": "Sistemas backend, telemetria e computação científica.",
-    "intro.bio": "Trabalho com arquitetura de software para processamento de sinais e dados científicos no radiotelescópio <strong>BINGO</strong>. Graduando em Ciência da Computação pela UFCG e ex-aluno de Engenharia Mecatrônica pela USP, com atuação como monitor de algoritmos avançados e administração de sistemas Linux.",
+    "intro.bio": "Trabalho com arquitetura de software para processamento de sinais e dados científicos no radiotelescópio <strong>BINGO</strong>. Graduado em Ciência da Computação pela UFCG e ex-aluno de Engenharia Mecatrônica pela USP, com atuação como monitor de algoritmos avançados e administração de sistemas Linux.",
     "intro.copy_email": "Copiar e-mail",
 
     "section.telemetry": "Telemetria em Tempo Real · Radiotelescópio BINGO",
@@ -93,7 +93,7 @@ const translations = {
   en: {
     "header.role": "Software Engineer",
     "intro.greeting": "Backend systems, telemetry & scientific computing.",
-    "intro.bio": "Engineering software infrastructure for real-time signal processing and scientific data at the <strong>BINGO</strong> radio telescope. Computer Science undergraduate at UFCG and former Mechatronic Engineering student at USP. Teaching assistant in advanced algorithms and Linux systems administration.",
+    "intro.bio": "Engineering software infrastructure for real-time signal processing and scientific data at the <strong>BINGO</strong> radio telescope. B.S. in Computer Science graduate from UFCG and former Mechatronic Engineering student at USP. Teaching assistant in advanced algorithms and Linux systems administration.",
     "intro.copy_email": "Copy email",
 
     "section.telemetry": "Real-Time Telemetry · BINGO Radio Telescope",
