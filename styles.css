@@ -33,16 +33,16 @@
   --accent-coral-soft: light-dark(#ffedd5, #381a0b);
   --accent-pine-soft: light-dark(#ccfbf1, #0b2d26);
 
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --shadow-card: light-dark(
-    0 1px 2px rgba(24, 26, 31, 0.04), 0 10px 28px -12px rgba(24, 26, 31, 0.08),
-    0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 36px -14px rgba(0, 0, 0, 0.65)
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sticky: light-dark(
+    0 2px 6px rgba(24, 26, 31, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.4)
   );
 }
 
@@ -50,6 +50,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+.hero-bio,
+.project-desc,
+.story-detail-body,
+.personal-body {
+  text-wrap: pretty;
 }
 
 html {
@@ -138,7 +149,6 @@ body.blueprint-mode .project-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
 }
 
 /* ==========================================================================
@@ -154,7 +164,7 @@ body.blueprint-mode .project-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-sticky);
   position: sticky;
   top: 14px;
   z-index: 20;
@@ -1008,6 +1018,9 @@ body.blueprint-mode .project-card {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 12px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1015,15 +1028,17 @@ body.blueprint-mode .project-card {
 
 .sandbox-svg {
   width: 100%;
+  max-width: 100%;
   height: auto;
   max-height: 240px;
+  display: block;
   color: var(--ink);
 }
 
 .lg-edge {
   stroke: var(--border-strong);
   stroke-width: 2.2;
-  transition: stroke 0.2s ease, stroke-width 0.2s ease;
+  transition: stroke 0.2s ease, opacity 0.2s ease;
 }
 
 .lg-edge.edge-fallback {
@@ -1220,9 +1235,9 @@ body.blueprint-mode .project-card {
   border: 1px solid var(--border-subtle);
 }
 
-.bar-a { background: var(--accent-pool); transition: width 0.2s ease; }
-.bar-d { background: var(--border-strong); transition: width 0.2s ease; }
-.bar-b { background: var(--accent-coral); transition: width 0.2s ease; }
+.bar-a { background: var(--accent-pool); }
+.bar-d { background: var(--border-strong); }
+.bar-b { background: var(--accent-coral); }
 
 .heatmap-wrap {
   background: var(--bg-subtle);
@@ -1282,7 +1297,6 @@ body.blueprint-mode .project-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
   padding: 22px 24px;
   display: flex;
   flex-direction: column;
@@ -1496,10 +1510,11 @@ body.blueprint-mode .project-card {
 .personal-quote {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: var(--ink-secondary);
-  border-left: 2px solid var(--accent-coral);
-  padding-left: 12px;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  padding: 12px 14px;
 }
 
 .stack-strip {
@@ -1563,13 +1578,15 @@ body.blueprint-mode .project-card {
    ========================================================================== */
 .overlay-dialog {
   margin: auto;
-  width: min(560px, calc(100vw - 32px));
+  inline-size: min(540px, calc(100dvw - 32px));
+  max-inline-size: calc(100dvw - 32px);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
   background: var(--bg-surface);
   color: var(--ink);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
   padding: 0;
+  overflow: hidden;
 }
 
 dialog:modal {
@@ -1587,6 +1604,8 @@ dialog::backdrop {
   padding: 18px;
   display: grid;
   gap: 12px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .dialog-header {
@@ -1685,6 +1704,7 @@ dialog::backdrop {
   gap: 8px;
   border-top: 1px solid #1e293b;
   padding-top: 10px;
+  min-width: 0;
 }
 
 .term-prompt {
@@ -1692,10 +1712,12 @@ dialog::backdrop {
   font-size: 0.8rem;
   color: #34d399;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .term-input {
   flex: 1;
+  min-width: 0;
   background: transparent;
   border: none;
   color: #f8fafc;

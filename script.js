@@ -972,8 +972,8 @@ function updateSplitHorizonLabel() {
 const swimNotes = {
   pt: [
     "Parcial fechada! Na piscina ou no código, consistência no ritmo vence sprint desesperado no último quarto.",
-    "Virada limpa vale mais que braçada afobada — exatamente como desacoplar I/O da thread da interface.",
-    "Treino competitivo e sigo de perto estratégias de prova — tanto que meu TCC nasceu da mania de analisar splits de piscina até o último centésimo."
+    "Virada limpa vale mais que braçada afobada: exatamente como desacoplar I/O da thread da interface.",
+    "Treino competitivo e sigo de perto estratégias de prova: meu TCC nasceu justamente da mania de analisar splits de piscina até o último centésimo."
   ],
   en: [
     "Split locked! In the pool or in code, steady pacing beats panicking on the final lap.",
