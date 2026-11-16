@@ -1095,40 +1095,104 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroAside = document.querySelector(".hero-illustration");
   const poolSvg = document.getElementById("heroStorySvg");
   const rippleLayer = document.getElementById("poolRippleLayer");
+  const swimmerSprite = document.getElementById("swimmerSprite");
   const splitClockEl = document.getElementById("poolSplitClock");
   let splitSeconds = 24.84;
 
+  // Continuous wall-to-wall swimming physics (no boomerang backwards glide)
+  const POOL_LEFT_WALL = 74;
+  const POOL_RIGHT_WALL = 306;
+  let swimX = 110;
+  let swimDir = 1; // 1 = swimming right, -1 = swimming left
+  let lastSwimTs = null;
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function updateSwimmerDirectionClass() {
+    if (!heroAside) return;
+    heroAside.classList.toggle("is-flipped", swimDir === -1);
+  }
+
+  function recordWallTurn(wallX) {
+    spawnPoolRipple(wallX, 135);
+    splitSeconds = Math.max(23.75, +(splitSeconds - 0.11).toFixed(2));
+    if (splitClockEl) splitClockEl.textContent = `00:${splitSeconds.toFixed(2)}`;
+  }
+
   function spawnPoolRipple(x, y) {
     if (!rippleLayer) return;
-    [0, 140].forEach((delay) => {
+    [0, 140, 280].forEach((delay) => {
       setTimeout(() => {
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("transform", `translate(${x.toFixed(1)}, ${y.toFixed(1)})`);
         const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        ring.setAttribute("cx", String(x));
-        ring.setAttribute("cy", String(y));
-        ring.setAttribute("r", "4");
-        ring.classList.add("pool-ripple");
-        rippleLayer.appendChild(ring);
-        setTimeout(() => ring.remove(), 1100);
+        ring.setAttribute("cx", "0");
+        ring.setAttribute("cy", "0");
+        ring.setAttribute("r", "5");
+        ring.classList.add("pool-ripple-ring");
+        g.appendChild(ring);
+        rippleLayer.appendChild(g);
+        setTimeout(() => g.remove(), 1150);
       }, delay);
     });
   }
 
-  poolSvg?.addEventListener("click", (e) => {
+  function tickSwimmerLap(ts) {
+    if (lastSwimTs === null) lastSwimTs = ts;
+    const dt = Math.min(0.05, (ts - lastSwimTs) / 1000);
+    lastSwimTs = ts;
+
+    const paused = heroAside?.classList.contains("is-paused") || reduceMotionQuery.matches;
+    if (!paused && swimmerSprite) {
+      const speed = 46; // px/s steady freestyle pace
+      swimX += swimDir * speed * dt;
+      if (swimX >= POOL_RIGHT_WALL) {
+        swimX = POOL_RIGHT_WALL;
+        swimDir = -1;
+        updateSwimmerDirectionClass();
+        recordWallTurn(334);
+      } else if (swimX <= POOL_LEFT_WALL) {
+        swimX = POOL_LEFT_WALL;
+        swimDir = 1;
+        updateSwimmerDirectionClass();
+        recordWallTurn(46);
+      }
+      swimmerSprite.setAttribute("transform", `translate(${swimX.toFixed(2)}, 135)`);
+    }
+    requestAnimationFrame(tickSwimmerLap);
+  }
+
+  requestAnimationFrame(tickSwimmerLap);
+
+  function clientToSvgCoords(clientX, clientY) {
+    if (!poolSvg) return { x: 190, y: 135 };
+    const ctm = poolSvg.getScreenCTM?.();
+    if (ctm) {
+      const pt = poolSvg.createSVGPoint();
+      pt.x = clientX;
+      pt.y = clientY;
+      const svgPt = pt.matrixTransform(ctm.inverse());
+      return { x: svgPt.x, y: svgPt.y };
+    }
     const rect = poolSvg.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 380;
-    const y = ((e.clientY - rect.top) / rect.height) * 270;
+    return {
+      x: ((clientX - rect.left) / rect.width) * 380,
+      y: ((clientY - rect.top) / rect.height) * 270
+    };
+  }
+
+  poolSvg?.addEventListener("pointerdown", (e) => {
+    const { x, y } = clientToSvgCoords(e.clientX, e.clientY);
     spawnPoolRipple(Math.max(24, Math.min(356, x)), Math.max(24, Math.min(246, y)));
   });
 
   document.getElementById("btnFlipTurn")?.addEventListener("click", () => {
     if (!heroAside) return;
-    const flipped = heroAside.classList.toggle("is-flipped");
-    spawnPoolRipple(flipped ? 334 : 46, 135);
-    splitSeconds = Math.max(23.85, +(splitSeconds - 0.14).toFixed(2));
-    if (splitClockEl) splitClockEl.textContent = `00:${splitSeconds.toFixed(2)}`;
+    swimDir *= -1;
+    updateSwimmerDirectionClass();
+    recordWallTurn(swimX);
     const cap = document.getElementById("heroSceneCaption");
     if (cap) {
-      cap.textContent = flipped ? i18n[currentLang]["hero.scene_flipped"] : i18n[currentLang]["hero.scene_caption"];
+      cap.textContent = swimDir === -1 ? i18n[currentLang]["hero.scene_flipped"] : i18n[currentLang]["hero.scene_caption"];
     }
   });
 
