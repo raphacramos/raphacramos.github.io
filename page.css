@@ -259,11 +259,13 @@ main .mo-la .mo-la__sub {
   transition: stroke-dashoffset 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.story-node .node-halo { fill: var(--bg); stroke: var(--line-strong); stroke-width: 1.5; }
-.story-node .node-core { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.story-node { cursor: pointer; }
+.story-node .node-halo { fill: var(--bg); stroke: var(--line-strong); stroke-width: 1.5; transition: stroke 0.25s ease, stroke-width 0.25s ease; }
+.story-node .node-core { fill: var(--surface); stroke: var(--ink); stroke-width: 2; transition: fill 0.25s ease, stroke 0.25s ease; }
 .story-node .node-num { font-family: var(--font-mono); font-size: 13px; font-weight: 600; fill: var(--ink); }
 .story-node .node-label { font-family: var(--font-text); font-size: 13px; font-weight: 600; fill: var(--ink); }
 .story-node .node-years { font-family: var(--font-mono); font-size: 12px; fill: var(--muted); }
+.story-node:hover .node-halo,
 .story-node.is-active .node-halo { stroke: var(--accent); stroke-width: 2.2; }
 .story-node.is-active .node-core { fill: var(--accent); stroke: var(--accent); }
 .story-node.is-active .node-num { fill: var(--accent-ink); }

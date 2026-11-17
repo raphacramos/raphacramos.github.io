@@ -6,15 +6,15 @@
   <meta name="site-kind" content="software">
   <meta name="page-type" content="software">
   <meta name="theme-color" content="#0a0d14">
-  <title>Raphael Ramos — Engenharia de Software, Dados e Telemetria</title>
-  <meta name="description" content="Portfólio de Raphael Ramos, Engenheiro de Computação pela UFCG com foco em Python, pipelines ETL em PostgreSQL, telemetria SDR e agentes de IA.">
-  <meta property="og:title" content="Raphael Ramos — Engenharia de Software e Dados">
-  <meta property="og:description" content="Sistemas distribuídos, telemetria RF, pipelines em PostgreSQL e agentes de IA em produção.">
+  <title>Raphael Ramos — Software, Dados e Sistemas Reais</title>
+  <meta name="description" content="Portfólio de Raphael Ramos, graduado em Ciência da Computação pela UFCG. Projetos em Python, PostgreSQL, software científico e dados explicados de forma clara.">
+  <meta property="og:title" content="Raphael Ramos — Software e Dados">
+  <meta property="og:description" content="Sistemas em Python e PostgreSQL, radiotelescópio BINGO e ferramentas práticas explicadas de forma acessível.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="share.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Raphael Ramos — Engenharia de Software e Dados">
-  <meta name="twitter:description" content="Sistemas distribuídos, telemetria RF, pipelines em PostgreSQL e agentes de IA em produção.">
+  <meta name="twitter:title" content="Raphael Ramos — Software e Dados">
+  <meta name="twitter:description" content="Sistemas em Python e PostgreSQL, radiotelescópio BINGO e ferramentas práticas explicadas de forma acessível.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +26,7 @@
   <link rel="stylesheet" href="assets/layout/layout.css">
   <link rel="stylesheet" href="assets/icons/icon.css">
   <link rel="stylesheet" href="assets/ui/base.css">
-  <link rel="stylesheet" href="assets/ui/terminal-run/fragment.css">
-  <link rel="stylesheet" href="assets/diagrams/diagram.css">
-  <link rel="stylesheet" href="page.css?v=7">
+  <link rel="stylesheet" href="page.css?v=8">
   <style>
   :root {
     --p-bg: #0a0d14; --p-surface: #131824; --p-ink: #e9edf3; --p-muted: #8891a1;
@@ -70,8 +68,8 @@
       </a>
       <nav class="nav__links" aria-label="Navegação principal">
         <span class="nav__item"><a class="nav__link" href="#jornada" data-i18n="nav.journey">Trajetória</a></span>
-        <span class="nav__item"><a class="nav__link" href="#laboratorio" data-i18n="nav.lab">Simuladores</a></span>
         <span class="nav__item"><a class="nav__link" href="#projetos" data-i18n="nav.projects">Projetos</a></span>
+        <span class="nav__item"><a class="nav__link" href="#sistemas" data-i18n="nav.extras">Sistemas</a></span>
         <span class="nav__item"><a class="nav__link" href="#pessoal" data-i18n="nav.personal">Perfil</a></span>
       </nav>
       <div class="nav__actions">
@@ -88,8 +86,8 @@
     </div>
     <div class="nav__drawer" hidden>
       <a class="nav__link" href="#jornada" data-i18n="nav.journey">Trajetória</a>
-      <a class="nav__link" href="#laboratorio" data-i18n="nav.lab">Simuladores</a>
       <a class="nav__link" href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a class="nav__link" href="#sistemas" data-i18n="nav.extras">Sistemas</a>
       <a class="nav__link" href="#pessoal" data-i18n="nav.personal">Perfil</a>
       <div class="drawer-utils">
         <button type="button" class="nav__util-btn" id="themeToggleMobile" aria-label="Alternar tema">Tema</button>
@@ -108,13 +106,13 @@
         <div class="grid hero-text hero__grid">
           <div class="hero__text span-5">
             <div class="hero__kicker">
-              <span data-i18n="hero.cat">Engenharia de software, dados e telemetria</span>
+              <span data-i18n="hero.cat">Software, dados e sistemas</span>
             </div>
-            <h1 data-i18n="hero.title">Sistemas distribuídos e dados em produção.</h1>
-            <p class="hero__lead" data-i18n="hero.lead">Raphael Ramos. Engenheiro de Computação pela UFCG com foco em Python, pipelines em PostgreSQL e agentes de IA.</p>
+            <h1 data-i18n="hero.title">Software e dados em sistemas reais.</h1>
+            <p class="hero__lead" data-i18n="hero.lead">Raphael Ramos, formado em Ciência da Computação pela UFCG (Out 2026). Transformo dados brutos e problemas complexos em software claro de usar.</p>
             <div class="btn-row">
               <a class="btn btn--primary js-cv-link" href="assets/Curriculo_Raphael_Ramos_PT.pdf" download data-i18n="hero.cta">Baixar currículo</a>
-              <a class="btn btn--secondary" href="#laboratorio" data-i18n="hero.alt">Explorar simuladores</a>
+              <a class="btn btn--secondary" href="#projetos" data-i18n="hero.alt">Ver projetos explicados</a>
             </div>
           </div>
 
@@ -200,13 +198,13 @@
     <!-- Dealt Moment 1: letters-assemble -->
     <section class="section" data-moment="letters-assemble" data-moment-opts='{"spread": 0.45}'>
       <div class="wrap">
-        <h2 class="mo-la__type">Sistemas em Python e PostgreSQL</h2>
-        <p class="mo-la__sub" data-i18n="stmt.sub">Da coleta de sinais de rádio em Python até pipelines deduplicados em PostgreSQL e agentes autônomos com contratos estruturados.</p>
+        <h2 class="mo-la__type">Software simples para problemas reais</h2>
+        <p class="mo-la__sub" data-i18n="stmt.sub">Meu foco é pegar processos confusos, arquivos dispersos ou sinais científicos e transformá-los em sistemas rápidos e fáceis de operar.</p>
         <dl class="hero__facts mo-la__facts">
-          <div><dt>Telemetria RF</dt><dd>113 testes em pytest</dd></div>
-          <div><dt>Banco PostgreSQL</dt><dd>105.582 registros ETL</dd></div>
-          <div><dt>Simulador lógico</dt><dd>490 questões estáticas</dd></div>
-          <div><dt>Monitoria UFCG</dt><dd>75+ alunos orientados</dd></div>
+          <div><dt>Confiabilidade</dt><dd>113 testes automatizados</dd></div>
+          <div><dt>Banco de Dados</dt><dd>105.582 registros limpos</dd></div>
+          <div><dt>Leitura de PDFs</dt><dd>33 relatórios extraídos</dd></div>
+          <div><dt>Ensino UFCG</dt><dd>75+ alunos apoiados</dd></div>
         </dl>
       </div>
     </section>
@@ -215,15 +213,19 @@
     <section class="section" id="jornada">
       <div class="wrap">
         <div class="section-head">
-          <h2 data-i18n="journey.title">Engenharia na USP, Scrub Up e UFCG</h2>
-          <p class="section-sub" data-i18n="journey.sub">Da USP à engenharia de software na UFCG e pesquisa aplicada.</p>
+          <h2 data-i18n="journey.title">Trajetória de software na USP, Scrub Up e UFCG</h2>
+          <p class="section-sub" data-i18n="journey.sub">Clique nos círculos do mapa ou nos botões para acompanhar cada fase.</p>
         </div>
 
         <div class="grid">
           <div class="span-5 story-detail">
-            <h3 id="storyDetailTitle">Economia e dados na USP (2018–2019)</h3>
-            <p class="story-detail-body" id="storyDetailBody">Formação inicial com modelagem quantitativa, estatística e microeconomia antes de migrar integralmente para Engenharia de Computação.</p>
-            <p class="story-takeaway" id="storyDetailTakeaway">Capítulo 01 · Base analítica aplicada a software.</p>
+            <h3 id="storyDetailTitle">Engenharia Mecatrônica na USP (2018–2019)</h3>
+            <p class="story-detail-body" id="storyDetailBody">Cursei o ciclo básico de Engenharia Mecatrônica na USP. Foi programando nos projetos da faculdade que percebi que construir software era o que mais fazia sentido, o que motivou minha mudança para a computação.</p>
+            <div class="story-detail-meta">
+              <span class="story-tag" id="storyDetailTag">Capítulo 01 · Início na Poli-USP</span>
+              <span class="story-period" id="storyDetailPeriod">Jan 2018 – Jun 2019 · USP</span>
+            </div>
+            <p class="story-takeaway" id="storyDetailTakeaway">Base forte em lógica matemática e transição consciente para computação.</p>
             <div class="tabs story-tabs" role="tablist" aria-label="Capítulos da trajetória">
               <button type="button" class="tab story-tab" role="tab" data-step="0" aria-selected="true">01 USP</button>
               <button type="button" class="tab story-tab" role="tab" data-step="1" aria-selected="false">02 Scrub Up</button>
@@ -237,15 +239,15 @@
           </div>
 
           <div class="frame story-frame span-6 start-7">
-            <svg class="story-path-svg" viewBox="0 0 560 360" role="img" aria-label="Mapa de evolução USP, Scrub Up, UFCG e BINGO">
+            <svg class="story-path-svg" viewBox="0 0 560 360" role="img" aria-label="Mapa interativo USP, Scrub Up, UFCG e BINGO">
               <path d="M70 280 C160 280, 170 200, 230 200 C290 200, 290 125, 355 125 C415 125, 425 70, 490 70" fill="none" stroke="var(--line-strong)" stroke-width="3.5" stroke-linecap="round"/>
-              <path id="storyActivePath" d="M70 280 C160 280, 170 200, 230 200 C290 200, 290 125, 355 125 C415 125, 425 70, 490 70" fill="none" stroke="var(--accent)" stroke-width="4" stroke-dasharray="760" stroke-dashoffset="760" stroke-linecap="round"/>
+              <path id="storyActivePath" d="M70 280 C160 280, 170 200, 230 200 C290 200, 290 125, 355 125 C415 125, 425 70, 490 70" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
 
               <g class="story-node is-active" data-step="0">
                 <circle class="node-halo" cx="70" cy="280" r="24"/>
                 <circle class="node-core" cx="70" cy="280" r="16"/>
                 <text class="node-num" x="70" y="285" text-anchor="middle">01</text>
-                <text class="node-label" x="70" y="324" text-anchor="middle">USP Economia</text>
+                <text class="node-label" x="70" y="324" text-anchor="middle">USP Mecatrônica</text>
                 <text class="node-years" x="70" y="342" text-anchor="middle">2018 – 2019</text>
               </g>
 
@@ -261,7 +263,7 @@
                 <circle class="node-halo" cx="355" cy="125" r="24"/>
                 <circle class="node-core" cx="355" cy="125" r="16"/>
                 <text class="node-num" x="355" y="130" text-anchor="middle">03</text>
-                <text class="node-label" x="355" y="169" text-anchor="middle">UFCG Engenharia</text>
+                <text class="node-label" x="355" y="169" text-anchor="middle">UFCG Computação</text>
                 <text class="node-years" x="355" y="187" text-anchor="middle">2021 – 2026</text>
               </g>
 
@@ -278,211 +280,53 @@
       </div>
     </section>
 
-    <!-- Section 4: Tabs-Tour Interactive Labs -->
-    <section class="section" id="laboratorio">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 data-i18n="lab.title">Simuladores de engenharia em tempo real</h2>
-          <p class="section-sub" data-i18n="lab.sub">Telemetria, grafos de agentes, predição estatística e roteamento em rede.</p>
-        </div>
-
-        <div class="tabs-tour">
-          <div class="tabs" role="tablist" aria-label="Simuladores interativos">
-            <button type="button" class="tab" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1 screen-1" data-i18n="lab.tab1">BINGO SDR</button>
-            <button type="button" class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2 screen-2" data-i18n="lab.tab2">LangGraph</button>
-            <button type="button" class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3 screen-3" data-i18n="lab.tab3">Copa 2026</button>
-            <button type="button" class="tab" role="tab" id="tab-4" aria-selected="false" aria-controls="panel-4 screen-4" data-i18n="lab.tab4">Malha RIP</button>
-          </div>
-
-          <div class="grid">
-            <div class="span-5">
-              <div class="lab-tabpanel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
-                <h3 data-i18n="lab.p1_title">Analisador de telemetria BINGO SDR</h3>
-                <p data-i18n="lab.p1_desc">Workers assíncronos por sessão isolam processamento de sinal e exclusividade de hardware, validados por 113 testes em pytest.</p>
-              </div>
-              <div class="lab-tabpanel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
-                <h3 data-i18n="lab.p2_title">Agente de software LangGraph</h3>
-                <p data-i18n="lab.p2_desc">Grafo de estados em Python com esquemas Pydantic tipados, validação estrutural e execução segura de plano de recuperação.</p>
-              </div>
-              <div class="lab-tabpanel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
-                <h3 data-i18n="lab.p3_title">Preditor Dixon-Coles Copa 2026</h3>
-                <p data-i18n="lab.p3_desc">Matriz bivariada de placares com ponderação temporal, Pi-Ratings dinâmicos e penalidade por deslocamento Haversine.</p>
-              </div>
-              <div class="lab-tabpanel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
-                <h3 data-i18n="lab.p4_title">Malha RIP R1 a R12 com Split Horizon</h3>
-                <p data-i18n="lab.p4_desc">Simule falha em qualquer enlace clicando na aresta e acompanhe o recálculo imediato da melhor rota.</p>
-              </div>
-            </div>
-
-            <div class="frame lab-frame span-6 start-7">
-              <!-- Screen 1: BINGO SDR -->
-              <div class="lab-screen" id="screen-1">
-                <div class="instrument-hud">
-                  <div class="hud-cell"><span class="hud-label">CENTER</span><span class="hud-val">1420.4 MHz</span></div>
-                  <div class="hud-cell"><span class="hud-label">PEAK</span><span class="hud-val" id="hudPeak">1420.5 MHz</span></div>
-                  <div class="hud-cell"><span class="hud-label">SNR</span><span class="hud-val" id="hudSnr">+24.1 dB</span></div>
-                  <div class="hud-cell"><span class="hud-label">STATUS</span><span class="hud-val" id="hudState">NOMINAL</span></div>
-                </div>
-                <div class="canvas-box">
-                  <span class="crosshair-readout" id="crosshairReadout">1420.40 MHz · -72.0 dBm</span>
-                  <canvas id="spectrumCanvas" aria-label="Analisador espectral SDR"></canvas>
-                </div>
-                <div class="canvas-box">
-                  <canvas id="waterfallCanvas" aria-label="Cachoeira temporal de espectro"></canvas>
-                </div>
-                <div class="lab-toolbar">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn--sm btn--secondary" id="btnInjectRfi" aria-pressed="false" data-i18n="lab.rfi">Injetar RFI</button>
-                    <button type="button" class="btn btn--sm btn--secondary" id="btnSonarSound" aria-pressed="false" data-i18n="lab.sound">Ouvir espectro</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Screen 2: LangGraph Chaos -->
-              <div class="lab-screen" id="screen-2" hidden>
-                <svg class="sandbox-svg" viewBox="0 0 540 190" role="img" aria-label="Simulador de roteamento de agente em grafos">
-                  <path class="lg-edge" d="M112 95 H156"/>
-                  <path class="lg-edge" d="M250 95 L288 58"/>
-                  <path class="lg-edge edge-fallback" d="M250 95 L288 140"/>
-                  <path class="lg-edge" d="M392 58 L422 95"/>
-                  <path class="lg-edge edge-fallback" d="M392 140 L422 95"/>
-
-                  <g class="lg-node" id="lgN1"><rect class="lg-box" x="28" y="72" width="84" height="46" rx="8"/><text class="lg-text" x="70" y="100" text-anchor="middle">Input</text></g>
-                  <g class="lg-node" id="lgN2"><rect class="lg-box" x="156" y="72" width="94" height="46" rx="8"/><text class="lg-text" x="203" y="100" text-anchor="middle">Pydantic</text></g>
-                  <g class="lg-node" id="lgN3"><rect class="lg-box" x="288" y="35" width="104" height="46" rx="8"/><text class="lg-text" x="340" y="63" text-anchor="middle">Worker</text></g>
-                  <g class="lg-node" id="lgN4"><rect class="lg-box" x="288" y="117" width="104" height="46" rx="8"/><text class="lg-text" x="340" y="145" text-anchor="middle">Fallback</text></g>
-                  <g class="lg-node" id="lgN5"><rect class="lg-box" x="422" y="72" width="90" height="46" rx="8"/><text class="lg-text" x="467" y="100" text-anchor="middle">Saída</text></g>
-
-                  <circle class="lg-packet" id="lgPacket" cx="72" cy="95" r="7"/>
-                </svg>
-                <div class="sandbox-log" id="lgTraceLog">Selecione um cenário abaixo para acompanhar o grafo de execução e fallback.</div>
-                <div class="lab-toolbar">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn--sm btn--secondary" data-chaos="ok" data-i18n="lab.chaos_ok">Executar nominal</button>
-                    <button type="button" class="btn btn--sm btn--secondary" data-chaos="retry" data-i18n="lab.chaos_retry">Simular falha leve</button>
-                    <button type="button" class="btn btn--sm btn--secondary" data-chaos="block" data-i18n="lab.chaos_block">Simular falha crítica</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Screen 3: Copa 2026 Dixon-Coles -->
-              <div class="lab-screen" id="screen-3" hidden>
-                <div class="copa-controls">
-                  <div class="select-pair">
-                    <label class="field-lbl">Seleção A
-                      <select class="clean-select" id="teamA">
-                        <option value="BRA" selected>Brasil</option>
-                        <option value="ARG">Argentina</option>
-                        <option value="FRA">França</option>
-                        <option value="ESP">Espanha</option>
-                      </select>
-                    </label>
-                    <label class="field-lbl">Seleção B
-                      <select class="clean-select" id="teamB">
-                        <option value="ARG" selected>Argentina</option>
-                        <option value="BRA">Brasil</option>
-                        <option value="ENG">Inglaterra</option>
-                        <option value="GER">Alemanha</option>
-                      </select>
-                    </label>
-                  </div>
-                  <label class="slider-lbl">
-                    <span class="slider-row"><span>Deslocamento aéreo B</span><span id="travelDistVal">0 km</span></span>
-                    <input type="range" id="travelDist" min="0" max="9000" step="500" value="1500">
-                  </label>
-                  <div class="outcome-bar">
-                    <div class="bar-a" id="barWinA" style="width:38%"></div>
-                    <div class="bar-d" id="barDraw" style="width:28%"></div>
-                    <div class="bar-b" id="barWinB" style="width:34%"></div>
-                  </div>
-                  <div class="hud-val" id="copaProbSummary">Brasil vs Argentina</div>
-                </div>
-                <div class="copa-heatmap" id="copaHeatmap" aria-label="Matriz de probabilidades por placar"></div>
-              </div>
-
-              <!-- Screen 4: Malha RIP R1..R12 -->
-              <div class="lab-screen" id="screen-4" hidden>
-                <svg class="sandbox-svg" viewBox="0 0 540 200" role="img" aria-label="Topologia RIP R1 a R12">
-                  <line class="rip-edge" data-u="R1" data-v="R2" x1="56" y1="100" x2="146" y2="50"/>
-                  <line class="rip-edge" data-u="R1" data-v="R3" x1="56" y1="100" x2="146" y2="150"/>
-                  <line class="rip-edge" data-u="R2" data-v="R3" x1="146" y1="50" x2="146" y2="150"/>
-                  <line class="rip-edge" data-u="R2" data-v="R5" x1="146" y1="50" x2="256" y2="50"/>
-                  <line class="rip-edge" data-u="R3" data-v="R6" x1="146" y1="150" x2="256" y2="150"/>
-                  <line class="rip-edge" data-u="R5" data-v="R6" x1="256" y1="50" x2="256" y2="150"/>
-                  <line class="rip-edge" data-u="R5" data-v="R9" x1="256" y1="50" x2="366" y2="50"/>
-                  <line class="rip-edge" data-u="R6" data-v="R10" x1="256" y1="150" x2="366" y2="150"/>
-                  <line class="rip-edge" data-u="R9" data-v="R10" x1="366" y1="50" x2="366" y2="150"/>
-                  <line class="rip-edge" data-u="R9" data-v="R12" x1="366" y1="50" x2="474" y2="100"/>
-                  <line class="rip-edge" data-u="R10" data-v="R12" x1="366" y1="150" x2="474" y2="100"/>
-
-                  <g class="rip-router is-endpoint"><circle cx="56" cy="100" r="18"/><text x="56" y="105" text-anchor="middle">R1</text></g>
-                  <g class="rip-router"><circle cx="146" cy="50" r="18"/><text x="146" y="55" text-anchor="middle">R2</text></g>
-                  <g class="rip-router"><circle cx="146" cy="150" r="18"/><text x="146" y="155" text-anchor="middle">R3</text></g>
-                  <g class="rip-router"><circle cx="256" cy="50" r="18"/><text x="256" y="55" text-anchor="middle">R5</text></g>
-                  <g class="rip-router"><circle cx="256" cy="150" r="18"/><text x="256" y="155" text-anchor="middle">R6</text></g>
-                  <g class="rip-router"><circle cx="366" cy="50" r="18"/><text x="366" y="55" text-anchor="middle">R9</text></g>
-                  <g class="rip-router"><circle cx="366" cy="150" r="18"/><text x="366" y="155" text-anchor="middle">R10</text></g>
-                  <g class="rip-router is-endpoint"><circle cx="474" cy="100" r="18"/><text x="474" y="105" text-anchor="middle">R12</text></g>
-                </svg>
-                <div class="sandbox-log" id="ripPathLog">Clique sobre qualquer enlace para simular rompimento de fibra.</div>
-                <div class="lab-toolbar">
-                  <button type="button" class="btn btn--sm btn--secondary" id="btnResetRip" data-i18n="lab.rip_reset">Restaurar enlaces</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 5: Projects Grid (bg-dusk) -->
+    <!-- Section 4: Projects explained plainly (bg-dusk) -->
     <section class="section bg-dusk" id="projetos">
       <div class="wrap">
         <div class="section-head">
-          <h2 data-i18n="proj.title">Arquitetura BINGO e ETL em PostgreSQL</h2>
-          <p class="section-sub" data-i18n="proj.sub">Repositórios públicos construídos em Python, PostgreSQL, Docker e FastAPI.</p>
+          <h2 data-i18n="proj.title">Projetos de software: BINGO e Banco de Dados</h2>
+          <p class="section-sub" data-i18n="proj.sub">Explicação direta do que cada projeto resolve na prática, sem jargão.</p>
         </div>
 
         <div class="grid">
           <article class="card card--open span-6">
-            <h3 data-i18n="proj.c1_title">BINGO-PB · Telemetria SDR</h3>
-            <p data-i18n="proj.c1_desc">Receptor WebSDR em arquitetura limpa com HDF5, Skyfield e 113 testes automatizados em pytest.</p>
+            <h3 data-i18n="proj.c1_title">Software para o Radiotelescópio BINGO</h3>
+            <p data-i18n="proj.c1_desc">O radiotelescópio gera grande volume de sinais ao vivo. Antes, fazer essas contas travava a tela de controle. Passei o trabalho pesado para segundo plano e criei 113 testes automáticos para tudo rodar fluido e seguro.</p>
             <div class="panel">
-              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Execução pytest BINGO-PB rfstream">
-                <rect class="schema-box schema-box--accent" x="16" y="16" width="428" height="148" rx="8"/>
-                <circle cx="36" cy="36" r="4" fill="var(--accent)"/>
-                <circle cx="50" cy="36" r="4" fill="var(--line-strong)"/>
-                <circle cx="64" cy="36" r="4" fill="var(--line-strong)"/>
-                <text class="schema-sub" x="84" y="40">pytest — rfstream</text>
-                <text class="schema-label" x="34" y="72">$ pytest -q</text>
-                <text class="schema-sub" x="34" y="96">....................... 113 passed</text>
-                <text class="schema-sub" x="34" y="120">Session isolation: LOCKED_PER_WORKER</text>
-                <text class="schema-sub" x="34" y="144">Storage: HDF5 + Skyfield ephemerides</text>
+              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Fluxo simples do projeto BINGO sem travamentos">
+                <path class="schema-wire" d="M130 90 H168 M302 90 H336"/>
+                <rect class="schema-box" x="14" y="54" width="116" height="72" rx="6"/>
+                <text class="schema-label" x="72" y="84" text-anchor="middle">Antena</text>
+                <text class="schema-sub" x="72" y="105" text-anchor="middle">Sinais ao vivo</text>
+
+                <rect class="schema-box schema-box--accent" x="168" y="48" width="134" height="84" rx="6"/>
+                <text class="schema-label" x="235" y="82" text-anchor="middle">2º Plano</text>
+                <text class="schema-sub" x="235" y="104" text-anchor="middle">Não trava tela</text>
+
+                <rect class="schema-box" x="336" y="54" width="110" height="72" rx="6"/>
+                <text class="schema-label" x="391" y="84" text-anchor="middle">Painel</text>
+                <text class="schema-sub" x="391" y="105" text-anchor="middle">113 testes OK</text>
               </svg>
             </div>
           </article>
 
           <article class="card card--open span-6">
-            <h3 data-i18n="proj.c2_title">Pipeline ETL em PostgreSQL</h3>
-            <p data-i18n="proj.c2_desc">Extração de 33 relatórios em PDF e deduplicação em 105.582 registros via SQLAlchemy com suíte Scikit-Learn.</p>
+            <h3 data-i18n="proj.c2_title">Leitor de Relatórios PDF e Banco de Dados</h3>
+            <p data-i18n="proj.c2_desc">Desenvolvi um programa que lê 33 relatórios extensos em PDF, corrige dados repetidos e organiza 105.582 linhas limpas no banco PostgreSQL para consultas e análises rápidas.</p>
             <div class="panel">
-              <svg class="schema-svg" viewBox="0 0 480 180" role="img" aria-label="Diagrama ETL 33 PDFs para PostgreSQL">
-                <path class="schema-wire" d="M118 52 H178 M118 128 H178 M148 52 V128 M178 90 H218 M342 90 H374"/>
-                <rect class="schema-box" x="18" y="28" width="100" height="48" rx="6"/>
-                <text class="schema-label" x="68" y="48" text-anchor="middle">33 PDFs</text>
-                <text class="schema-sub" x="68" y="65" text-anchor="middle">Ingestão</text>
+              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Leitura automática de 33 PDFs para PostgreSQL">
+                <path class="schema-wire" d="M128 90 H166 M300 90 H334"/>
+                <rect class="schema-box" x="14" y="54" width="114" height="72" rx="6"/>
+                <text class="schema-label" x="71" y="84" text-anchor="middle">33 PDFs</text>
+                <text class="schema-sub" x="71" y="105" text-anchor="middle">Arquivos brutos</text>
 
-                <rect class="schema-box" x="18" y="104" width="100" height="48" rx="6"/>
-                <text class="schema-label" x="68" y="124" text-anchor="middle">Pandas</text>
-                <text class="schema-sub" x="68" y="141" text-anchor="middle">Limpeza</text>
+                <rect class="schema-box schema-box--accent" x="166" y="48" width="134" height="84" rx="6"/>
+                <text class="schema-label" x="233" y="82" text-anchor="middle">Limpeza</text>
+                <text class="schema-sub" x="233" y="104" text-anchor="middle">Sem duplicatas</text>
 
-                <rect class="schema-box schema-box--accent" x="218" y="54" width="124" height="72" rx="6"/>
-                <text class="schema-label" x="280" y="84" text-anchor="middle">PostgreSQL</text>
-                <text class="schema-sub" x="280" y="105" text-anchor="middle">105.582 linhas</text>
-
-                <rect class="schema-box" x="374" y="54" width="88" height="72" rx="6"/>
-                <text class="schema-label" x="418" y="84" text-anchor="middle">pytest</text>
-                <text class="schema-sub" x="418" y="105" text-anchor="middle">Schema</text>
+                <rect class="schema-box" x="334" y="54" width="112" height="72" rx="6"/>
+                <text class="schema-label" x="390" y="84" text-anchor="middle">Banco SQL</text>
+                <text class="schema-sub" x="390" y="105" text-anchor="middle">105.582 linhas</text>
               </svg>
             </div>
           </article>
@@ -490,51 +334,47 @@
       </div>
     </section>
 
-    <!-- Section 6: Dealt Moment 2 (iris-opens on ground-inverse) -->
-    <section class="section ground-inverse" data-moment="iris-opens" data-moment-opts='{"from": "surface"}'>
+    <!-- Section 5: Applied systems & Wonderlic (iris-opens on ground-inverse) -->
+    <section class="section ground-inverse" id="sistemas" data-moment="iris-opens" data-moment-opts='{"from": "surface"}'>
       <div class="wrap">
         <div class="section-head">
-          <h2 data-i18n="proj.iris_title">Engenharia de software LangGraph e Wonderlic</h2>
-          <p class="section-sub" data-i18n="proj.iris_desc">Orquestração de tarefas em StateGraph com saída validada em Pydantic e fallback determinístico em cada etapa.</p>
+          <h2 data-i18n="ext.title">Sistemas práticos: Copa, Vagas e Wonderlic</h2>
+          <p class="section-sub" data-i18n="ext.sub">Projetos menores para resolver problemas do dia a dia com dados e navegador.</p>
         </div>
 
         <div class="grid">
           <article class="card card--open span-6">
-            <h3>Agente de software LangGraph</h3>
-            <p>Orquestração em grafos de estados com recuperação determinística, validação em Pydantic e testes isolados em pytest. <a class="link" href="https://github.com/Raphacramos/minecraft-agente-llm" target="_blank" rel="noopener">Ver código no GitHub</a></p>
+            <h3 data-i18n="ext.c1_title">Preditor Copa 2026 e Monitor de Vagas</h3>
+            <p data-i18n="ext.c1_desc">Sistema estatístico que estima placares levando em conta o histórico das seleções e a distância de viagem entre sedes, além de um robô pessoal que organiza vagas num único painel.</p>
             <div class="panel">
-              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Arquitetura LangGraph com fallback determinístico">
-                <path class="schema-wire" d="M110 90 H164 M264 90 L306 50 M264 90 L306 130"/>
-                <rect class="schema-box" x="16" y="64" width="94" height="52" rx="6"/>
-                <text class="schema-label" x="63" y="94" text-anchor="middle">Payload</text>
-                <rect class="schema-box schema-box--accent" x="164" y="54" width="100" height="72" rx="6"/>
-                <text class="schema-label" x="214" y="84" text-anchor="middle">Pydantic</text>
-                <text class="schema-sub" x="214" y="104" text-anchor="middle">Contrato</text>
-                <rect class="schema-box" x="306" y="24" width="124" height="52" rx="6"/>
-                <text class="schema-label" x="368" y="54" text-anchor="middle">StateGraph</text>
-                <rect class="schema-box" x="306" y="104" width="124" height="52" rx="6"/>
-                <text class="schema-label" x="368" y="134" text-anchor="middle">Fallback</text>
+              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Resumo visual do Preditor Copa 2026 e Monitor de Vagas">
+                <rect class="schema-box" x="20" y="24" width="420" height="58" rx="6"/>
+                <text class="schema-label" x="38" y="49">Preditor Copa 2026</text>
+                <text class="schema-sub" x="38" y="68">Histórico das seleções + viagens entre estádios</text>
+
+                <rect class="schema-box schema-box--accent" x="20" y="98" width="420" height="58" rx="6"/>
+                <text class="schema-label" x="38" y="123">Organizador de Vagas</text>
+                <text class="schema-sub" x="38" y="142">Coleta automática em painel único</text>
               </svg>
             </div>
           </article>
 
           <article class="card card--open span-6">
-            <h3 data-i18n="proj.c5_title">Simulador Wonderlic (490 questões)</h3>
-            <p><span data-i18n="proj.c5_desc">Banco interativo com 490 questões cronometradas sem dependências externas.</span> <a class="link" href="wonderlic/" data-i18n="proj.iris_cta">Abrir simulador Wonderlic</a></p>
+            <h3 data-i18n="ext.c2_title">Simulador Wonderlic (490 questões)</h3>
+            <p><span data-i18n="ext.c2_desc">Treinador aberto no navegador para praticar provas de raciocínio lógico cronometradas em 12 minutos, sem precisar instalar nada.</span> <a class="link" href="wonderlic/" data-i18n="ext.c2_cta">Abrir simulador Wonderlic</a></p>
             <div class="panel">
               <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Simulador Wonderlic 490 questões">
-                <rect class="schema-box schema-box--accent" x="16" y="14" width="428" height="152" rx="8"/>
-                <text class="schema-label" x="34" y="42">Wonderlic · Questão 14 / 50</text>
-                <text class="schema-sub" x="350" y="42">11m:42s</text>
-                <text class="schema-sub" x="34" y="70">Se 5 máquinas produzem 5 peças em 5 min,</text>
-                <text class="schema-sub" x="34" y="90">quantos min levam 100 máquinas (100 peças)?</text>
-                <rect class="schema-box" x="34" y="108" width="90" height="32" rx="6"/>
-                <text class="schema-label" x="79" y="128" text-anchor="middle">a) 5 min</text>
-                <rect class="schema-box" x="136" y="108" width="94" height="32" rx="6"/>
-                <text class="schema-sub" x="183" y="128" text-anchor="middle">b) 20 min</text>
-                <rect class="schema-box" x="242" y="108" width="94" height="32" rx="6"/>
-                <text class="schema-sub" x="289" y="128" text-anchor="middle">c) 50 min</text>
-                <text class="schema-sub" x="34" y="156">Extras: Preditor Copa 2026 · Prospector SQLite</text>
+                <rect class="schema-box schema-box--accent" x="16" y="18" width="428" height="144" rx="8"/>
+                <text class="schema-label" x="34" y="46">Wonderlic · Treino Cronometrado</text>
+                <text class="schema-sub" x="426" y="46" text-anchor="end">12 min · 50 itens</text>
+                <text class="schema-sub" x="34" y="76">Se 5 máquinas produzem 5 peças em 5 min,</text>
+                <text class="schema-sub" x="34" y="96">quanto tempo 100 máquinas levam para 100?</text>
+                <rect class="schema-box" x="34" y="114" width="96" height="32" rx="6"/>
+                <text class="schema-label" x="82" y="134" text-anchor="middle">a) 5 min</text>
+                <rect class="schema-box" x="142" y="114" width="96" height="32" rx="6"/>
+                <text class="schema-sub" x="190" y="134" text-anchor="middle">b) 20 min</text>
+                <rect class="schema-box" x="250" y="114" width="96" height="32" rx="6"/>
+                <text class="schema-sub" x="298" y="134" text-anchor="middle">c) 100 min</text>
               </svg>
             </div>
           </article>
@@ -542,23 +382,23 @@
       </div>
     </section>
 
-    <!-- Section 7: Personal & Teaching (bg-dots) -->
+    <!-- Section 6: Personal & Teaching (bg-dots) -->
     <section class="section bg-dots" id="pessoal">
       <div class="wrap">
         <div class="section-head">
-          <h2 data-i18n="pers.title">Engenharia, natação, idiomas e monitoria UFCG</h2>
-          <p class="section-sub" data-i18n="pers.sub">Rotina fora do terminal aplicada à engenharia colaborativa.</p>
+          <h2 data-i18n="pers.title">Software, natação, idiomas e monitoria na UFCG</h2>
+          <p class="section-sub" data-i18n="pers.sub">Rotina fora do código aplicada ao trabalho em equipe.</p>
         </div>
 
         <div class="grid">
           <article class="card personal-card span-6 m-nolift">
             <h3 data-i18n="pers.swim_title">Natação 25m e Monitoria UFCG (75+ alunos)</h3>
-            <p data-i18n="pers.swim_desc">Treinos diários em piscina curta aliados à monitoria de ATAL (40+ alunos) e ADSI (35+ alunos) na UFCG.</p>
+            <p data-i18n="pers.swim_desc">Treinos diários em piscina curta aliados à monitoria ajudando mais de 40 alunos em algoritmos e mais de 35 em sistemas.</p>
             <div class="personal-chart">
               <svg class="schema-svg" viewBox="0 0 420 120" role="img" aria-label="Curva de ritmo em treinos de 25 metros">
                 <path class="schema-wire" d="M16 86 Q95 26 190 68 T404 34"/>
                 <line x1="16" y1="102" x2="404" y2="102" stroke="var(--line-strong)" stroke-width="1"/>
-                <text class="schema-sub" x="16" y="24">PARCIAL 25M · ATAL &amp; ADSI</text>
+                <text class="schema-sub" x="16" y="24">PARCIAL 25M · RITMO E MONITORIA</text>
               </svg>
             </div>
             <div class="personal-quote" id="swimMoodDisplay">50m Livre · 25m piscina · Parcial registrada com ritmo constante.</div>
@@ -586,7 +426,7 @@
                 <rect x="16" y="98" width="205" height="12" rx="4" fill="var(--line-strong)"/>
               </svg>
             </div>
-            <div class="personal-quote" id="passportQuote">Português (Nativo): Documentação técnica e revisão de arquitetura em português.</div>
+            <div class="personal-quote" id="passportQuote">Português (Nativo): Documentação clara e comunicação objetiva com qualquer área da empresa.</div>
             <div class="stamp-group">
               <button type="button" class="btn btn--sm btn--secondary stamp-btn is-active" data-lang="pt" aria-pressed="true">PT · Nativo</button>
               <button type="button" class="btn btn--sm btn--secondary stamp-btn" data-lang="en" aria-pressed="false">EN · Avançado</button>
@@ -603,8 +443,8 @@
     <div class="wrap">
       <div class="closing__cta close--type">
         <div class="section-head">
-          <h2 data-i18n="close.title">Contato para equipes de engenharia e dados</h2>
-          <p class="section-sub" data-i18n="close.sub">Graduado em Engenharia de Computação pela UFCG em outubro de 2026.</p>
+          <h2 data-i18n="close.title">Contato para equipes de software e dados</h2>
+          <p class="section-sub" data-i18n="close.sub">Formado em Ciência da Computação pela UFCG em outubro de 2026.</p>
         </div>
         <a class="btn btn--xl btn--primary js-cv-link" href="assets/Curriculo_Raphael_Ramos_PT.pdf" download data-i18n="close.cta">Baixar currículo</a>
         <div class="closing__actions">
@@ -618,7 +458,7 @@
       <div class="closing__links">
         <div class="footer__legal">
           <span class="footer__mark"><span class="mark" data-mark="dots" aria-hidden="true"></span>Raphael Ramos</span>
-          <span>Campina Grande · Brasil · raphacramos@gmail.com</span>
+          <span>Campina Grande · Brasil · raphaelramosc@gmail.com</span>
         </div>
       </div>
     </div>
@@ -627,6 +467,6 @@
   <script type="module" src="assets/system.js"></script>
   <script type="module" src="assets/motion/motion.js"></script>
   <script type="module" src="assets/layout/layout.js"></script>
-  <script type="module" src="app.js?v=7"></script>
+  <script type="module" src="app.js?v=8"></script>
 </body>
 </html>
