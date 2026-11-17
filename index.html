@@ -1,854 +1,632 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-radius="soft" data-buttons="solid" data-mark="dots" data-motion="full" data-tone="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark">
-  <script>
-    try {
-      const savedScheme = localStorage.getItem("color-scheme");
-      document.querySelector('meta[name="color-scheme"]').content = savedScheme || "light dark";
-    } catch (_) {}
-  </script>
-  <title>Raphael Ramos — Software, Dados &amp; Observatório</title>
-  <meta name="description" content="Portfólio interativo de Raphael Ramos: sistemas em Python, telemetria no radiotelescópio BINGO, LangGraph, pipelines de dados e natação competitiva.">
-
-  <!-- Open Graph -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="site-kind" content="software">
+  <meta name="page-type" content="software">
+  <meta name="theme-color" content="#0a0d14">
+  <title>Raphael Ramos — Engenharia de Software, Dados e Telemetria</title>
+  <meta name="description" content="Portfólio de Raphael Ramos, Engenheiro de Computação pela UFCG com foco em Python, pipelines ETL em PostgreSQL, telemetria SDR e agentes de IA.">
+  <meta property="og:title" content="Raphael Ramos — Engenharia de Software e Dados">
+  <meta property="og:description" content="Sistemas distribuídos, telemetria RF, pipelines em PostgreSQL e agentes de IA em produção.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Raphael Ramos — Software, Dados &amp; Observatório">
-  <meta property="og:description" content="Engenharia de software, processamento de sinais no BINGO, pipelines ETL e agentes autônomos.">
-  <meta property="og:url" content="https://raphacramos.github.io">
-
-  <!-- Typography: Source Serif 4 (Editorial), Karla (UI), JetBrains Mono (Telemetry) -->
+  <meta property="og:image" content="share.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Raphael Ramos — Engenharia de Software e Dados">
+  <meta name="twitter:description" content="Sistemas distribuídos, telemetria RF, pipelines em PostgreSQL e agentes de IA em produção.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500..700;1,8..60,500..600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/system.css">
+  <link rel="stylesheet" href="assets/ui/cards.css">
+  <link rel="stylesheet" href="assets/motion/motion.css">
+  <link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+  <link rel="stylesheet" href="assets/layout/layout.css">
+  <link rel="stylesheet" href="assets/icons/icon.css">
+  <link rel="stylesheet" href="assets/ui/base.css">
+  <link rel="stylesheet" href="assets/ui/terminal-run/fragment.css">
+  <link rel="stylesheet" href="assets/diagrams/diagram.css">
+  <link rel="stylesheet" href="page.css?v=7">
+  <style>
+  :root {
+    --p-bg: #0a0d14; --p-surface: #131824; --p-ink: #e9edf3; --p-muted: #8891a1;
+    --p-accent: #5ab9fc; --p-accent-ink: #0a0d14; --p-action: #5ab9fc; --p-action-ink: #0a0d14;
+    --p-inv-bg: #e9edf3; --p-inv-surface: #d7dbe1; --p-inv-ink: #0a0d14; --p-inv-muted: #54575f;
+    --p-inv-accent: #0a0d14; --p-inv-accent-ink: #e9edf3; --p-inv-action: #0a0d14; --p-inv-action-ink: #e9edf3;
+    --font-display: "Manrope", system-ui, sans-serif;
+    --font-text: "Manrope", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    --display-weight: 500;
+    --display-tracking: -0.035em;
+    --display-tracking-xl: -0.045em;
+    --ly-scale: 0.97;
+  }
+  </style>
+  <script>
+    try {
+      if (localStorage.getItem('portfolio_theme') === 'light') {
+        document.documentElement.dataset.theme = 'light';
+        document.documentElement.dataset.tone = 'light';
+      }
+    } catch {}
+  </script>
+  <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+  <script src="assets/backgrounds/backgrounds.js"></script>
+  <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+  <link rel="modulepreload" href="assets/moments/moments.js">
+  <link rel="modulepreload" href="assets/moments/lib.js">
+  <link rel="modulepreload" href="assets/moments/letters-assemble/moment.js">
+  <link rel="modulepreload" href="assets/moments/iris-opens/moment.js">
 </head>
-<body>
-  <div class="ambient-backdrop" aria-hidden="true"></div>
-  <div class="blueprint-grid-overlay" aria-hidden="true"></div>
-
-  <div class="page-shell">
-    <!-- Top Bar -->
-    <header class="site-header">
-      <div class="brand-cluster">
-        <a href="#top" class="brand-mark">
-          <svg class="brand-wave-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M2 14c2.2-3.5 4.3-3.5 6.5 0s4.3 3.5 6.5 0 4.3-3.5 7 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="17.5" cy="6.5" r="2" fill="currentColor"/>
-          </svg>
-          <span class="brand-name">Raphael Ramos</span>
-        </a>
-        <span class="brand-badge" data-i18n="header.badge">Campina Grande · PB</span>
-      </div>
-
-      <nav class="header-nav" aria-label="Navegação principal">
-        <a href="#jornada" class="nav-link" data-i18n="nav.story">Jornada</a>
-        <a href="#laboratorio" class="nav-link" data-i18n="nav.lab">Laboratório</a>
-        <a href="#projetos" class="nav-link" data-i18n="nav.projects">Projetos</a>
-        <a href="#pessoal" class="nav-link" data-i18n="nav.personal">Fora do Terminal</a>
+<body id="top">
+  <header class="nav nav--centre">
+    <div class="wrap nav__bar">
+      <a class="skip-link" href="#main" data-i18n="nav.skip">Pular para o conteúdo</a>
+      <a class="nav__logo" href="#top">
+        <span class="mark" data-mark="dots" aria-hidden="true"></span>
+        <span>Raphael Ramos</span>
+      </a>
+      <nav class="nav__links" aria-label="Navegação principal">
+        <span class="nav__item"><a class="nav__link" href="#jornada" data-i18n="nav.journey">Trajetória</a></span>
+        <span class="nav__item"><a class="nav__link" href="#laboratorio" data-i18n="nav.lab">Simuladores</a></span>
+        <span class="nav__item"><a class="nav__link" href="#projetos" data-i18n="nav.projects">Projetos</a></span>
+        <span class="nav__item"><a class="nav__link" href="#pessoal" data-i18n="nav.personal">Perfil</a></span>
       </nav>
-
-      <div class="header-controls">
-        <button type="button" id="cmdTrigger" class="icon-pill-btn" aria-label="Abrir paleta de comandos">
-          <span class="mono-key">⌘K</span>
+      <div class="nav__actions">
+        <button type="button" class="nav__util-btn" id="themeToggle" aria-label="Alternar tema" aria-pressed="false">
+          <span class="icon-sun" aria-hidden="true">&#9788;</span>
+          <span class="icon-moon" aria-hidden="true">&#9790;</span>
         </button>
-        <button type="button" id="terminalTrigger" class="icon-pill-btn" aria-label="Abrir mini terminal">
-          <span class="mono-key">&gt;_</span>
-        </button>
-        <button type="button" id="blueprintToggle" class="icon-pill-btn" aria-pressed="false" title="Modo Blueprint / Raio-X">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M3 9h18M9 3v18"/>
-          </svg>
-          <span class="btn-label-sm" data-i18n="controls.blueprint">Raio-X</span>
-        </button>
-        <button type="button" id="langToggle" class="icon-pill-btn" aria-label="Alternar idioma">
-          <span id="currentLang">EN</span>
-        </button>
-        <button type="button" id="themeToggle" class="icon-pill-btn" aria-label="Alternar tema claro ou escuro">
-          <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-          </svg>
-          <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
+        <button type="button" class="nav__util-btn" id="langToggle" aria-label="Switch to English">EN</button>
+        <a class="btn btn--sm btn--primary js-cv-link" href="assets/Curriculo_Raphael_Ramos_PT.pdf" download data-i18n="nav.cta">Baixar currículo</a>
       </div>
-    </header>
+      <button type="button" class="nav__burger nav__toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="nav__burger-lines" aria-hidden="true"><span></span></span>
+      </button>
+    </div>
+    <div class="nav__drawer" hidden>
+      <a class="nav__link" href="#jornada" data-i18n="nav.journey">Trajetória</a>
+      <a class="nav__link" href="#laboratorio" data-i18n="nav.lab">Simuladores</a>
+      <a class="nav__link" href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a class="nav__link" href="#pessoal" data-i18n="nav.personal">Perfil</a>
+      <div class="drawer-utils">
+        <button type="button" class="nav__util-btn" id="themeToggleMobile" aria-label="Alternar tema">Tema</button>
+        <button type="button" class="nav__util-btn" id="langToggleMobile" aria-label="Alternar idioma">English</button>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary js-cv-link" href="assets/Curriculo_Raphael_Ramos_PT.pdf" download data-i18n="nav.cta">Baixar currículo</a>
+      </div>
+    </div>
+  </header>
 
-    <main id="top">
-      <!-- HERO BENTO -->
-      <section class="hero-bento" aria-labelledby="hero-title">
-        <div class="hero-copy card-surface">
-          <div class="blueprint-tag" aria-hidden="true">MOD-01 · INTRO · 2fr</div>
-          <div class="status-pill">
-            <span data-i18n="hero.status">Ciência da Computação (UFCG) · Ex-Mecatrônica (USP)</span>
-          </div>
-
-          <h1 id="hero-title" class="hero-headline" data-i18n="hero.headline">
-            Código em Python pela manhã, piscina à noite e <span class="headline-accent">ondas de rádio</span> no resto do tempo.
-          </h1>
-
-          <p class="hero-bio" data-i18n="hero.bio">
-            Sou o <strong>Raphael Ramos</strong>. Desenvolvo sistemas de telemetria em tempo real para o radiotelescópio <strong>BINGO</strong>, pipelines de dados em escala e arquiteturas de agentes com LangGraph. Fora do editor, treino natação competitiva e ajudo alunos de graduação com algoritmos e Linux.
-          </p>
-
-          <div class="hero-actions">
-            <button type="button" id="copyEmailBtn" class="btn-primary" data-email="raphaelramosc@gmail.com">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="9" y="9" width="13" height="13" rx="2"/>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-              </svg>
-              <span data-i18n="hero.copy_email">Copiar e-mail</span>
-            </button>
-            <a href="https://github.com/raphacramos" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/raphaelcramos/" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn ↗</a>
-            <a href="assets/Curriculo_Raphael_Ramos_PT.pdf" download="Curriculo_Raphael_Ramos_PT.pdf" class="btn-secondary" id="cvDownloadLink" data-i18n="hero.cv">Currículo (PDF)</a>
-          </div>
-        </div>
-
-        <!-- Hero Interactive SVG: Top-Down Competition Swimming Pool -->
-        <aside class="hero-illustration card-surface" aria-label="Piscina olímpica interativa em SVG">
-          <div class="blueprint-tag" aria-hidden="true">SVG-POOL · 25M · RAIA 4</div>
-          <div class="hero-svg-header">
-            <span class="mono-eyebrow" id="heroSceneBadge" data-i18n="hero.scene_mode">RAIA 4 · 25M · NADO LIVRE</span>
-            <div class="hero-svg-actions">
-              <span class="pool-split-clock" id="poolSplitClock">00:24.84</span>
-              <button type="button" id="btnToggleSceneMotion" class="mini-ctrl-btn" data-i18n="controls.pause_anim">Pausar</button>
-              <button type="button" id="btnFlipTurn" class="mini-ctrl-btn accent" data-i18n="hero.flip_btn">Virada</button>
+  <main id="main">
+    <!-- Hero split screen -->
+    <section class="hero hero--split" data-enter>
+      <div class="wrap hero__in">
+        <div class="grid hero-text hero__grid">
+          <div class="hero__text span-5">
+            <div class="hero__kicker">
+              <span data-i18n="hero.cat">Engenharia de software, dados e telemetria</span>
+            </div>
+            <h1 data-i18n="hero.title">Sistemas distribuídos e dados em produção.</h1>
+            <p class="hero__lead" data-i18n="hero.lead">Raphael Ramos. Engenheiro de Computação pela UFCG com foco em Python, pipelines em PostgreSQL e agentes de IA.</p>
+            <div class="btn-row">
+              <a class="btn btn--primary js-cv-link" href="assets/Curriculo_Raphael_Ramos_PT.pdf" download data-i18n="hero.cta">Baixar currículo</a>
+              <a class="btn btn--secondary" href="#laboratorio" data-i18n="hero.alt">Explorar simuladores</a>
             </div>
           </div>
 
-          <svg id="heroStorySvg" class="hero-svg-canvas pool-svg" viewBox="0 0 380 270" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroSvgTitle">
-            <title id="heroSvgTitle">Piscina de competição vista de cima com raias, marcas no fundo, cáusticas de água e nadador em nado livre</title>
-            <defs>
-              <!-- Water depth gradient (light/dark reactive via CSS stops) -->
-              <linearGradient id="poolWaterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" class="pool-stop-1"/>
-                <stop offset="55%" class="pool-stop-2"/>
-                <stop offset="100%" class="pool-stop-3"/>
-              </linearGradient>
+          <div class="hero__media hero__media--split pool-stage span-6 start-7" id="heroPoolFrame">
+            <div class="frame__fx" data-fx="gradient-mesh" data-fx-seed="17"></div>
+            <svg class="pool-svg" id="heroPoolSvg" viewBox="0 0 380 200" role="img" aria-label="Piscina semiolímpica interativa de 25 metros">
+              <defs>
+                <linearGradient id="poolWaterGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" class="pool-stop-1" />
+                  <stop offset="52%" class="pool-stop-2" />
+                  <stop offset="100%" class="pool-stop-3" />
+                </linearGradient>
+                <pattern id="causticsPat" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <path d="M12 8 Q26 20 18 36 T32 54 M44 4 Q32 22 48 38 T40 58" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" stroke-linecap="round"/>
+                </pattern>
+                <pattern id="laneRope" width="12" height="8" patternUnits="userSpaceOnUse">
+                  <circle cx="3" cy="4" r="2.2" fill="#5ab9fc"/>
+                  <circle cx="9" cy="4" r="2.2" fill="#e9edf3"/>
+                </pattern>
+                <clipPath id="poolClip">
+                  <rect x="44" y="26" width="292" height="148" rx="8"/>
+                </clipPath>
+              </defs>
 
-              <!-- Ceramic pool tile grid -->
-              <pattern id="poolTiles" width="22" height="22" patternUnits="userSpaceOnUse">
-                <path d="M 22 0 L 0 0 0 22" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
-              </pattern>
+              <rect class="pool-deck" x="14" y="10" width="352" height="180" rx="14"/>
+              <rect x="44" y="26" width="292" height="148" rx="8" fill="url(#poolWaterGrad)"/>
 
-              <!-- Sunlit water caustics mesh -->
-              <pattern id="poolCaustics" width="110" height="110" patternUnits="userSpaceOnUse">
-                <path d="M0 55 Q27 28 55 55 T110 55 M55 0 Q82 27 55 55 T55 110" stroke="rgba(224,242,254,0.16)" stroke-width="2" fill="none"/>
-                <path d="M12 22 Q45 48 88 18 M18 86 Q55 62 96 90" stroke="rgba(255,255,255,0.1)" stroke-width="1.3" fill="none"/>
-              </pattern>
+              <g clip-path="url(#poolClip)">
+                <rect class="caustic-layer-a" x="-110" y="-60" width="600" height="320" fill="url(#causticsPat)"/>
+                <rect class="caustic-layer-b" x="-110" y="-60" width="600" height="320" fill="url(#causticsPat)" opacity="0.65"/>
 
-              <!-- Competition anti-wave lane rope pattern (mid-pool blue/white) -->
-              <pattern id="laneMidFloats" width="24" height="10" patternUnits="userSpaceOnUse">
-                <rect x="0" y="1.5" width="7" height="7" rx="2" fill="#e0f2fe"/>
-                <rect x="8" y="1.5" width="7" height="7" rx="2" fill="#0284c7"/>
-                <rect x="16" y="1.5" width="7" height="7" rx="2" fill="#f8fafc"/>
-              </pattern>
+                <path d="M58 62 H322 M64 56 V68 M316 56 V68" stroke="rgba(10,13,20,0.45)" stroke-width="4" stroke-linecap="round"/>
+                <path d="M58 99 H322 M64 93 V105 M316 93 V105" stroke="rgba(10,13,20,0.55)" stroke-width="4.5" stroke-linecap="round"/>
+                <path d="M58 136 H322 M64 130 V142 M316 130 V142" stroke="rgba(10,13,20,0.45)" stroke-width="4" stroke-linecap="round"/>
 
-              <!-- Final 5m red warning floats near the walls -->
-              <pattern id="laneEndFloats" width="16" height="10" patternUnits="userSpaceOnUse">
-                <rect x="0" y="1.5" width="7" height="7" rx="2" fill="#dc2626"/>
-                <rect x="8" y="1.5" width="7" height="7" rx="2" fill="#f87171"/>
-              </pattern>
+                <rect x="44" y="76" width="292" height="8" fill="url(#laneRope)" opacity="0.9"/>
+                <rect x="44" y="114" width="292" height="8" fill="url(#laneRope)" opacity="0.9"/>
 
-              <clipPath id="poolBasinClip">
-                <rect x="16" y="16" width="348" height="238" rx="10"/>
-              </clipPath>
-            </defs>
+                <g id="poolRipples"></g>
 
-            <!-- Pool Coping / Concrete Deck Rim -->
-            <rect x="4" y="4" width="372" height="262" rx="16" class="pool-deck"/>
-            <!-- Pool Basin -->
-            <rect x="16" y="16" width="348" height="238" rx="10" fill="url(#poolWaterGrad)"/>
-
-            <g clip-path="url(#poolBasinClip)">
-              <!-- Ceramic Tiles -->
-              <rect x="16" y="16" width="348" height="238" fill="url(#poolTiles)"/>
-
-              <!-- Adjacent lanes faint T-lines -->
-              <line x1="48" y1="32" x2="332" y2="32" stroke="#082f49" stroke-opacity="0.28" stroke-width="5" stroke-linecap="round"/>
-              <line x1="48" y1="238" x2="332" y2="238" stroke="#082f49" stroke-opacity="0.28" stroke-width="5" stroke-linecap="round"/>
-
-              <!-- Center Lane (Raia 4) Black T-Line Markings on Pool Floor -->
-              <g class="lane-floor-markings" stroke="#072236" stroke-opacity="0.68" stroke-width="8" stroke-linecap="butt">
-                <line x1="46" y1="135" x2="334" y2="135"/>
-                <line x1="46" y1="114" x2="46" y2="156"/>
-                <line x1="334" y1="114" x2="334" y2="156"/>
-              </g>
-
-              <!-- Touchpads at both pool walls -->
-              <rect x="16" y="96" width="5" height="78" rx="1.5" fill="#facc15" opacity="0.9"/>
-              <rect x="359" y="96" width="5" height="78" rx="1.5" fill="#facc15" opacity="0.9"/>
-
-              <!-- Drifting Water Caustics (2 layers) -->
-              <rect class="caustic-layer-a" x="-110" y="-110" width="600" height="500" fill="url(#poolCaustics)"/>
-              <rect class="caustic-layer-b" x="-110" y="-110" width="600" height="500" fill="url(#poolCaustics)" opacity="0.6"/>
-
-              <!-- Top Lane Rope (y=62) -->
-              <line x1="16" y1="62" x2="364" y2="62" stroke="#0c4a6e" stroke-width="2.5"/>
-              <rect x="18" y="57" width="64" height="10" fill="url(#laneEndFloats)"/>
-              <rect x="82" y="57" width="216" height="10" fill="url(#laneMidFloats)"/>
-              <rect x="298" y="57" width="64" height="10" fill="url(#laneEndFloats)"/>
-
-              <!-- Bottom Lane Rope (y=208) -->
-              <line x1="16" y1="208" x2="364" y2="208" stroke="#0c4a6e" stroke-width="2.5"/>
-              <rect x="18" y="203" width="64" height="10" fill="url(#laneEndFloats)"/>
-              <rect x="82" y="203" width="216" height="10" fill="url(#laneMidFloats)"/>
-              <rect x="298" y="203" width="64" height="10" fill="url(#laneEndFloats)"/>
-
-              <!-- Backstroke 5m Flags (subtle overhead cord) -->
-              <line x1="78" y1="16" x2="78" y2="254" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-dasharray="4 4"/>
-              <line x1="302" y1="16" x2="302" y2="254" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-dasharray="4 4"/>
-
-              <!-- Top-Down Freestyle Swimmer in Lane 4 -->
-              <g id="swimmerSprite" class="swimmer-sprite" transform="translate(185, 135)">
-                <g class="swimmer-flip">
-                  <!-- Soft shadow on pool floor -->
-                  <ellipse cx="-2" cy="10" rx="30" ry="10" fill="#041827" opacity="0.24"/>
-
-                  <!-- Bow wave & trailing wake -->
-                  <path class="bow-wave" d="M 38 -16 Q 48 0 38 16" stroke="rgba(255,255,255,0.65)" stroke-width="1.8" stroke-linecap="round"/>
-                  <path class="wake-trail" d="M -26 -8 Q -44 -12 -60 -7 M -26 8 Q -44 12 -60 7" stroke="rgba(224,242,254,0.55)" stroke-width="1.4" stroke-linecap="round"/>
-                  <circle class="bubble b1" cx="-46" cy="-4" r="2.2" fill="rgba(255,255,255,0.75)"/>
-                  <circle class="bubble b2" cx="-58" cy="3" r="1.7" fill="rgba(255,255,255,0.6)"/>
-                  <circle class="bubble b3" cx="-70" cy="-2" r="2.6" fill="rgba(255,255,255,0.5)"/>
-
-                  <!-- Flutter Kick Legs -->
-                  <g class="leg-left">
-                    <path d="M -12 -4 L -40 -7 C -45 -7 -48 -5 -47 -3 C -45 -1 -40 -1 -12 -1 Z" fill="#f5c6a5"/>
+                <g id="swimmerGroup" transform="translate(110, 99)">
+                  <g class="swimmer-flip">
+                    <g id="swimmerRig">
+                      <ellipse cx="0" cy="0" rx="22" ry="7" fill="rgba(255,255,255,0.16)"/>
+                      <g class="leg-left"><path d="M-12 -2.5 L-28 -5.5" stroke="#fde68a" stroke-width="3.2" stroke-linecap="round"/></g>
+                      <g class="leg-right"><path d="M-12 2.5 L-28 5.5" stroke="#fde68a" stroke-width="3.2" stroke-linecap="round"/></g>
+                      <g class="swimmer-torso">
+                        <ellipse cx="3" cy="0" rx="14" ry="5.2" fill="#e9edf3"/>
+                        <rect x="-10" y="-4" width="12" height="8" rx="3" fill="#0a0d14"/>
+                      </g>
+                      <g class="arm-left"><path d="M12 -5 Q22 -12 30 -3" fill="none" stroke="#fde68a" stroke-width="3.2" stroke-linecap="round"/></g>
+                      <g class="arm-right"><path d="M12 5 Q22 12 30 3" fill="none" stroke="#fde68a" stroke-width="3.2" stroke-linecap="round"/></g>
+                      <circle cx="19" cy="0" r="5" fill="#fde68a"/>
+                      <path d="M18 -5 A5 5 0 0 1 24 0 A5 5 0 0 1 18 5 Z" fill="#5ab9fc"/>
+                      <circle class="bubble b1" cx="-16" cy="-4" r="1.8" fill="rgba(255,255,255,0.85)"/>
+                      <circle class="bubble b2" cx="-22" cy="3" r="1.4" fill="rgba(255,255,255,0.75)"/>
+                      <circle class="bubble b3" cx="-26" cy="-1" r="2.1" fill="rgba(255,255,255,0.65)"/>
+                    </g>
                   </g>
-                  <g class="leg-right">
-                    <path d="M -12 4 L -40 7 C -45 7 -48 5 -47 3 C -45 1 -40 1 -12 1 Z" fill="#edb58e"/>
-                  </g>
-
-                  <!-- Left Arm (Freestyle Cycle) -->
-                  <g class="arm-left">
-                    <path d="M 14 -10 C 26 -24 40 -22 48 -10 C 50 -7 46 -4 41 -8 C 34 -14 22 -14 14 -5 Z" fill="#f5c6a5"/>
-                  </g>
-
-                  <!-- Right Arm (Opposite Phase) -->
-                  <g class="arm-right">
-                    <path d="M 14 10 C 6 22 -8 24 -16 14 C -18 11 -14 8 -9 11 C -2 15 6 14 12 5 Z" fill="#edb58e"/>
-                  </g>
-
-                  <!-- Torso & Jammer Swimsuit -->
-                  <g class="swimmer-torso">
-                    <path d="M -14 -8 C -4 -12 12 -13 22 -9 C 25 -4 25 4 22 9 C 12 13 -4 12 -14 8 Z" fill="#f5c6a5"/>
-                    <path d="M -15 -7 C -8 -9 0 -9 4 -8 L 4 8 C 0 9 -8 9 -15 7 Z" fill="#0f172a"/>
-                    <line x1="-12" y1="-6" x2="2" y2="-6" stroke="#38bdf8" stroke-width="1.2"/>
-                    <line x1="-12" y1="6" x2="2" y2="6" stroke="#38bdf8" stroke-width="1.2"/>
-                  </g>
-
-                  <!-- Head + Coral Racing Cap + Goggles -->
-                  <circle cx="29" cy="0" r="7.2" fill="#f5c6a5"/>
-                  <path d="M 22 -6.5 C 28 -8.5 36 -5.5 36 0 C 36 5.5 28 8.5 22 6.5 C 24 2.5 24 -2.5 22 -6.5 Z" fill="#ea580c"/>
-                  <path d="M 33 -5.2 Q 36.5 0 33 5.2" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
                 </g>
               </g>
 
-              <!-- Interactive Click Ripple Layer (above water & swimmer) -->
-              <g id="poolRippleLayer"></g>
-            </g>
+              <rect x="28" y="54" width="14" height="16" rx="2" fill="#5ab9fc"/>
+              <rect x="28" y="91" width="14" height="16" rx="2" fill="#5ab9fc"/>
+              <rect x="28" y="128" width="14" height="16" rx="2" fill="#5ab9fc"/>
+              <text x="190" y="19" text-anchor="middle" fill="currentColor" opacity="0.7" font-size="9" font-family="var(--font-mono)">25M SHORT COURSE</text>
+            </svg>
 
-            <!-- Starting Block at Left Wall -->
-            <rect x="4" y="119" width="15" height="32" rx="3" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
-            <text x="11.5" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#0f172a">4</text>
-          </svg>
-
-          <p class="hero-svg-caption" id="heroSceneCaption" data-i18n="hero.scene_caption">
-            Clique na água para gerar ondas ou acione a virada olímpica.
-          </p>
-        </aside>
-      </section>
-
-      <!-- SECTION 1: INTERACTIVE SVG STORY TIMELINE -->
-      <section id="jornada" class="section-block" aria-labelledby="story-heading">
-        <div class="section-header-row">
-          <div>
-            <h2 id="story-heading" class="section-title" data-i18n="story.title">Da raia da piscina às ondas de rádio</h2>
+            <div class="ly-float pool-float">
+              <div class="ly-float__row">
+                <span class="ly-live" id="poolStatusText">Raia 4 · 25m · Volta 1</span>
+              </div>
+              <div class="pool-float__actions">
+                <button type="button" class="btn btn--sm btn--secondary" id="btnFlipTurn" data-i18n="hero.pool_turn">Inverter direção</button>
+                <button type="button" class="btn btn--sm btn--secondary" id="btnPoolPause" aria-pressed="false" data-i18n="hero.pool_pause">Pausar nado</button>
+              </div>
+            </div>
           </div>
-          <p class="section-subnote" data-i18n="story.hint">Clique nos nós do mapa SVG para abrir cada capítulo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dealt Moment 1: letters-assemble -->
+    <section class="section" data-moment="letters-assemble" data-moment-opts='{"spread": 0.45}'>
+      <div class="wrap">
+        <h2 class="mo-la__type">Sistemas em Python e PostgreSQL</h2>
+        <p class="mo-la__sub" data-i18n="stmt.sub">Da coleta de sinais de rádio em Python até pipelines deduplicados em PostgreSQL e agentes autônomos com contratos estruturados.</p>
+        <dl class="hero__facts mo-la__facts">
+          <div><dt>Telemetria RF</dt><dd>113 testes em pytest</dd></div>
+          <div><dt>Banco PostgreSQL</dt><dd>105.582 registros ETL</dd></div>
+          <div><dt>Simulador lógico</dt><dd>490 questões estáticas</dd></div>
+          <div><dt>Monitoria UFCG</dt><dd>75+ alunos orientados</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive Story Timeline -->
+    <section class="section" id="jornada">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="journey.title">Engenharia na USP, Scrub Up e UFCG</h2>
+          <p class="section-sub" data-i18n="journey.sub">Da USP à engenharia de software na UFCG e pesquisa aplicada.</p>
         </div>
 
-        <div class="story-board card-surface">
-          <div class="blueprint-tag" aria-hidden="true">SVG-TIMELINE · 4 NODES</div>
-          <div class="story-svg-wrap">
-            <svg class="story-path-svg" viewBox="0 0 880 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Linha do tempo interativa da trajetória de Raphael Ramos">
-              <!-- Clean architectural axis ticks -->
-              <line x1="36" y1="186" x2="844" y2="186" stroke="var(--border-subtle)" stroke-width="1"/>
-              <!-- Base dashed rail -->
-              <path d="M68 125 C155 45, 225 45, 295 118 C365 185, 445 180, 525 102 C605 28, 695 35, 812 96" stroke="var(--border-strong)" stroke-width="2.5" stroke-dasharray="6 6"/>
-              <!-- Active progress path -->
-              <path id="storyActivePath" d="M68 125 C155 45, 225 45, 295 118 C365 185, 445 180, 525 102 C605 28, 695 35, 812 96" stroke="var(--accent-pool)" stroke-width="3" stroke-linecap="round"/>
+        <div class="grid">
+          <div class="span-5 story-detail">
+            <h3 id="storyDetailTitle">Economia e dados na USP (2018–2019)</h3>
+            <p class="story-detail-body" id="storyDetailBody">Formação inicial com modelagem quantitativa, estatística e microeconomia antes de migrar integralmente para Engenharia de Computação.</p>
+            <p class="story-takeaway" id="storyDetailTakeaway">Capítulo 01 · Base analítica aplicada a software.</p>
+            <div class="tabs story-tabs" role="tablist" aria-label="Capítulos da trajetória">
+              <button type="button" class="tab story-tab" role="tab" data-step="0" aria-selected="true">01 USP</button>
+              <button type="button" class="tab story-tab" role="tab" data-step="1" aria-selected="false">02 Scrub Up</button>
+              <button type="button" class="tab story-tab" role="tab" data-step="2" aria-selected="false">03 UFCG</button>
+              <button type="button" class="tab story-tab" role="tab" data-step="3" aria-selected="false">04 BINGO</button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn--sm btn--secondary" id="btnPrevStory" data-i18n="journey.prev">Capítulo anterior</button>
+              <button type="button" class="btn btn--sm btn--secondary" id="btnNextStory" data-i18n="journey.next">Próximo capítulo</button>
+            </div>
+          </div>
 
-              <!-- Interactive Chapter Nodes -->
-              <g class="story-node is-active" data-chapter="0" tabindex="0" role="button" aria-pressed="true" aria-label="Capítulo 1: São Paulo e USP" transform="translate(68, 125)">
-                <circle r="24" class="node-halo"/>
-                <circle r="15" class="node-core"/>
-                <text y="4" text-anchor="middle" class="node-num">01</text>
-                <text y="40" text-anchor="middle" class="node-label">USP · SP</text>
-                <text y="55" text-anchor="middle" class="node-years">2018–19</text>
+          <div class="frame story-frame span-6 start-7">
+            <svg class="story-path-svg" viewBox="0 0 560 360" role="img" aria-label="Mapa de evolução USP, Scrub Up, UFCG e BINGO">
+              <path d="M70 280 C160 280, 170 200, 230 200 C290 200, 290 125, 355 125 C415 125, 425 70, 490 70" fill="none" stroke="var(--line-strong)" stroke-width="3.5" stroke-linecap="round"/>
+              <path id="storyActivePath" d="M70 280 C160 280, 170 200, 230 200 C290 200, 290 125, 355 125 C415 125, 425 70, 490 70" fill="none" stroke="var(--accent)" stroke-width="4" stroke-dasharray="760" stroke-dashoffset="760" stroke-linecap="round"/>
+
+              <g class="story-node is-active" data-step="0">
+                <circle class="node-halo" cx="70" cy="280" r="24"/>
+                <circle class="node-core" cx="70" cy="280" r="16"/>
+                <text class="node-num" x="70" y="285" text-anchor="middle">01</text>
+                <text class="node-label" x="70" y="324" text-anchor="middle">USP Economia</text>
+                <text class="node-years" x="70" y="342" text-anchor="middle">2018 – 2019</text>
               </g>
 
-              <g class="story-node" data-chapter="1" tabindex="0" role="button" aria-pressed="false" aria-label="Capítulo 2: Operação real e negócios" transform="translate(295, 118)">
-                <circle r="24" class="node-halo"/>
-                <circle r="15" class="node-core"/>
-                <text y="4" text-anchor="middle" class="node-num">02</text>
-                <text y="40" text-anchor="middle" class="node-label">Scrub Up</text>
-                <text y="55" text-anchor="middle" class="node-years">2020–24</text>
+              <g class="story-node" data-step="1">
+                <circle class="node-halo" cx="230" cy="200" r="24"/>
+                <circle class="node-core" cx="230" cy="200" r="16"/>
+                <text class="node-num" x="230" y="205" text-anchor="middle">02</text>
+                <text class="node-label" x="230" y="244" text-anchor="middle">Scrub Up</text>
+                <text class="node-years" x="230" y="262" text-anchor="middle">2020 – 2024</text>
               </g>
 
-              <g class="story-node" data-chapter="2" tabindex="0" role="button" aria-pressed="false" aria-label="Capítulo 3: UFCG, monitorias e TCC" transform="translate(525, 102)">
-                <circle r="24" class="node-halo"/>
-                <circle r="15" class="node-core"/>
-                <text y="4" text-anchor="middle" class="node-num">03</text>
-                <text y="44" text-anchor="middle" class="node-label">UFCG · PB</text>
-                <text y="60" text-anchor="middle" class="node-years">2024–26</text>
+              <g class="story-node" data-step="2">
+                <circle class="node-halo" cx="355" cy="125" r="24"/>
+                <circle class="node-core" cx="355" cy="125" r="16"/>
+                <text class="node-num" x="355" y="130" text-anchor="middle">03</text>
+                <text class="node-label" x="355" y="169" text-anchor="middle">UFCG Engenharia</text>
+                <text class="node-years" x="355" y="187" text-anchor="middle">2021 – 2026</text>
               </g>
 
-              <g class="story-node" data-chapter="3" tabindex="0" role="button" aria-pressed="false" aria-label="Capítulo 4: BINGO e Agentes de IA" transform="translate(812, 96)">
-                <circle r="24" class="node-halo"/>
-                <circle r="15" class="node-core"/>
-                <text y="4" text-anchor="middle" class="node-num">04</text>
-                <text y="40" text-anchor="middle" class="node-label">BINGO &amp; IA</text>
-                <text y="55" text-anchor="middle" class="node-years">2026+</text>
+              <g class="story-node" data-step="3">
+                <circle class="node-halo" cx="490" cy="70" r="24"/>
+                <circle class="node-core" cx="490" cy="70" r="16"/>
+                <text class="node-num" x="490" y="75" text-anchor="middle">04</text>
+                <text class="node-label" x="490" y="114" text-anchor="middle">BINGO e Dados</text>
+                <text class="node-years" x="490" y="132" text-anchor="middle">2025 – 2026</text>
               </g>
             </svg>
           </div>
-
-          <article class="story-detail-card" id="storyDetailPanel" aria-live="polite">
-            <div class="story-detail-meta">
-              <span class="story-tag" id="storyTag">Capítulo 01 · São Paulo</span>
-              <span class="story-period" id="storyPeriod">Jan 2018 – Jun 2019</span>
-            </div>
-            <h3 class="story-detail-title" id="storyDetailTitle">Mecatrônica na USP: quando o código ganhou do ferro de solda</h3>
-            <p class="story-detail-body" id="storyDetailBody">
-              Comecei em Engenharia Mecatrônica na Poli-USP entre equações diferenciais, circuitos e controle dinâmico. Foi lá que percebi que minha parte favorita de qualquer projeto não era montar a placa — era escrever a lógica que fazia tudo conversar. Daí veio a virada para Ciência da Computação.
-            </p>
-            <div class="story-detail-footer">
-              <span class="story-takeaway" id="storyTakeaway">Aprendizado: base matemática sólida + clareza de que software era minha casa.</span>
-              <div class="story-step-nav">
-                <button type="button" id="storyPrevBtn" class="mini-ctrl-btn" aria-label="Capítulo anterior">←</button>
-                <button type="button" id="storyNextBtn" class="mini-ctrl-btn" aria-label="Próximo capítulo">→</button>
-              </div>
-            </div>
-          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- SECTION 2: INTERACTIVE LAB (1 HARDWARE FRAME WITH 4 TABS) -->
-      <section id="laboratorio" class="section-block" aria-labelledby="lab-heading">
-        <div class="section-header-row">
-          <div>
-            <h2 id="lab-heading" class="section-title" data-i18n="lab.title">Toque nos sistemas em vez de só ler sobre eles</h2>
-          </div>
-          <p class="section-subnote" data-i18n="lab.hint">Quatro simuladores rodando 100% no navegador.</p>
+    <!-- Section 4: Tabs-Tour Interactive Labs -->
+    <section class="section" id="laboratorio">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="lab.title">Simuladores de engenharia em tempo real</h2>
+          <p class="section-sub" data-i18n="lab.sub">Telemetria, grafos de agentes, predição estatística e roteamento em rede.</p>
         </div>
 
-        <div class="lab-shell card-surface">
-          <div class="blueprint-tag" aria-hidden="true">LAB-TABS · 4 SANDBOXES</div>
-          <div class="lab-tablist" role="tablist" focusgroup="tablist nomemory" aria-label="Simuladores interativos de projetos">
-            <button type="button" role="tab" id="tab-bingo" class="lab-tab" aria-selected="true" focusgroupstart>
-              <span data-i18n="lab.tab_bingo">BINGO SDR + Waterfall</span>
-            </button>
-            <button type="button" role="tab" id="tab-langgraph" class="lab-tab" aria-selected="false">
-              <span data-i18n="lab.tab_langgraph">LangGraph Chaos</span>
-            </button>
-            <button type="button" role="tab" id="tab-copa" class="lab-tab" aria-selected="false">
-              <span data-i18n="lab.tab_copa">Dixon-Coles (Copa)</span>
-            </button>
-            <button type="button" role="tab" id="tab-rip" class="lab-tab" aria-selected="false">
-              <span data-i18n="lab.tab_rip">Malha RIP (R1–R12)</span>
-            </button>
+        <div class="tabs-tour">
+          <div class="tabs" role="tablist" aria-label="Simuladores interativos">
+            <button type="button" class="tab" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1 screen-1" data-i18n="lab.tab1">BINGO SDR</button>
+            <button type="button" class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2 screen-2" data-i18n="lab.tab2">LangGraph</button>
+            <button type="button" class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3 screen-3" data-i18n="lab.tab3">Copa 2026</button>
+            <button type="button" class="tab" role="tab" id="tab-4" aria-selected="false" aria-controls="panel-4 screen-4" data-i18n="lab.tab4">Malha RIP</button>
           </div>
 
-          <!-- PANEL 1: BINGO SDR + WATERFALL -->
-          <div id="panel-bingo" role="tabpanel" aria-labelledby="tab-bingo" tabindex="0">
-            <div class="lab-panel-inner">
-              <div class="instrument-hud">
-                <div class="hud-cell">
-                  <span class="hud-label" data-i18n="hud.freq">FREQ. CENTRAL</span>
-                  <span class="hud-val" id="hudFreq">1100.00 MHz</span>
-                </div>
-                <div class="hud-cell">
-                  <span class="hud-label" data-i18n="hud.worker">WORKER</span>
-                  <span class="hud-val" id="hudWorker">Async · Coalesced</span>
-                </div>
-                <div class="hud-cell">
-                  <span class="hud-label" data-i18n="hud.coords">APONTAMENTO</span>
-                  <span class="hud-val" id="hudCoords">RA 04h 32m · Dec -15° 20'</span>
-                </div>
-                <div class="hud-cell">
-                  <span class="hud-label" data-i18n="hud.tests">SUÍTE</span>
-                  <span class="hud-val">113 pytest · HDF5</span>
-                </div>
+          <div class="grid">
+            <div class="span-5">
+              <div class="lab-tabpanel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+                <h3 data-i18n="lab.p1_title">Analisador de telemetria BINGO SDR</h3>
+                <p data-i18n="lab.p1_desc">Workers assíncronos por sessão isolam processamento de sinal e exclusividade de hardware, validados por 113 testes em pytest.</p>
               </div>
+              <div class="lab-tabpanel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+                <h3 data-i18n="lab.p2_title">Agente de software LangGraph</h3>
+                <p data-i18n="lab.p2_desc">Grafo de estados em Python com esquemas Pydantic tipados, validação estrutural e execução segura de plano de recuperação.</p>
+              </div>
+              <div class="lab-tabpanel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+                <h3 data-i18n="lab.p3_title">Preditor Dixon-Coles Copa 2026</h3>
+                <p data-i18n="lab.p3_desc">Matriz bivariada de placares com ponderação temporal, Pi-Ratings dinâmicos e penalidade por deslocamento Haversine.</p>
+              </div>
+              <div class="lab-tabpanel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+                <h3 data-i18n="lab.p4_title">Malha RIP R1 a R12 com Split Horizon</h3>
+                <p data-i18n="lab.p4_desc">Simule falha em qualquer enlace clicando na aresta e acompanhe o recálculo imediato da melhor rota.</p>
+              </div>
+            </div>
 
-              <div class="canvas-stack">
+            <div class="frame lab-frame span-6 start-7">
+              <!-- Screen 1: BINGO SDR -->
+              <div class="lab-screen" id="screen-1">
+                <div class="instrument-hud">
+                  <div class="hud-cell"><span class="hud-label">CENTER</span><span class="hud-val">1420.4 MHz</span></div>
+                  <div class="hud-cell"><span class="hud-label">PEAK</span><span class="hud-val" id="hudPeak">1420.5 MHz</span></div>
+                  <div class="hud-cell"><span class="hud-label">SNR</span><span class="hud-val" id="hudSnr">+24.1 dB</span></div>
+                  <div class="hud-cell"><span class="hud-label">STATUS</span><span class="hud-val" id="hudState">NOMINAL</span></div>
+                </div>
                 <div class="canvas-box">
-                  <canvas id="spectrumCanvas" width="840" height="190"></canvas>
-                  <div class="crosshair-readout" id="crosshairReadout">Passe o cursor no espectro</div>
+                  <span class="crosshair-readout" id="crosshairReadout">1420.40 MHz · -72.0 dBm</span>
+                  <canvas id="spectrumCanvas" aria-label="Analisador espectral SDR"></canvas>
                 </div>
-                <div class="canvas-box waterfall-box">
-                  <canvas id="waterfallCanvas" width="840" height="96"></canvas>
-                  <span class="waterfall-label" data-i18n="lab.waterfall_lbl">Espectrograma Waterfall (histórico)</span>
+                <div class="canvas-box">
+                  <canvas id="waterfallCanvas" aria-label="Cachoeira temporal de espectro"></canvas>
                 </div>
-              </div>
-
-              <div class="lab-toolbar">
-                <div class="btn-row">
-                  <button type="button" id="btnToggleStream" class="inst-btn active">
-                    <span id="btnStreamText" data-i18n="controls.pause">Pausar</span>
-                  </button>
-                  <button type="button" id="btnInjectSignal" class="inst-btn" data-i18n="controls.pulse">Injetar pulso</button>
-                  <button type="button" id="btnToggleRfi" class="inst-btn" aria-pressed="false" data-i18n="controls.rfi">Simular RFI</button>
-                  <button type="button" id="btnToggleAudio" class="inst-btn" aria-pressed="false" data-i18n="controls.sound">Som: Off</button>
-                </div>
-                <div class="btn-row">
-                  <span class="toolbar-label" data-i18n="controls.preset">Banda:</span>
-                  <button type="button" class="preset-chip active" data-freq="1100">1.1 GHz (BINGO)</button>
-                  <button type="button" class="preset-chip" data-freq="1420">1.42 GHz (HI)</button>
-                  <button type="button" class="preset-chip" data-freq="980">980 MHz</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- PANEL 2: LANGGRAPH CHAOS SANDBOX -->
-          <div id="panel-langgraph" role="tabpanel" aria-labelledby="tab-langgraph" hidden="until-found">
-            <div class="lab-panel-inner">
-              <div class="sandbox-split">
-                <div class="sandbox-stage">
-                  <svg id="langgraphSvg" viewBox="0 0 540 240" class="sandbox-svg" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafo de estados LangGraph com rota de fallback">
-                    <!-- Edges -->
-                    <path id="lg-e-start" d="M68 110 L152 110" class="lg-edge"/>
-                    <path id="lg-e-ok" d="M236 110 L320 62" class="lg-edge"/>
-                    <path id="lg-e-tool" d="M408 62 L468 110" class="lg-edge"/>
-                    <path id="lg-e-fail" d="M236 110 L320 170" class="lg-edge edge-fallback"/>
-                    <path id="lg-e-recover" d="M408 170 L468 110" class="lg-edge edge-fallback"/>
-
-                    <!-- Nodes -->
-                    <g id="lg-n-state" class="lg-node" transform="translate(20, 88)">
-                      <rect width="74" height="44" rx="8" class="lg-box"/>
-                      <text x="37" y="26" text-anchor="middle" class="lg-text">State</text>
-                    </g>
-                    <g id="lg-n-router" class="lg-node" transform="translate(152, 84)">
-                      <rect width="92" height="52" rx="10" class="lg-box"/>
-                      <text x="46" y="24" text-anchor="middle" class="lg-text">Router</text>
-                      <text x="46" y="39" text-anchor="middle" class="lg-sub">Condicional</text>
-                    </g>
-                    <g id="lg-n-pydantic" class="lg-node" transform="translate(316, 36)">
-                      <rect width="98" height="52" rx="10" class="lg-box"/>
-                      <text x="49" y="24" text-anchor="middle" class="lg-text">Tool Call</text>
-                      <text x="49" y="39" text-anchor="middle" class="lg-sub">Schema Pydantic</text>
-                    </g>
-                    <g id="lg-n-fallback" class="lg-node" transform="translate(316, 144)">
-                      <rect width="98" height="52" rx="10" class="lg-box box-warn"/>
-                      <text x="49" y="24" text-anchor="middle" class="lg-text">Fallback</text>
-                      <text x="49" y="39" text-anchor="middle" class="lg-sub">Determinístico</text>
-                    </g>
-                    <g id="lg-n-done" class="lg-node" transform="translate(456, 88)">
-                      <rect width="68" height="44" rx="8" class="lg-box"/>
-                      <text x="34" y="26" text-anchor="middle" class="lg-text">Output</text>
-                    </g>
-
-                    <!-- Animated State Token -->
-                    <circle id="lgPacket" cx="56" cy="110" r="6.5" class="lg-packet"/>
-                  </svg>
-                </div>
-
-                <div class="sandbox-log-card">
-                  <div class="sandbox-log-head" data-i18n="lg.log_head">TRACE DO GRAFO (STATEGRAPH)</div>
-                  <div id="lgLogOutput" class="sandbox-log-body" aria-live="polite">
-                    Clique em um cenário ao lado para ver o roteamento condicional em ação.
+                <div class="lab-toolbar">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn--sm btn--secondary" id="btnInjectRfi" aria-pressed="false" data-i18n="lab.rfi">Injetar RFI</button>
+                    <button type="button" class="btn btn--sm btn--secondary" id="btnSonarSound" aria-pressed="false" data-i18n="lab.sound">Ouvir espectro</button>
                   </div>
                 </div>
               </div>
 
-              <div class="lab-toolbar">
-                <div class="btn-row">
-                  <button type="button" id="btnLgNormal" class="inst-btn active" data-i18n="lg.btn_normal">Fluxo nominal</button>
-                  <button type="button" id="btnLgBadJson" class="inst-btn" data-i18n="lg.btn_bad">Injetar JSON inválido</button>
-                  <button type="button" id="btnLgTimeout" class="inst-btn" data-i18n="lg.btn_timeout">Simular timeout</button>
-                </div>
-                <span class="toolbar-note" data-i18n="lg.note">Esquemas tipados em Pydantic + testes pytest</span>
-              </div>
-            </div>
-          </div>
+              <!-- Screen 2: LangGraph Chaos -->
+              <div class="lab-screen" id="screen-2" hidden>
+                <svg class="sandbox-svg" viewBox="0 0 540 190" role="img" aria-label="Simulador de roteamento de agente em grafos">
+                  <path class="lg-edge" d="M112 95 H156"/>
+                  <path class="lg-edge" d="M250 95 L288 58"/>
+                  <path class="lg-edge edge-fallback" d="M250 95 L288 140"/>
+                  <path class="lg-edge" d="M392 58 L422 95"/>
+                  <path class="lg-edge edge-fallback" d="M392 140 L422 95"/>
 
-          <!-- PANEL 3: DIXON-COLES COPA 2026 -->
-          <div id="panel-copa" role="tabpanel" aria-labelledby="tab-copa" hidden="until-found">
-            <div class="lab-panel-inner">
-              <div class="copa-grid">
+                  <g class="lg-node" id="lgN1"><rect class="lg-box" x="28" y="72" width="84" height="46" rx="8"/><text class="lg-text" x="70" y="100" text-anchor="middle">Input</text></g>
+                  <g class="lg-node" id="lgN2"><rect class="lg-box" x="156" y="72" width="94" height="46" rx="8"/><text class="lg-text" x="203" y="100" text-anchor="middle">Pydantic</text></g>
+                  <g class="lg-node" id="lgN3"><rect class="lg-box" x="288" y="35" width="104" height="46" rx="8"/><text class="lg-text" x="340" y="63" text-anchor="middle">Worker</text></g>
+                  <g class="lg-node" id="lgN4"><rect class="lg-box" x="288" y="117" width="104" height="46" rx="8"/><text class="lg-text" x="340" y="145" text-anchor="middle">Fallback</text></g>
+                  <g class="lg-node" id="lgN5"><rect class="lg-box" x="422" y="72" width="90" height="46" rx="8"/><text class="lg-text" x="467" y="100" text-anchor="middle">Saída</text></g>
+
+                  <circle class="lg-packet" id="lgPacket" cx="72" cy="95" r="7"/>
+                </svg>
+                <div class="sandbox-log" id="lgTraceLog">Selecione um cenário abaixo para acompanhar o grafo de execução e fallback.</div>
+                <div class="lab-toolbar">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn--sm btn--secondary" data-chaos="ok" data-i18n="lab.chaos_ok">Executar nominal</button>
+                    <button type="button" class="btn btn--sm btn--secondary" data-chaos="retry" data-i18n="lab.chaos_retry">Simular falha leve</button>
+                    <button type="button" class="btn btn--sm btn--secondary" data-chaos="block" data-i18n="lab.chaos_block">Simular falha crítica</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 3: Copa 2026 Dixon-Coles -->
+              <div class="lab-screen" id="screen-3" hidden>
                 <div class="copa-controls">
                   <div class="select-pair">
-                    <label class="field-label">
-                      <span data-i18n="copa.team_a">Seleção A</span>
-                      <select id="copaTeamA" class="clean-select">
+                    <label class="field-lbl">Seleção A
+                      <select class="clean-select" id="teamA">
                         <option value="BRA" selected>Brasil</option>
+                        <option value="ARG">Argentina</option>
                         <option value="FRA">França</option>
-                        <option value="ARG">Argentina</option>
                         <option value="ESP">Espanha</option>
-                        <option value="JPN">Japão</option>
-                        <option value="MAR">Marrocos</option>
                       </select>
                     </label>
-                    <label class="field-label">
-                      <span data-i18n="copa.team_b">Seleção B</span>
-                      <select id="copaTeamB" class="clean-select">
+                    <label class="field-lbl">Seleção B
+                      <select class="clean-select" id="teamB">
+                        <option value="ARG" selected>Argentina</option>
                         <option value="BRA">Brasil</option>
-                        <option value="FRA" selected>França</option>
-                        <option value="ARG">Argentina</option>
-                        <option value="ESP">Espanha</option>
-                        <option value="JPN">Japão</option>
-                        <option value="MAR">Marrocos</option>
+                        <option value="ENG">Inglaterra</option>
+                        <option value="GER">Alemanha</option>
                       </select>
                     </label>
                   </div>
-
-                  <label class="slider-field">
-                    <div class="slider-header">
-                      <span data-i18n="copa.shrinkage">Regularização L2 (Bayesian Shrinkage)</span>
-                      <span class="mono-val" id="valShrinkage">0.35</span>
-                    </div>
-                    <input type="range" id="sliderShrinkage" min="0" max="0.8" step="0.05" value="0.35">
+                  <label class="slider-lbl">
+                    <span class="slider-row"><span>Deslocamento aéreo B</span><span id="travelDistVal">0 km</span></span>
+                    <input type="range" id="travelDist" min="0" max="9000" step="500" value="1500">
                   </label>
-
-                  <label class="slider-field">
-                    <div class="slider-header">
-                      <span data-i18n="copa.haversine">Desgaste Geodésico (Haversine km)</span>
-                      <span class="mono-val" id="valHaversine">2400 km</span>
-                    </div>
-                    <input type="range" id="sliderHaversine" min="0" max="6000" step="300" value="2400">
-                  </label>
-
-                  <div class="outcome-bar-wrap">
-                    <div class="outcome-labels" id="copaOutcomeLabels">Brasil 39% · Empate 27% · França 34%</div>
-                    <div class="outcome-bar" aria-hidden="true">
-                      <div id="barWinA" class="bar-a" style="width: 39%"></div>
-                      <div id="barDraw" class="bar-d" style="width: 27%"></div>
-                      <div id="barWinB" class="bar-b" style="width: 34%"></div>
-                    </div>
+                  <div class="outcome-bar">
+                    <div class="bar-a" id="barWinA" style="width:38%"></div>
+                    <div class="bar-d" id="barDraw" style="width:28%"></div>
+                    <div class="bar-b" id="barWinB" style="width:34%"></div>
                   </div>
+                  <div class="hud-val" id="copaProbSummary">Brasil vs Argentina</div>
                 </div>
+                <div class="copa-heatmap" id="copaHeatmap" aria-label="Matriz de probabilidades por placar"></div>
+              </div>
 
-                <div class="heatmap-wrap">
-                  <div class="heatmap-caption" id="copaHeatmapTitle">Matriz Dixon-Coles (0–4 gols)</div>
-                  <div id="copaHeatmap" class="copa-heatmap" role="grid" aria-label="Matriz de probabilidades de placar"></div>
+              <!-- Screen 4: Malha RIP R1..R12 -->
+              <div class="lab-screen" id="screen-4" hidden>
+                <svg class="sandbox-svg" viewBox="0 0 540 200" role="img" aria-label="Topologia RIP R1 a R12">
+                  <line class="rip-edge" data-u="R1" data-v="R2" x1="56" y1="100" x2="146" y2="50"/>
+                  <line class="rip-edge" data-u="R1" data-v="R3" x1="56" y1="100" x2="146" y2="150"/>
+                  <line class="rip-edge" data-u="R2" data-v="R3" x1="146" y1="50" x2="146" y2="150"/>
+                  <line class="rip-edge" data-u="R2" data-v="R5" x1="146" y1="50" x2="256" y2="50"/>
+                  <line class="rip-edge" data-u="R3" data-v="R6" x1="146" y1="150" x2="256" y2="150"/>
+                  <line class="rip-edge" data-u="R5" data-v="R6" x1="256" y1="50" x2="256" y2="150"/>
+                  <line class="rip-edge" data-u="R5" data-v="R9" x1="256" y1="50" x2="366" y2="50"/>
+                  <line class="rip-edge" data-u="R6" data-v="R10" x1="256" y1="150" x2="366" y2="150"/>
+                  <line class="rip-edge" data-u="R9" data-v="R10" x1="366" y1="50" x2="366" y2="150"/>
+                  <line class="rip-edge" data-u="R9" data-v="R12" x1="366" y1="50" x2="474" y2="100"/>
+                  <line class="rip-edge" data-u="R10" data-v="R12" x1="366" y1="150" x2="474" y2="100"/>
+
+                  <g class="rip-router is-endpoint"><circle cx="56" cy="100" r="18"/><text x="56" y="105" text-anchor="middle">R1</text></g>
+                  <g class="rip-router"><circle cx="146" cy="50" r="18"/><text x="146" y="55" text-anchor="middle">R2</text></g>
+                  <g class="rip-router"><circle cx="146" cy="150" r="18"/><text x="146" y="155" text-anchor="middle">R3</text></g>
+                  <g class="rip-router"><circle cx="256" cy="50" r="18"/><text x="256" y="55" text-anchor="middle">R5</text></g>
+                  <g class="rip-router"><circle cx="256" cy="150" r="18"/><text x="256" y="155" text-anchor="middle">R6</text></g>
+                  <g class="rip-router"><circle cx="366" cy="50" r="18"/><text x="366" y="55" text-anchor="middle">R9</text></g>
+                  <g class="rip-router"><circle cx="366" cy="150" r="18"/><text x="366" y="155" text-anchor="middle">R10</text></g>
+                  <g class="rip-router is-endpoint"><circle cx="474" cy="100" r="18"/><text x="474" y="105" text-anchor="middle">R12</text></g>
+                </svg>
+                <div class="sandbox-log" id="ripPathLog">Clique sobre qualquer enlace para simular rompimento de fibra.</div>
+                <div class="lab-toolbar">
+                  <button type="button" class="btn btn--sm btn--secondary" id="btnResetRip" data-i18n="lab.rip_reset">Restaurar enlaces</button>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- PANEL 4: RIP NETWORK SIMULATOR -->
-          <div id="panel-rip" role="tabpanel" aria-labelledby="tab-rip" hidden="until-found">
-            <div class="lab-panel-inner">
-              <div class="sandbox-split">
-                <div class="sandbox-stage">
-                  <svg id="ripSvg" viewBox="0 0 540 240" class="sandbox-svg" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Topologia em malha de 12 roteadores RIP">
-                    <g id="ripEdgesLayer"></g>
-                    <g id="ripNodesLayer"></g>
-                  </svg>
-                </div>
-                <div class="sandbox-log-card">
-                  <div class="sandbox-log-head" data-i18n="rip.log_head">TABELA DE ROTEAMENTO · R1 → R12</div>
-                  <div id="ripLogOutput" class="sandbox-log-body" aria-live="polite">
-                    Clique em qualquer enlace entre roteadores para cortar o cabo e observar a reconvergência.
-                  </div>
-                </div>
-              </div>
-
-              <div class="lab-toolbar">
-                <div class="btn-row">
-                  <button type="button" id="btnRipSplitHorizon" class="inst-btn active" aria-pressed="true" data-i18n="rip.split_on">Split Horizon: ON</button>
-                  <button type="button" id="btnRipStep" class="inst-btn" data-i18n="rip.step">Propagar rodada RIP</button>
-                  <button type="button" id="btnRipReset" class="inst-btn" data-i18n="rip.reset">Restaurar malha</button>
-                </div>
-                <span class="toolbar-note" data-i18n="rip.note">12 roteadores (R1–R12) · clique nos links para simular falha</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- SECTION 3: FEATURED PROJECTS (BENTO GRID) -->
-      <section id="projetos" class="section-block" aria-labelledby="projects-heading">
-        <div class="section-header-row">
-          <div>
-            <h2 id="projects-heading" class="section-title" data-i18n="projects.title">Projetos em produção, pesquisa &amp; código aberto</h2>
-          </div>
-          <p class="section-subnote" data-i18n="projects.hint">Cada card resume problema real, arquitetura e evidência em commit.</p>
+    <!-- Section 5: Projects Grid (bg-dusk) -->
+    <section class="section bg-dusk" id="projetos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="proj.title">Arquitetura BINGO e ETL em PostgreSQL</h2>
+          <p class="section-sub" data-i18n="proj.sub">Repositórios públicos construídos em Python, PostgreSQL, Docker e FastAPI.</p>
         </div>
 
-        <div class="projects-bento">
-          <!-- PROJ 1: BINGO (Span 2) -->
-          <article class="project-card span-2 spotlight-card">
-            <div class="blueprint-tag" aria-hidden="true">PROJ-01 · RFSTREAM</div>
-            <div class="project-top">
-              <span class="project-badge badge-pool">Telemetria &amp; Clean Architecture</span>
-              <span class="project-year">2026 – Presente</span>
-            </div>
-            <h3 class="project-title" data-i18n="proj.bingo.title">Aquisição e Monitoramento em Tempo Real (Projeto BINGO)</h3>
-            <p class="project-desc" data-i18n="proj.bingo.desc">
-              Desacoplei o processamento numérico e a leitura contínua de espectros SDHDF/HDF5 para <strong>workers em background por sessão</strong> com filas limitadas e descarte de quadros obsoletos, evitando travamentos na interface Panel/Bokeh.
-            </p>
-            <ul class="project-bullets">
-              <li data-i18n="proj.bingo.b1">Isolamento de sessões no servidor, autenticação com cookies assinados e controle exclusivo de hardware por processo.</li>
-              <li data-i18n="proj.bingo.b2">Arquitetura em camadas validada com <strong>113 testes automatizados em pytest</strong> e tipagem estática (mypy).</li>
-            </ul>
-            <div class="project-footer">
-              <span class="tech-stack">Python · Clean Architecture · Panel/Bokeh · HDF5 · pytest · mypy</span>
-              <a href="https://github.com/BINGO-PB/rfstream" target="_blank" rel="noopener noreferrer" class="project-link">BINGO-PB/rfstream ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJ 2: TCC ETL -->
-          <article class="project-card spotlight-card">
-            <div class="blueprint-tag" aria-hidden="true">PROJ-02 · TCC</div>
-            <div class="project-top">
-              <span class="project-badge badge-coral">ETL &amp; Dados</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-title" data-i18n="proj.tcc.title">Pipeline ETL &amp; Modelagem Estatística (TCC)</h3>
-            <p class="project-desc" data-i18n="proj.tcc.desc">
-              Extraí 33 relatórios complexos em PDF com máquina de estados finitos e regex, resolvi duplicações por chave composta e carreguei <strong>105.582 registros</strong> no PostgreSQL via SQLAlchemy.
-            </p>
-            <ul class="project-bullets">
-              <li data-i18n="proj.tcc.b1">Suíte de validação de integridade (pytest) e modelagem com Scikit-Learn e SciPy (ANOVA e qui-quadrado) sobre estratégias de prova na natação.</li>
-            </ul>
-            <div class="project-footer">
-              <span class="tech-stack">Python · PostgreSQL · SQLAlchemy · Pandas · SciPy</span>
-              <a href="https://github.com/raphacramos/TCC" target="_blank" rel="noopener noreferrer" class="project-link">raphacramos/TCC ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJ 3: LANGGRAPH -->
-          <article class="project-card spotlight-card">
-            <div class="blueprint-tag" aria-hidden="true">PROJ-03 · AGENTS</div>
-            <div class="project-top">
-              <span class="project-badge badge-pine">IA &amp; Agentes</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-title" data-i18n="proj.agent.title">Orquestração de Agentes com LangGraph</h3>
-            <p class="project-desc" data-i18n="proj.agent.desc">
-              Estruturei um fluxo modular em <strong>StateGraph</strong> com roteamento condicional e <strong>rotas de fallback determinísticas</strong> para manter a execução contínua quando o LLM gera saídas inválidas.
-            </p>
-            <ul class="project-bullets">
-              <li data-i18n="proj.agent.b1">Módulo de tool calling com esquemas estritos em Pydantic e testes automatizados em pytest.</li>
-            </ul>
-            <div class="project-footer">
-              <span class="tech-stack">Python · LangGraph · LangChain · Pydantic · pytest</span>
-              <a href="https://github.com/CeciliaLucena/minecraft-agente-llm" target="_blank" rel="noopener noreferrer" class="project-link">minecraft-agente-llm ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJ 4: COPA 2026 -->
-          <article class="project-card spotlight-card">
-            <div class="blueprint-tag" aria-hidden="true">PROJ-04 · BAYES</div>
-            <div class="project-top">
-              <span class="project-badge badge-coral">Modelagem Bayesiana</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-title" data-i18n="proj.copa.title">Preditor Probabilístico da Copa 2026</h3>
-            <p class="project-desc" data-i18n="proj.copa.desc">
-              Motor preditivo combinando modelo bivariado de Poisson (<strong>Dixon-Coles</strong>), <strong>Pi-Ratings</strong> dinâmicos, regularização L2 com Bayesian Shrinkage e desgaste de viagem via fórmula de Haversine.
-            </p>
-            <div class="project-footer">
-              <span class="tech-stack">Python · Dixon-Coles · Regressão L2 · Pandas</span>
-              <a href="https://github.com/raphacramos/Preditor-de-Placares-da-Copa-2026" target="_blank" rel="noopener noreferrer" class="project-link">Preditor Copa 2026 ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJ 5: PROSPECTOR -->
-          <article class="project-card spotlight-card">
-            <div class="blueprint-tag" aria-hidden="true">PROJ-05 · APIs</div>
-            <div class="project-top">
-              <span class="project-badge badge-pool">Automação &amp; REST</span>
-              <span class="project-year">2026</span>
-            </div>
-            <h3 class="project-title" data-i18n="proj.prospector.title">Prospector de Vagas via APIs REST</h3>
-            <p class="project-desc" data-i18n="proj.prospector.desc">
-              Mineração modular integrando APIs públicas (Greenhouse, Lever, Ashby, GitHub e Hacker News), persistência em SQLite com migrações e fila priorizada em painel local.
-            </p>
-            <div class="project-footer">
-              <span class="tech-stack">Python · SQLite · APIs REST · Regex</span>
-              <a href="https://github.com/raphacramos/Prospector-de-Vagas" target="_blank" rel="noopener noreferrer" class="project-link">Prospector-de-Vagas ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJ 6: WONDERLIC + REDES -->
-          <article class="project-card span-2 spotlight-card">
-            <div class="blueprint-tag" aria-hidden="true">PROJ-06 · SIMULATORS</div>
-            <div class="project-top">
-              <span class="project-badge badge-pine">Simuladores &amp; Web</span>
-              <span class="project-year">2025 – 2026</span>
-            </div>
-            <div class="dual-mini-grid">
-              <div>
-                <h3 class="project-title" data-i18n="proj.wonderlic.title">Wonderlic Simulator (Demo ao vivo)</h3>
-                <p class="project-desc" data-i18n="proj.wonderlic.desc">
-                  Aplicação web sem dependências externas com banco normalizado de 490 questões cronometradas, 9 exames simulados e módulos de treino analítico.
-                </p>
-                <a href="wonderlic/" class="project-link inline-cta" data-i18n="proj.wonderlic.cta">Abrir simulador no navegador ↗</a>
-              </div>
-              <div>
-                <h3 class="project-title" data-i18n="proj.redes.title">Simulador de Roteamento RIP</h3>
-                <p class="project-desc" data-i18n="proj.redes.desc">
-                  Simulação em Python do protocolo RIP com e sem Split Horizon e sumarização de rotas sobre topologia em malha de 12 roteadores (R1–R12).
-                </p>
-                <a href="https://github.com/raphacramos/Redes" target="_blank" rel="noopener noreferrer" class="project-link inline-cta">raphacramos/Redes ↗</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- SECTION 4: FORA DO TERMINAL (PERSONAL SIDE IN SVG) -->
-      <section id="pessoal" class="section-block" aria-labelledby="personal-heading">
-        <div class="section-header-row">
-          <div>
-            <h2 id="personal-heading" class="section-title" data-i18n="personal.title">O lado humano por trás dos commits</h2>
-          </div>
-          <p class="section-subnote" data-i18n="personal.hint">Porque ninguém vive só de pull request.</p>
-        </div>
-
-        <div class="personal-bento">
-          <!-- Swimming Card -->
-          <article class="personal-card card-surface">
-            <div class="blueprint-tag" aria-hidden="true">LIFE-01 · SWIMMING</div>
-            <div class="personal-svg-row">
-              <svg class="personal-sketch" viewBox="0 0 120 68" fill="none" aria-hidden="true">
-                <!-- Minimalist Analog/Digital Stopwatch & Split Bar -->
-                <circle cx="34" cy="36" r="21" stroke="currentColor" stroke-width="1.5"/>
-                <rect x="30" y="9" width="8" height="4" rx="1.5" fill="currentColor"/>
-                <line x1="48" y1="17" x2="52" y2="13" stroke="var(--accent-coral)" stroke-width="2" stroke-linecap="round"/>
-                <line x1="34" y1="36" x2="34" y2="21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <line x1="34" y1="36" x2="45" y2="39" stroke="var(--accent-coral)" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="34" cy="36" r="2.2" fill="currentColor"/>
-                <text x="66" y="29" class="svg-mini-label">SPLITS</text>
-                <rect x="66" y="34" width="44" height="4" rx="2" fill="var(--accent-pool)"/>
-                <rect x="66" y="43" width="36" height="4" rx="2" fill="var(--accent-coral)"/>
-                <rect x="66" y="52" width="40" height="4" rx="2" fill="var(--accent-pine)"/>
+        <div class="grid">
+          <article class="card card--open span-6">
+            <h3 data-i18n="proj.c1_title">BINGO-PB · Telemetria SDR</h3>
+            <p data-i18n="proj.c1_desc">Receptor WebSDR em arquitetura limpa com HDF5, Skyfield e 113 testes automatizados em pytest.</p>
+            <div class="panel">
+              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Execução pytest BINGO-PB rfstream">
+                <rect class="schema-box schema-box--accent" x="16" y="16" width="428" height="148" rx="8"/>
+                <circle cx="36" cy="36" r="4" fill="var(--accent)"/>
+                <circle cx="50" cy="36" r="4" fill="var(--line-strong)"/>
+                <circle cx="64" cy="36" r="4" fill="var(--line-strong)"/>
+                <text class="schema-sub" x="84" y="40">pytest — rfstream</text>
+                <text class="schema-label" x="34" y="72">$ pytest -q</text>
+                <text class="schema-sub" x="34" y="96">....................... 113 passed</text>
+                <text class="schema-sub" x="34" y="120">Session isolation: LOCKED_PER_WORKER</text>
+                <text class="schema-sub" x="34" y="144">Storage: HDF5 + Skyfield ephemerides</text>
               </svg>
-              <button type="button" id="btnSwimMood" class="mini-ctrl-btn" data-i18n="personal.swim_btn">Bater parcial</button>
             </div>
-            <h3 class="personal-title" data-i18n="personal.swim_title">Natação Competitiva</h3>
-            <p class="personal-body" id="swimMoodText" data-i18n="personal.swim_body">
-              Treino competitivo e sigo de perto estratégias de prova — tanto que meu TCC nasceu da mania de analisar splits de piscina até o último centésimo. É onde desligo a tela e recarrego a cabeça.
-            </p>
           </article>
 
-          <!-- Languages Passport Card -->
-          <article class="personal-card card-surface">
-            <div class="blueprint-tag" aria-hidden="true">LIFE-02 · LANGS</div>
-            <div class="lang-stamps" role="group" aria-label="Idiomas falados por Raphael Ramos">
-              <button type="button" class="stamp-btn is-active" data-lang-card="pt">PT · Nativo</button>
-              <button type="button" class="stamp-btn" data-lang-card="en">EN · Avançado</button>
-              <button type="button" class="stamp-btn" data-lang-card="fr">FR · Interm.</button>
-              <button type="button" class="stamp-btn" data-lang-card="es">ES · Interm.</button>
-            </div>
-            <h3 class="personal-title" data-i18n="personal.lang_title">Passaporte de Idiomas</h3>
-            <blockquote class="personal-quote" id="langPassportQuote">
-              "Escrevo código em Python, penso em português e ainda arrisco pedir um croissant direitinho em francês."
-            </blockquote>
-          </article>
+          <article class="card card--open span-6">
+            <h3 data-i18n="proj.c2_title">Pipeline ETL em PostgreSQL</h3>
+            <p data-i18n="proj.c2_desc">Extração de 33 relatórios em PDF e deduplicação em 105.582 registros via SQLAlchemy com suíte Scikit-Learn.</p>
+            <div class="panel">
+              <svg class="schema-svg" viewBox="0 0 480 180" role="img" aria-label="Diagrama ETL 33 PDFs para PostgreSQL">
+                <path class="schema-wire" d="M118 52 H178 M118 128 H178 M148 52 V128 M178 90 H218 M342 90 H374"/>
+                <rect class="schema-box" x="18" y="28" width="100" height="48" rx="6"/>
+                <text class="schema-label" x="68" y="48" text-anchor="middle">33 PDFs</text>
+                <text class="schema-sub" x="68" y="65" text-anchor="middle">Ingestão</text>
 
-          <!-- Teaching & Tech Stack Card -->
-          <article class="personal-card card-surface">
-            <div class="blueprint-tag" aria-hidden="true">LIFE-03 · UFCG</div>
-            <div class="personal-svg-row">
-              <svg class="personal-sketch" viewBox="0 0 120 68" fill="none" aria-hidden="true">
-                <!-- Clean Terminal + Graph Split -->
-                <rect x="6" y="10" width="108" height="48" rx="7" stroke="currentColor" stroke-width="1.3"/>
-                <line x1="6" y1="22" x2="114" y2="22" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <text x="14" y="37" class="svg-mini-label">$ ./adsi_lab.sh</text>
-                <text x="14" y="49" class="svg-mini-label" fill="var(--accent-pine)">O(V + E) ok</text>
+                <rect class="schema-box" x="18" y="104" width="100" height="48" rx="6"/>
+                <text class="schema-label" x="68" y="124" text-anchor="middle">Pandas</text>
+                <text class="schema-sub" x="68" y="141" text-anchor="middle">Limpeza</text>
+
+                <rect class="schema-box schema-box--accent" x="218" y="54" width="124" height="72" rx="6"/>
+                <text class="schema-label" x="280" y="84" text-anchor="middle">PostgreSQL</text>
+                <text class="schema-sub" x="280" y="105" text-anchor="middle">105.582 linhas</text>
+
+                <rect class="schema-box" x="374" y="54" width="88" height="72" rx="6"/>
+                <text class="schema-label" x="418" y="84" text-anchor="middle">pytest</text>
+                <text class="schema-sub" x="418" y="105" text-anchor="middle">Schema</text>
               </svg>
-              <span class="mono-eyebrow">+75 ALUNOS</span>
             </div>
-            <h3 class="personal-title" data-i18n="personal.teach_title">Monitoria &amp; Ensino na UFCG</h3>
-            <p class="personal-body" data-i18n="personal.teach_body">
-              Fui monitor de <strong>Algoritmos (LEDA/ATAL)</strong> para +40 alunos e de <strong>Administração de Sistemas Linux (ADSI)</strong> para +35 alunos: de programação dinâmica a serviços systemd.
-            </p>
           </article>
         </div>
+      </div>
+    </section>
 
-        <!-- Clean Technical Inventory Strip (No C/C++, synced with AI_KNOWLEDGE_BASE) -->
-        <div class="stack-strip card-surface">
-          <div class="blueprint-tag" aria-hidden="true">STACK · VERIFIED</div>
-          <div class="stack-cols">
-            <div>
-              <h4 class="stack-label" data-i18n="stack.langs">Linguagens &amp; Dados</h4>
-              <p class="stack-items">Python, SQL (PostgreSQL, SQLite, SQLAlchemy), Bash/Shell, HDF5</p>
-            </div>
-            <div>
-              <h4 class="stack-label" data-i18n="stack.ai">Engenharia de Dados &amp; IA</h4>
-              <p class="stack-items">Pipelines ETL, Pandas, NumPy, Scikit-Learn, SciPy, LangGraph, LangChain, Pydantic, APIs OpenAI/Claude</p>
-            </div>
-            <div>
-              <h4 class="stack-label" data-i18n="stack.infra">Arquitetura &amp; Infra</h4>
-              <p class="stack-items">Clean Architecture, Workers Assíncronos, Grafos, Linux (systemd, TCP/IP), Docker, pytest, mypy, Ruff, Git</p>
-            </div>
-          </div>
+    <!-- Section 6: Dealt Moment 2 (iris-opens on ground-inverse) -->
+    <section class="section ground-inverse" data-moment="iris-opens" data-moment-opts='{"from": "surface"}'>
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="proj.iris_title">Engenharia de software LangGraph e Wonderlic</h2>
+          <p class="section-sub" data-i18n="proj.iris_desc">Orquestração de tarefas em StateGraph com saída validada em Pydantic e fallback determinístico em cada etapa.</p>
         </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="footer-left">
-        <span>Raphael Ramos · Campina Grande, PB</span>
-        <span class="footer-sep">·</span>
-        <span data-i18n="footer.made">Feito com HTML, CSS, SVG e curiosidade</span>
-      </div>
-      <div class="footer-right">
-        <a href="mailto:raphaelramosc@gmail.com">raphaelramosc@gmail.com</a>
-      </div>
-    </footer>
-  </div>
+        <div class="grid">
+          <article class="card card--open span-6">
+            <h3>Agente de software LangGraph</h3>
+            <p>Orquestração em grafos de estados com recuperação determinística, validação em Pydantic e testes isolados em pytest. <a class="link" href="https://github.com/Raphacramos/minecraft-agente-llm" target="_blank" rel="noopener">Ver código no GitHub</a></p>
+            <div class="panel">
+              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Arquitetura LangGraph com fallback determinístico">
+                <path class="schema-wire" d="M110 90 H164 M264 90 L306 50 M264 90 L306 130"/>
+                <rect class="schema-box" x="16" y="64" width="94" height="52" rx="6"/>
+                <text class="schema-label" x="63" y="94" text-anchor="middle">Payload</text>
+                <rect class="schema-box schema-box--accent" x="164" y="54" width="100" height="72" rx="6"/>
+                <text class="schema-label" x="214" y="84" text-anchor="middle">Pydantic</text>
+                <text class="schema-sub" x="214" y="104" text-anchor="middle">Contrato</text>
+                <rect class="schema-box" x="306" y="24" width="124" height="52" rx="6"/>
+                <text class="schema-label" x="368" y="54" text-anchor="middle">StateGraph</text>
+                <rect class="schema-box" x="306" y="104" width="124" height="52" rx="6"/>
+                <text class="schema-label" x="368" y="134" text-anchor="middle">Fallback</text>
+              </svg>
+            </div>
+          </article>
 
-  <!-- Native Modal Dialog: Command Palette (⌘K) -->
-  <dialog id="cmdDialog" class="overlay-dialog" closedby="any" aria-labelledby="cmdDialogTitle">
-    <div class="dialog-inner">
-      <div class="dialog-header">
-        <h2 id="cmdDialogTitle" class="dialog-title" data-i18n="cmd.title">Paleta de Comandos</h2>
-        <form method="dialog">
-          <button type="submit" class="dialog-close" aria-label="Fechar paleta">Esc</button>
-        </form>
+          <article class="card card--open span-6">
+            <h3 data-i18n="proj.c5_title">Simulador Wonderlic (490 questões)</h3>
+            <p><span data-i18n="proj.c5_desc">Banco interativo com 490 questões cronometradas sem dependências externas.</span> <a class="link" href="wonderlic/" data-i18n="proj.iris_cta">Abrir simulador Wonderlic</a></p>
+            <div class="panel">
+              <svg class="schema-svg" viewBox="0 0 460 180" role="img" aria-label="Simulador Wonderlic 490 questões">
+                <rect class="schema-box schema-box--accent" x="16" y="14" width="428" height="152" rx="8"/>
+                <text class="schema-label" x="34" y="42">Wonderlic · Questão 14 / 50</text>
+                <text class="schema-sub" x="350" y="42">11m:42s</text>
+                <text class="schema-sub" x="34" y="70">Se 5 máquinas produzem 5 peças em 5 min,</text>
+                <text class="schema-sub" x="34" y="90">quantos min levam 100 máquinas (100 peças)?</text>
+                <rect class="schema-box" x="34" y="108" width="90" height="32" rx="6"/>
+                <text class="schema-label" x="79" y="128" text-anchor="middle">a) 5 min</text>
+                <rect class="schema-box" x="136" y="108" width="94" height="32" rx="6"/>
+                <text class="schema-sub" x="183" y="128" text-anchor="middle">b) 20 min</text>
+                <rect class="schema-box" x="242" y="108" width="94" height="32" rx="6"/>
+                <text class="schema-sub" x="289" y="128" text-anchor="middle">c) 50 min</text>
+                <text class="schema-sub" x="34" y="156">Extras: Preditor Copa 2026 · Prospector SQLite</text>
+              </svg>
+            </div>
+          </article>
+        </div>
       </div>
-      <input type="search" id="cmdSearchInput" class="cmd-input" placeholder="Digite um comando ou seção (ex: bingo, natação, blueprint, cv)..." autofocus>
-      <ul id="cmdResultsList" class="cmd-list" role="listbox" aria-label="Ações rápidas"></ul>
+    </section>
+
+    <!-- Section 7: Personal & Teaching (bg-dots) -->
+    <section class="section bg-dots" id="pessoal">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="pers.title">Engenharia, natação, idiomas e monitoria UFCG</h2>
+          <p class="section-sub" data-i18n="pers.sub">Rotina fora do terminal aplicada à engenharia colaborativa.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card personal-card span-6 m-nolift">
+            <h3 data-i18n="pers.swim_title">Natação 25m e Monitoria UFCG (75+ alunos)</h3>
+            <p data-i18n="pers.swim_desc">Treinos diários em piscina curta aliados à monitoria de ATAL (40+ alunos) e ADSI (35+ alunos) na UFCG.</p>
+            <div class="personal-chart">
+              <svg class="schema-svg" viewBox="0 0 420 120" role="img" aria-label="Curva de ritmo em treinos de 25 metros">
+                <path class="schema-wire" d="M16 86 Q95 26 190 68 T404 34"/>
+                <line x1="16" y1="102" x2="404" y2="102" stroke="var(--line-strong)" stroke-width="1"/>
+                <text class="schema-sub" x="16" y="24">PARCIAL 25M · ATAL &amp; ADSI</text>
+              </svg>
+            </div>
+            <div class="personal-quote" id="swimMoodDisplay">50m Livre · 25m piscina · Parcial registrada com ritmo constante.</div>
+            <div class="lab-toolbar">
+              <button type="button" class="btn btn--sm btn--secondary" id="btnSwimMood" data-i18n="pers.swim_btn">Registrar parcial</button>
+            </div>
+            <div class="tech-icons-row" aria-label="Principais tecnologias">
+              <span class="ic-tile" title="Python"><img src="assets/icons/python.svg" alt="Python" width="24" height="24" loading="lazy" decoding="async"></span>
+              <span class="ic-tile" title="PostgreSQL"><img src="assets/icons/postgresql.svg" alt="PostgreSQL" width="24" height="24" loading="lazy" decoding="async"></span>
+              <span class="ic-tile" title="Docker"><img src="assets/icons/docker.svg" alt="Docker" width="24" height="24" loading="lazy" decoding="async"></span>
+              <span class="ic-tile" title="pytest"><img src="assets/icons/pytest.svg" alt="pytest" width="24" height="24" loading="lazy" decoding="async"></span>
+              <span class="ic-tile" title="Linux"><img src="assets/icons/linux.svg" alt="Linux" width="24" height="24" loading="lazy" decoding="async"></span>
+              <span class="ic-tile" title="GitHub"><img src="assets/icons/github.svg" alt="GitHub" width="24" height="24" loading="lazy" decoding="async"></span>
+            </div>
+          </article>
+
+          <article class="card personal-card span-6 m-nolift">
+            <h3 data-i18n="pers.lang_title">Idiomas PT, EN, FR e ES</h3>
+            <p data-i18n="pers.lang_desc">Português nativo, Inglês avançado, Francês e Espanhol intermediários para times internacionais.</p>
+            <div class="personal-chart">
+              <svg class="schema-svg" viewBox="0 0 420 120" role="img" aria-label="Níveis de comunicação técnica em 4 idiomas">
+                <rect x="16" y="14" width="350" height="12" rx="4" fill="var(--accent)"/>
+                <rect x="16" y="42" width="295" height="12" rx="4" fill="var(--accent)" opacity="0.85"/>
+                <rect x="16" y="70" width="205" height="12" rx="4" fill="var(--line-strong)"/>
+                <rect x="16" y="98" width="205" height="12" rx="4" fill="var(--line-strong)"/>
+              </svg>
+            </div>
+            <div class="personal-quote" id="passportQuote">Português (Nativo): Documentação técnica e revisão de arquitetura em português.</div>
+            <div class="stamp-group">
+              <button type="button" class="btn btn--sm btn--secondary stamp-btn is-active" data-lang="pt" aria-pressed="true">PT · Nativo</button>
+              <button type="button" class="btn btn--sm btn--secondary stamp-btn" data-lang="en" aria-pressed="false">EN · Avançado</button>
+              <button type="button" class="btn btn--sm btn--secondary stamp-btn" data-lang="fr" aria-pressed="false">FR · Interm.</button>
+              <button type="button" class="btn btn--sm btn--secondary stamp-btn" data-lang="es" aria-pressed="false">ES · Interm.</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer closing" id="contato">
+    <div class="wrap">
+      <div class="closing__cta close--type">
+        <div class="section-head">
+          <h2 data-i18n="close.title">Contato para equipes de engenharia e dados</h2>
+          <p class="section-sub" data-i18n="close.sub">Graduado em Engenharia de Computação pela UFCG em outubro de 2026.</p>
+        </div>
+        <a class="btn btn--xl btn--primary js-cv-link" href="assets/Curriculo_Raphael_Ramos_PT.pdf" download data-i18n="close.cta">Baixar currículo</a>
+        <div class="closing__actions">
+          <button type="button" class="btn btn--secondary" id="copyEmailBtn" data-i18n="close.copy">Copiar e-mail</button>
+          <a class="link" href="https://github.com/Raphacramos" target="_blank" rel="noopener" data-i18n="close.github">GitHub</a>
+          <a class="link" href="https://www.linkedin.com/in/raphaelcramos/" target="_blank" rel="noopener" data-i18n="close.linkedin">LinkedIn</a>
+          <a class="link" href="wonderlic/" data-i18n="close.wonderlic">Wonderlic</a>
+        </div>
+      </div>
+
+      <div class="closing__links">
+        <div class="footer__legal">
+          <span class="footer__mark"><span class="mark" data-mark="dots" aria-hidden="true"></span>Raphael Ramos</span>
+          <span>Campina Grande · Brasil · raphacramos@gmail.com</span>
+        </div>
+      </div>
     </div>
-  </dialog>
+  </footer>
 
-  <!-- Native Modal Dialog: Mini Terminal ADSI (>_) -->
-  <dialog id="termDialog" class="overlay-dialog terminal-dialog" closedby="any" aria-labelledby="termDialogTitle">
-    <div class="dialog-inner term-inner">
-      <div class="dialog-header term-bar">
-        <h2 id="termDialogTitle" class="dialog-title mono-eyebrow">rapha@ufcg:~ (adsi-shell)</h2>
-        <form method="dialog">
-          <button type="submit" class="dialog-close" aria-label="Fechar terminal">Esc</button>
-        </form>
-      </div>
-      <div id="termOutput" class="term-output" aria-live="polite">
-        <div>Bem-vindo ao shell resumido do Raphael. Digite <span class="term-cmd-hint">help</span> para ver comandos.</div>
-      </div>
-      <form id="termForm" class="term-input-row">
-        <label for="termInput" class="term-prompt">rapha@ufcg:~$</label>
-        <input type="text" id="termInput" class="term-input" autocomplete="off" spellcheck="false" placeholder="help | whoami | ls | swim | ping R12 | cv" autofocus>
-      </form>
-    </div>
-  </dialog>
-
-  <div id="toast" class="toast-pill" role="status" aria-live="polite"></div>
-
-  <script src="script.js?v=4"></script>
+  <script type="module" src="assets/system.js"></script>
+  <script type="module" src="assets/motion/motion.js"></script>
+  <script type="module" src="assets/layout/layout.js"></script>
+  <script type="module" src="app.js?v=7"></script>
 </body>
 </html>
