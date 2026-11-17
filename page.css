@@ -237,7 +237,13 @@ main .mo-la .mo-la__sub {
 .story-tag { color: var(--accent); font-weight: 500; }
 .story-period { color: var(--muted); }
 .story-detail-body { font-size: var(--t-body); color: var(--ink); max-width: 54ch; }
-.story-takeaway { font-size: var(--t-small); color: var(--muted); }
+.story-takeaway {
+  font-size: var(--t-small);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  padding-top: var(--s-3);
+  line-height: 1.5;
+}
 
 .story-tabs {
   margin-top: var(--s-2);
@@ -450,9 +456,9 @@ main > .section:is(.bg-dusk, .bg-dots) {
 }
 
 #projetos { --padt: 92px; }
-#projetos .panel { --p-h: 255px; }
+#projetos .panel { --p-h: 235px; }
 #sistemas { --padt: 92px; }
-#pessoal { --padt: 100px; }
+#pessoal { --padt: 88px; }
 #sistemas .btn--secondary {
   background: #0a0d14;
   color: #e9edf3;
@@ -471,13 +477,21 @@ main > .section:is(.bg-dusk, .bg-dots) {
 }
 @media (max-width: 639px) {
   #projetos .section-head,
-  #sistemas .section-head { margin-bottom: var(--s-3); }
+  #sistemas .section-head { margin-bottom: var(--s-2); }
+  #projetos .section-sub,
+  #sistemas .section-sub { font-size: 14px; line-height: 1.4; margin-top: 4px; }
   #projetos .grid,
-  #sistemas .grid { gap: var(--s-3); }
+  #sistemas .grid { gap: 10px; }
   #projetos .card--open,
-  #sistemas .card--open { gap: var(--s-2); }
-  #projetos .panel { --p-h: 132px; }
-  [data-moment="iris-opens"] .panel { min-height: 128px; --p-h: 128px; }
+  #sistemas .card--open { gap: 6px; }
+  #projetos .card--open h3,
+  #sistemas .card--open h3 { font-size: 17px; line-height: 1.25; }
+  #projetos .card--open p,
+  #sistemas .card--open p { font-size: 13.5px; line-height: 1.4; }
+  #projetos .card-controls,
+  #sistemas .card-controls { margin-top: 2px; gap: 6px; }
+  #projetos .panel { --p-h: 118px; }
+  [data-moment="iris-opens"] .panel { min-height: 118px; --p-h: 118px; }
   .schema-svg { padding: var(--s-2); }
 }
 
@@ -609,7 +623,7 @@ main > .section:is(.bg-dusk, .bg-dots) {
 .personal-chart svg {
   display: block;
   width: 100%;
-  height: 155px;
+  height: 140px;
   padding: 0;
 }
 
@@ -681,7 +695,7 @@ main > .section:is(.bg-dusk, .bg-dots) {
   #pessoal .personal-chart svg { height: 122px; }
   #pessoal .personal-quote { font-size: 12.5px; line-height: 1.38; padding: 8px 10px; }
   #pessoal .ic-tile { width: 34px; height: 34px; padding: 5px; }
-  #projetos, #sistemas { --padt: 64px; --padb: 40px; }
+  #projetos, #sistemas { --padt: 56px; --padb: 32px; }
   #pessoal { --padt: 56px; --padb: 32px; }
 }
 

@@ -16,42 +16,51 @@ const dict = {
 
     'hero.cat': 'Software, dados e agentes de IA',
     'hero.title': 'Software, dados e agentes de IA.',
-    'hero.lead': 'Raphael Ramos, formado em Ciência da Computação (UFCG, Out 2026). Uso IA no dia a dia para criar sistemas em Python e bancos de dados com a disciplina da natação competitiva.',
+    'hero.lead': 'Raphael Ramos, formado em Ciência da Computação (UFCG, Out 2026). Transformo tarefas manuais e dados soltos em programas simples e robôs de IA, com a disciplina diária da natação competitiva.',
     'hero.cta': 'Baixar currículo',
-    'hero.alt': 'Testar projetos interativos',
+    'hero.alt': 'Ver exemplos na prática',
     'hero.pool_status': 'Minha raia (25m)',
     'hero.pool_turn': 'Inverter direção',
     'hero.pool_pause': 'Pausar nado',
     'hero.pool_resume': 'Retomar nado',
 
-    'stmt.sub': 'Uso inteligência artificial no meu dia a dia e foco hoje em construir agentes de IA úteis e sistemas que qualquer pessoa consegue operar.',
+    'stmt.title': 'IA, dados e software claro',
+    'stmt.sub': 'Em palavras simples: crio programas e assistentes com inteligência artificial para tirar tarefas repetitivas da mão das pessoas e organizar informações bagunçadas para quem não é de TI.',
+    'fact.f1_lbl': 'Antena espacial (BINGO)',
+    'fact.f1_val': '113 checagens automáticas',
+    'fact.f2_lbl': 'Arquivo organizado',
+    'fact.f2_val': '105.582 linhas sem erro',
+    'fact.f3_lbl': 'Leitura automática',
+    'fact.f3_val': '33 PDFs viraram tabela',
+    'fact.f4_lbl': 'Ajuda a colegas (UFCG)',
+    'fact.f4_val': '75+ alunos orientados',
 
-    'journey.title': 'Trajetória de software na USP, Scrub Up e UFCG',
-    'journey.sub': 'Clique nos círculos do mapa ou nos botões para acompanhar cada fase.',
+    'journey.title': 'Minha história no software, da USP até a IA',
+    'journey.sub': 'Uma historinha em 4 capítulos com dicas para quem não é de TI entender o que eu fiz em cada fase.',
     'journey.prev': 'Capítulo anterior',
     'journey.next': 'Próximo capítulo',
 
     'proj.title': 'Projetos de software: BINGO e Banco de Dados',
-    'proj.sub': 'Clique nos botões de cada projeto para testar como ele funciona por dentro.',
-    'proj.c1_title': 'Software para o Radiotelescópio BINGO',
-    'proj.c1_desc': 'O radiotelescópio gera sinais ao vivo que antes travavam a tela de controle. Passei as contas para segundo plano e criei 113 testes automáticos para tudo responder na hora.',
-    'proj.c2_title': 'Leitor de Relatórios PDF e Banco de Dados',
-    'proj.c2_desc': 'Desenvolvi um programa que lê 33 relatórios extensos em PDF, remove linhas repetidas e organiza 105.582 registros limpos no banco PostgreSQL para buscas rápidas.',
+    'proj.sub': 'Cada cartão traz uma analogia simples para leigos. Clique nos botões para testar como funciona.',
+    'proj.c1_title': 'Software para uma Antena Espacial (BINGO)',
+    'proj.c1_desc': 'Um radiotelescópio manda tantos sinais por segundo que travava a tela de controle. Dica: separei as contas pesadas para os bastidores (como a cozinha preparando pedidos enquanto o garçom atende), com 113 checagens automáticas.',
+    'proj.c2_title': 'Leitor de PDFs e Estante Digital (Banco de Dados)',
+    'proj.c2_desc': 'Para achar dados no meio de 33 apostilas em PDF soltas, fiz um robô que lê tudo sozinho, apaga repetições e organiza 105.582 fichas no PostgreSQL (dica: banco de dados é como uma estante onde tudo se acha em segundos).',
 
-    'ext.title': 'Agentes de IA, Vagas e Simulador Copa 2026',
-    'ext.sub': 'Teste abaixo as probabilidades de jogos da Copa e veja como estruturo agentes de IA no dia a dia.',
+    'ext.title': 'Agentes de IA no Dia a Dia e Simulador Copa 2026',
+    'ext.sub': 'Dica para leigos: agentes de IA são assistentes que checam regras reais antes de agir, e modelos calculam chances de jogos. Teste abaixo.',
     'ext.c1_title': 'Simulador de Jogos · Copa 2026',
-    'ext.c1_desc': 'Escolha duas seleções e a distância de viagem entre estádios para calcular na hora as chances de vitória ou empate.',
+    'ext.c1_desc': 'Escolha duas seleções e a distância de viagem até o estádio. Dica: o programa cruza o histórico de gols com o desgaste da viagem para estimar na hora quem tem mais chance.',
     'ext.c2_title': 'Agentes de IA no Dia a Dia e Vagas',
-    'ext.c2_desc': 'Uso inteligência artificial diariamente no trabalho e foco na criação de agentes com regras claras — como meu robô que coleta e filtra vagas automaticamente.',
+    'ext.c2_desc': 'Uso inteligência artificial diariamente no trabalho para programar e automatizar rotinas. Dica: diferente de um chat comum que só responde, meus agentes checam regras e entregam vagas filtradas num painel pronto.',
 
     'pers.title': 'Natação competitiva, monitoria e idiomas',
-    'pers.sub': 'O que eu faço fora do código e como isso molda minha rotina.',
+    'pers.sub': 'O que eu faço fora das telas e como isso facilita conversar com qualquer equipe.',
     'pers.swim_title': 'Natação Competitiva (25m)',
-    'pers.swim_desc': 'Pratico natação competitiva e gosto muito de treinar em piscina semiolímpica de 25m. A disciplina diária de controle de ritmo e viradas é a mesma que levo para projetos.',
+    'pers.swim_desc': 'Pratico natação competitiva porque gosto muito do esporte e de treinar em piscina de 25 metros. Controlar ritmo e viradas todo dia me dá calma para resolver problemas difíceis.',
     'pers.swim_btn': 'Ver outra série',
     'pers.lang_title': 'Monitoria UFCG (75+ alunos) e 4 Idiomas',
-    'pers.lang_desc': 'Na UFCG fui monitor ajudando 40+ alunos em algoritmos e 35+ em sistemas. Também falo Português, Inglês avançado, Francês e Espanhol.',
+    'pers.lang_desc': 'Na UFCG fui monitor (tutor que tira dúvidas fora da aula) ajudando 40+ alunos em lógica e 35+ em sistemas, sempre explicando sem "tecniquês". Falo Português, Inglês avançado, Francês e Espanhol.',
 
     'close.title': 'Contato para vagas de software, dados e IA',
     'close.sub': 'Formado em Ciência da Computação pela UFCG em outubro de 2026.',
@@ -71,42 +80,51 @@ const dict = {
 
     'hero.cat': 'Software, data and AI agents',
     'hero.title': 'Software, data and AI agents.',
-    'hero.lead': 'Raphael Ramos, Computer Science graduate (UFCG, Oct 2026). I use AI daily to build Python systems and databases with competitive swimming discipline.',
+    'hero.lead': 'Raphael Ramos, Computer Science graduate (UFCG, Oct 2026). I turn manual tasks and messy data into easy software and AI helpers, built with competitive swimming discipline.',
     'hero.cta': 'Download resume',
-    'hero.alt': 'Try interactive projects',
+    'hero.alt': 'Try live examples',
     'hero.pool_status': 'My lane (25m)',
     'hero.pool_turn': 'Flip turn',
     'hero.pool_pause': 'Pause swim',
     'hero.pool_resume': 'Resume swim',
 
-    'stmt.sub': 'I use AI daily in my engineering workflow and focus today on building reliable AI agents and clean software anyone can use.',
+    'stmt.title': 'AI, data and clear software',
+    'stmt.sub': 'In plain English: I build software and AI helpers that take repetitive work off people’s hands and organize messy data so non-technical teams can use it right away.',
+    'fact.f1_lbl': 'Space antenna (BINGO)',
+    'fact.f1_val': '113 automated checks',
+    'fact.f2_lbl': 'Clean data warehouse',
+    'fact.f2_val': '105,582 verified rows',
+    'fact.f3_lbl': 'Automatic PDF reader',
+    'fact.f3_val': '33 reports structured',
+    'fact.f4_lbl': 'Peer mentoring (UFCG)',
+    'fact.f4_val': '75+ students guided',
 
-    'journey.title': 'Software journey across USP, Scrub Up and UFCG',
-    'journey.sub': 'Click any circle on the map or buttons to explore each phase.',
+    'journey.title': 'My story from engineering to software and AI',
+    'journey.sub': 'A 4-chapter story with non-technical tips explaining what each step means in real life.',
     'journey.prev': 'Previous chapter',
     'journey.next': 'Next chapter',
 
     'proj.title': 'Software projects: BINGO and Data Pipeline',
-    'proj.sub': 'Click inside each card to test how the architecture works.',
-    'proj.c1_title': 'Software for the BINGO Radio Telescope',
-    'proj.c1_desc': 'Live radio signals used to freeze the operator screen. Moving heavy math to background workers with 113 automated tests keeps the UI responsive.',
-    'proj.c2_title': 'PDF Report Extractor and Database',
-    'proj.c2_desc': 'Automated tool reading 33 dense PDFs, removing duplicates and structuring 105,582 clean rows inside PostgreSQL.',
+    'proj.sub': 'Each card includes a simple real-world analogy. Click the buttons to test how it works inside.',
+    'proj.c1_title': 'Software for a Space Antenna (BINGO)',
+    'proj.c1_desc': 'A radio telescope sends so many live signals it used to freeze the operator screen. Tip: I moved heavy math backstage (like a kitchen prepping orders while the waiter stays free), backed by 113 automated checks.',
+    'proj.c2_title': 'PDF Reader and Organized Library (Database)',
+    'proj.c2_desc': 'To find answers across 33 dense PDFs, I built a Python tool that cleans duplicates and stores 105,582 entries in PostgreSQL (tip: a database is like an indexed library where any answer comes back in seconds).',
 
-    'ext.title': 'AI Agents, Jobs and World Cup 2026 Predictor',
-    'ext.sub': 'Test World Cup match probabilities live or step through how my AI workflows operate safely.',
+    'ext.title': 'Daily AI Agents and World Cup 2026 Predictor',
+    'ext.sub': 'Plain tip: AI agents are digital helpers that verify rules before acting, while statistical math estimates match odds. Try both below.',
     'ext.c1_title': 'World Cup 2026 · Match Predictor',
-    'ext.c1_desc': 'Pick two national teams and stadium travel distance to compute win and draw odds right away.',
+    'ext.c1_desc': 'Pick two national teams and travel distance to the stadium. Tip: the model blends historical goal strength with travel fatigue to compute win or draw odds live.',
     'ext.c2_title': 'Daily AI Agents and Job Organizer',
-    'ext.c2_desc': 'I rely on AI daily and focus on building rule-checked agents — like my personal script collecting and sorting tech jobs.',
+    'ext.c2_desc': 'I rely on AI daily to code faster and automate routines. Tip: unlike a plain chatbot that guesses, my agents follow strict checks to filter tech jobs into a clean dashboard.',
 
     'pers.title': 'Competitive swimming, mentoring and languages',
-    'pers.sub': 'My routine outside the editor and how it carries over into engineering.',
+    'pers.sub': 'My life outside the screen and how teaching and sports help me work calmly with any team.',
     'pers.swim_title': 'Competitive Swimming (25m)',
-    'pers.swim_desc': 'I train competitive swimming in a 25m short-course pool. Pacing, turns and daily consistency shape how I build software.',
+    'pers.swim_desc': 'I train competitive swimming because I genuinely love the sport and 25m pool discipline. Controlling pacing and wall turns every day keeps me calm when solving tough bugs.',
     'pers.swim_btn': 'Next training set',
     'pers.lang_title': 'UFCG Mentoring (75+ students) & 4 Languages',
-    'pers.lang_desc': 'Supported 40+ algorithms and 35+ systems students at UFCG. Fluent in Portuguese & English, intermediate French & Spanish.',
+    'pers.lang_desc': 'I tutored 40+ algorithms and 35+ systems students at UFCG, turning tech jargon into plain examples. Fluent in Portuguese & English, intermediate French & Spanish.',
 
     'close.title': 'Contact for software, data and AI teams',
     'close.sub': 'B.Sc. in Computer Science from UFCG in October 2026.',
@@ -318,66 +336,66 @@ if (poolSvg) {
 const storyChapters = [
   {
     pt: {
-      tag: 'Capítulo 01 · Início na Poli-USP',
-      period: 'Jan 2018 – Jun 2019 · USP',
-      title: 'Engenharia Mecatrônica na USP (2018–2019)',
-      body: 'Cursei o ciclo básico de Engenharia Mecatrônica na USP. Foi programando nos projetos da faculdade que percebi que construir software era o que mais fazia sentido, o que motivou minha mudança para a computação.',
-      takeaway: 'Base forte em lógica matemática e transição consciente para computação.'
+      tag: 'Capítulo 01 · O começo no código',
+      period: 'Jan 2018 – Jun 2019 · Poli-USP',
+      title: '1. Comecei na Mecatrônica na USP e descobri o gosto por programar',
+      body: 'Entrei na Engenharia Mecatrônica na USP, curso que mistura mecânica e eletrônica para criar máquinas. Nos trabalhos de aula, vi que minha parte favorita não eram peças físicas, e sim escrever os comandos no computador.',
+      takeaway: 'Dica (o que é programar): é como escrever uma receita passo a passo para o computador trabalhar sozinho sem cansar.'
     },
     en: {
-      tag: 'Chapter 01 · Starting at USP',
+      tag: 'Chapter 01 · First steps in code',
       period: 'Jan 2018 – Jun 2019 · USP',
-      title: 'Mechatronics Engineering at USP (2018–2019)',
-      body: 'Completed the foundational Mechatronics curriculum at USP. Coding in university projects showed me software was what I enjoyed most, motivating my switch to Computer Science.',
-      takeaway: 'Strong quantitative math foundation guiding software architecture.'
+      title: '1. Started in Mechatronics at USP and discovered a taste for coding',
+      body: 'I entered USP studying Mechatronics, engineering that combines mechanics and electronics to build machines. In class projects, though, I noticed my favorite part was writing instructions for computers.',
+      takeaway: 'Plain tip (what coding means): writing a step-by-step recipe a computer runs on its own without getting tired.'
     }
   },
   {
     pt: {
-      tag: 'Capítulo 02 · Operação Real',
+      tag: 'Capítulo 02 · Entendendo quem usa o sistema',
       period: '2020 – 2024 · Scrub Up',
-      title: 'Gestão comercial e dados na Scrub Up (2020–2024)',
-      body: 'Coordenei rotina comercial, organização de funil de clientes e metas diárias em vendas recorrentes. Isso me ensinou a enxergar software pelo olho de quem realmente vai usar no dia a dia.',
-      takeaway: 'Visão prática de negócios para nunca complicar sistemas sem necessidade.'
+      title: '2. Trabalhei com vendas na Scrub Up e vi o software pela visão do cliente',
+      body: 'Por quatro anos coordenei a rotina comercial da Scrub Up: organizar listas de clientes, acompanhar metas diárias e atender pedidos. Vi de perto como telas confusas atrasam quem trabalha com pressa.',
+      takeaway: 'Dica (o que é funil comercial): é acompanhar o cliente do primeiro "oi" até a compra, o que me ensinou a nunca complicar sistemas.'
     },
     en: {
-      tag: 'Chapter 02 · Real Operations',
+      tag: 'Chapter 02 · Learning from real users',
       period: '2020 – 2024 · Scrub Up',
-      title: 'Commercial management at Scrub Up (2020–2024)',
-      body: 'Managed daily sales workflows, customer funnels and team targets. Working outside pure code taught me to design tools around real end-user needs.',
-      takeaway: 'Practical business fluency that avoids unnecessary technical complexity.'
+      title: '2. Worked in sales at Scrub Up and saw software through users’ eyes',
+      body: 'For four years I ran commercial operations at Scrub Up: organizing leads, daily targets and customer orders. Seeing how clunky tools slow busy workers taught me to keep interfaces simple.',
+      takeaway: 'Plain tip (what a sales funnel is): tracking each buyer from hello to closed order, reminding me never to overbuild screens.'
     }
   },
   {
     pt: {
-      tag: 'Capítulo 03 · Ciência da Computação',
+      tag: 'Capítulo 03 · Base técnica e ensinar pessoas',
       period: '2021 – Out 2026 · UFCG',
-      title: 'Ciência da Computação e Monitoria na UFCG (2021–2026)',
-      body: 'Formado em outubro de 2026 em Ciência da Computação pela UFCG. Durante o curso apoiei mais de 40 alunos na monitoria de algoritmos (ATAL) e mais de 35 em análise e projeto de sistemas (ADSI).',
-      takeaway: 'Formação sólida em algoritmos, bancos de dados e ensino colaborativo.'
+      title: '3. Me formei na UFCG e ajudei mais de 75 alunos a entender código',
+      body: 'Concluí Ciência da Computação na UFCG em outubro de 2026, estudando como aplicativos, sites e bancos de dados funcionam por dentro. Também fui monitor (tutor fora da aula) de 40+ alunos em lógica e 35+ em sistemas.',
+      takeaway: 'Dica (por que monitoria importa): treinei traduzir assuntos difíceis para português comum, a mesma clareza que levo para projetos.'
     },
     en: {
-      tag: 'Chapter 03 · Computer Science',
+      tag: 'Chapter 03 · Solid CS foundation & teaching',
       period: '2021 – Oct 2026 · UFCG',
-      title: 'Computer Science & Mentoring at UFCG (2021–2026)',
-      body: 'Graduated in Computer Science (Oct 2026) at UFCG. Mentored 40+ students in Algorithms and Data Structures and 35+ students in Systems Analysis.',
-      takeaway: 'Solid algorithms, databases and collaborative engineering mentoring.'
+      title: '3. Graduated at UFCG and helped 75+ classmates understand software',
+      body: 'Completed Computer Science at UFCG in October 2026, learning how apps and databases work behind the screen. I also served as a peer tutor for 40+ logic students and 35+ systems students.',
+      takeaway: 'Plain tip (why mentoring helps teams): translating hard tech terms into everyday examples carries straight into working with clients.'
     }
   },
   {
     pt: {
-      tag: 'Capítulo 04 · Dados e Agentes de IA',
-      period: '2025 – 2026 · Sistemas Reais',
-      title: 'Sistemas em Python, Dados e Foco Atual em Agentes de IA',
-      body: 'Atuei no software do radiotelescópio BINGO (113 testes automáticos), organizei 105.582 linhas no PostgreSQL e hoje utilizo IA todos os dias, focando na criação de agentes de IA confiáveis.',
-      takeaway: 'Engenharia testada somada ao uso intensivo de IA e automação.'
+      tag: 'Capítulo 04 · Dados reais e robôs de IA',
+      period: '2025 – 2026 · Hoje',
+      title: '4. Criei sistemas para uma antena espacial, bancos e agentes de IA',
+      body: 'Apliquei tudo em projetos reais: melhorei o painel do radiotelescópio BINGO para não travar com dados ao vivo e fiz um leitor de PDFs. Hoje uso IA todo dia e foco em agentes de IA para automatizar tarefas.',
+      takeaway: 'Dica (o que é agente de IA): não é só um bate-papo; é um assistente digital que lê dados, checa regras seguras e entrega tudo pronto.'
     },
     en: {
-      tag: 'Chapter 04 · Data & AI Agents',
-      period: '2025 – 2026 · Real Systems',
-      title: 'Python Systems, Data & Current Focus on AI Agents',
-      body: 'Built non-blocking telemetry workers (113 tests) for BINGO, organized 105,582 rows in PostgreSQL, and rely daily on AI while building rule-validated AI agents.',
-      takeaway: 'Tested software paired with daily AI workflows and automation.'
+      tag: 'Chapter 04 · Real data & AI agents today',
+      period: '2025 – 2026 · Today',
+      title: '4. Built systems for a space antenna, large databases and AI agents',
+      body: 'Applied everything on real projects: kept the BINGO radio telescope screen responsive and automated PDF cleanup. Today I use AI daily and build rule-checked AI agents that complete multi-step workflows.',
+      takeaway: 'Plain tip (what an AI agent is): more than chat, it is a digital assistant that reads inputs, checks guardrails and finishes work safely.'
     }
   }
 ];
@@ -739,3 +757,4 @@ try {
   applyTheme('dark');
 }
 applyLanguage('pt');
+document.documentElement.dataset.appReady = '1';
