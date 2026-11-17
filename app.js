@@ -10,22 +10,21 @@ const dict = {
     'nav.skip': 'Pular para o conteúdo',
     'nav.journey': 'Trajetória',
     'nav.projects': 'Projetos',
-    'nav.extras': 'Sistemas',
+    'nav.extras': 'IA e Copa',
     'nav.personal': 'Perfil',
     'nav.cta': 'Baixar currículo',
 
-    'hero.cat': 'Software, dados e sistemas',
-    'hero.title': 'Software e dados em sistemas reais.',
-    'hero.lead': 'Raphael Ramos, formado em Ciência da Computação pela UFCG (Out 2026). Transformo dados brutos e problemas complexos em software claro de usar.',
+    'hero.cat': 'Software, dados e agentes de IA',
+    'hero.title': 'Software, dados e agentes de IA.',
+    'hero.lead': 'Raphael Ramos, formado em Ciência da Computação (UFCG, Out 2026). Uso IA no dia a dia para criar sistemas em Python e bancos de dados com a disciplina da natação competitiva.',
     'hero.cta': 'Baixar currículo',
-    'hero.alt': 'Ver projetos explicados',
-    'hero.pool_status': 'Raia 4 · 25m',
+    'hero.alt': 'Testar projetos interativos',
+    'hero.pool_status': 'Minha raia (25m)',
     'hero.pool_turn': 'Inverter direção',
     'hero.pool_pause': 'Pausar nado',
     'hero.pool_resume': 'Retomar nado',
 
-    'stmt.title': 'Software simples para problemas reais',
-    'stmt.sub': 'Meu foco é pegar processos confusos, arquivos dispersos ou sinais científicos e transformá-los em sistemas rápidos e fáceis de operar.',
+    'stmt.sub': 'Uso inteligência artificial no meu dia a dia e foco hoje em construir agentes de IA úteis e sistemas que qualquer pessoa consegue operar.',
 
     'journey.title': 'Trajetória de software na USP, Scrub Up e UFCG',
     'journey.sub': 'Clique nos círculos do mapa ou nos botões para acompanhar cada fase.',
@@ -33,94 +32,89 @@ const dict = {
     'journey.next': 'Próximo capítulo',
 
     'proj.title': 'Projetos de software: BINGO e Banco de Dados',
-    'proj.sub': 'Explicação direta do que cada projeto resolve na prática, sem jargão.',
+    'proj.sub': 'Clique nos botões de cada projeto para testar como ele funciona por dentro.',
     'proj.c1_title': 'Software para o Radiotelescópio BINGO',
-    'proj.c1_desc': 'O radiotelescópio gera grande volume de sinais ao vivo. Antes, fazer essas contas travava a tela de controle. Passei o trabalho pesado para segundo plano e criei 113 testes automáticos para tudo rodar fluido e seguro.',
+    'proj.c1_desc': 'O radiotelescópio gera sinais ao vivo que antes travavam a tela de controle. Passei as contas para segundo plano e criei 113 testes automáticos para tudo responder na hora.',
     'proj.c2_title': 'Leitor de Relatórios PDF e Banco de Dados',
-    'proj.c2_desc': 'Desenvolvi um programa que lê 33 relatórios extensos em PDF, corrige dados repetidos e organiza 105.582 linhas limpas no banco PostgreSQL para consultas e análises rápidas.',
+    'proj.c2_desc': 'Desenvolvi um programa que lê 33 relatórios extensos em PDF, remove linhas repetidas e organiza 105.582 registros limpos no banco PostgreSQL para buscas rápidas.',
 
-    'ext.title': 'Sistemas práticos: Copa, Vagas e Wonderlic',
-    'ext.sub': 'Projetos menores para resolver problemas do dia a dia com dados e navegador.',
-    'ext.c1_title': 'Preditor Copa 2026 e Monitor de Vagas',
-    'ext.c1_desc': 'Sistema estatístico que estima placares levando em conta o histórico das seleções e a distância de viagem entre sedes, além de um robô pessoal que organiza vagas num único painel.',
-    'ext.c2_title': 'Simulador Wonderlic (490 questões)',
-    'ext.c2_desc': 'Treinador aberto no navegador para praticar provas de raciocínio lógico cronometradas em 12 minutos, sem precisar instalar nada.',
-    'ext.c2_cta': 'Abrir simulador Wonderlic',
+    'ext.title': 'Agentes de IA, Vagas e Simulador Copa 2026',
+    'ext.sub': 'Teste abaixo as probabilidades de jogos da Copa e veja como estruturo agentes de IA no dia a dia.',
+    'ext.c1_title': 'Simulador de Jogos · Copa 2026',
+    'ext.c1_desc': 'Escolha duas seleções e a distância de viagem entre estádios para calcular na hora as chances de vitória ou empate.',
+    'ext.c2_title': 'Agentes de IA no Dia a Dia e Vagas',
+    'ext.c2_desc': 'Uso inteligência artificial diariamente no trabalho e foco na criação de agentes com regras claras — como meu robô que coleta e filtra vagas automaticamente.',
 
-    'pers.title': 'Software, natação, idiomas e monitoria na UFCG',
-    'pers.sub': 'Rotina fora do código aplicada ao trabalho em equipe.',
-    'pers.swim_title': 'Natação 25m e Monitoria UFCG (75+ alunos)',
-    'pers.swim_desc': 'Treinos diários em piscina curta aliados à monitoria ajudando mais de 40 alunos em algoritmos e mais de 35 em sistemas.',
-    'pers.swim_btn': 'Registrar parcial',
-    'pers.lang_title': 'Idiomas PT, EN, FR e ES',
-    'pers.lang_desc': 'Português nativo, Inglês avançado, Francês e Espanhol intermediários para times internacionais.',
+    'pers.title': 'Natação competitiva, monitoria e idiomas',
+    'pers.sub': 'O que eu faço fora do código e como isso molda minha rotina.',
+    'pers.swim_title': 'Natação Competitiva (25m)',
+    'pers.swim_desc': 'Pratico natação competitiva e gosto muito de treinar em piscina semiolímpica de 25m. A disciplina diária de controle de ritmo e viradas é a mesma que levo para projetos.',
+    'pers.swim_btn': 'Ver outra série',
+    'pers.lang_title': 'Monitoria UFCG (75+ alunos) e 4 Idiomas',
+    'pers.lang_desc': 'Na UFCG fui monitor ajudando 40+ alunos em algoritmos e 35+ em sistemas. Também falo Português, Inglês avançado, Francês e Espanhol.',
 
-    'close.title': 'Contato para equipes de software e dados',
+    'close.title': 'Contato para vagas de software, dados e IA',
     'close.sub': 'Formado em Ciência da Computação pela UFCG em outubro de 2026.',
     'close.cta': 'Baixar currículo',
     'close.copy': 'Copiar e-mail',
     'close.copied': 'E-mail copiado',
     'close.github': 'GitHub',
-    'close.linkedin': 'LinkedIn',
-    'close.wonderlic': 'Wonderlic'
+    'close.linkedin': 'LinkedIn'
   },
   en: {
     'nav.skip': 'Skip to content',
     'nav.journey': 'Journey',
     'nav.projects': 'Projects',
-    'nav.extras': 'Systems',
+    'nav.extras': 'AI & World Cup',
     'nav.personal': 'Profile',
     'nav.cta': 'Download resume',
 
-    'hero.cat': 'Software, data and systems',
-    'hero.title': 'Software and data in real systems.',
-    'hero.lead': 'Raphael Ramos, Computer Science graduate from UFCG (Oct 2026). I turn raw data and messy workflows into clear, reliable software.',
+    'hero.cat': 'Software, data and AI agents',
+    'hero.title': 'Software, data and AI agents.',
+    'hero.lead': 'Raphael Ramos, Computer Science graduate (UFCG, Oct 2026). I use AI daily to build Python systems and databases with competitive swimming discipline.',
     'hero.cta': 'Download resume',
-    'hero.alt': 'See explained projects',
-    'hero.pool_status': 'Lane 4 · 25m',
+    'hero.alt': 'Try interactive projects',
+    'hero.pool_status': 'My lane (25m)',
     'hero.pool_turn': 'Flip turn',
     'hero.pool_pause': 'Pause swim',
     'hero.pool_resume': 'Resume swim',
 
-    'stmt.title': 'Simple software for real-world problems',
-    'stmt.sub': 'I focus on turning messy manual workflows, scattered PDFs and scientific signals into fast, reliable tools anyone can run.',
+    'stmt.sub': 'I use AI daily in my engineering workflow and focus today on building reliable AI agents and clean software anyone can use.',
 
     'journey.title': 'Software journey across USP, Scrub Up and UFCG',
-    'journey.sub': 'Click the map nodes or chapter buttons to explore each stage.',
+    'journey.sub': 'Click any circle on the map or buttons to explore each phase.',
     'journey.prev': 'Previous chapter',
     'journey.next': 'Next chapter',
 
     'proj.title': 'Software projects: BINGO and Data Pipeline',
-    'proj.sub': 'Plain-language breakdown of what each system solves in practice.',
+    'proj.sub': 'Click inside each card to test how the architecture works.',
     'proj.c1_title': 'Software for the BINGO Radio Telescope',
-    'proj.c1_desc': 'Live telescope telemetry used to freeze the operator screen. I moved heavy math into isolated background workers and verified everything with 113 automated tests.',
+    'proj.c1_desc': 'Live radio signals used to freeze the operator screen. Moving heavy math to background workers with 113 automated tests keeps the UI responsive.',
     'proj.c2_title': 'PDF Report Extractor and Database',
-    'proj.c2_desc': 'Automated script that reads 33 dense PDF reports, removes duplicate records and stores 105,582 clean rows inside PostgreSQL.',
+    'proj.c2_desc': 'Automated tool reading 33 dense PDFs, removing duplicates and structuring 105,582 clean rows inside PostgreSQL.',
 
-    'ext.title': 'Applied systems: World Cup, Jobs and Wonderlic',
-    'ext.sub': 'Practical browser and statistical tools built for real everyday tasks.',
-    'ext.c1_title': 'World Cup 2026 Predictor & Job Organizer',
-    'ext.c1_desc': 'Statistical model estimating match scores using team strength and stadium travel distance, paired with an automated personal job board.',
-    'ext.c2_title': 'Wonderlic Simulator (490 questions)',
-    'ext.c2_desc': 'Zero-install browser trainer to practice 12-minute timed reasoning tests with 490 real questions.',
-    'ext.c2_cta': 'Open Wonderlic simulator',
+    'ext.title': 'AI Agents, Jobs and World Cup 2026 Predictor',
+    'ext.sub': 'Test World Cup match probabilities live or step through how my AI workflows operate safely.',
+    'ext.c1_title': 'World Cup 2026 · Match Predictor',
+    'ext.c1_desc': 'Pick two national teams and stadium travel distance to compute win and draw odds right away.',
+    'ext.c2_title': 'Daily AI Agents and Job Organizer',
+    'ext.c2_desc': 'I rely on AI daily and focus on building rule-checked agents — like my personal script collecting and sorting tech jobs.',
 
-    'pers.title': 'Software, swimming, languages and UFCG mentoring',
-    'pers.sub': 'Discipline outside the editor applied to engineering teams.',
-    'pers.swim_title': '25m Swimming & UFCG Mentoring (75+ students)',
-    'pers.swim_desc': 'Daily short-course training paired with teaching assistantship supporting 40+ algorithms and 35+ systems students.',
-    'pers.swim_btn': 'Log split',
-    'pers.lang_title': 'Languages PT, EN, FR and ES',
-    'pers.lang_desc': 'Native Portuguese, Advanced English, Intermediate French and Spanish for global teams.',
+    'pers.title': 'Competitive swimming, mentoring and languages',
+    'pers.sub': 'My routine outside the editor and how it carries over into engineering.',
+    'pers.swim_title': 'Competitive Swimming (25m)',
+    'pers.swim_desc': 'I train competitive swimming in a 25m short-course pool. Pacing, turns and daily consistency shape how I build software.',
+    'pers.swim_btn': 'Next training set',
+    'pers.lang_title': 'UFCG Mentoring (75+ students) & 4 Languages',
+    'pers.lang_desc': 'Supported 40+ algorithms and 35+ systems students at UFCG. Fluent in Portuguese & English, intermediate French & Spanish.',
 
-    'close.title': 'Contact for software and data teams',
+    'close.title': 'Contact for software, data and AI teams',
     'close.sub': 'B.Sc. in Computer Science from UFCG in October 2026.',
     'close.cta': 'Download resume',
     'close.copy': 'Copy email',
     'close.copied': 'Email copied',
     'close.github': 'GitHub',
-    'close.linkedin': 'LinkedIn',
-    'close.wonderlic': 'Wonderlic'
+    'close.linkedin': 'LinkedIn'
   }
 };
 
@@ -174,6 +168,10 @@ function applyLanguage(lang) {
 
   renderStoryChapter(activeStoryIdx);
   renderSwimNote(true);
+  renderBingoState();
+  renderEtlState();
+  renderCopaMini();
+  renderAiState();
 }
 
 const themeToggle = document.getElementById('themeToggle');
@@ -316,7 +314,7 @@ if (poolSvg) {
   requestAnimationFrame(stepPoolAnimation);
 }
 
-// ─── Interactive Story Timeline (USP -> Scrub Up -> UFCG -> BINGO & Dados) ───
+// ─── Interactive Story Timeline (USP -> Scrub Up -> UFCG -> Dados e IA) ───
 const storyChapters = [
   {
     pt: {
@@ -368,18 +366,18 @@ const storyChapters = [
   },
   {
     pt: {
-      tag: 'Capítulo 04 · Sistemas em Produção',
-      period: '2025 – 2026 · Software e Dados',
-      title: 'Software no Radiotelescópio BINGO e Banco de Dados (2025–2026)',
-      body: 'Atuei no software do radiotelescópio BINGO mantendo telas fluidas com 113 testes automáticos, e criei um leitor de PDFs no TCC que organizou 105.582 linhas limpas no PostgreSQL.',
-      takeaway: 'Sistemas testados ponta a ponta para transformar dados complexos em respostas claras.'
+      tag: 'Capítulo 04 · Dados e Agentes de IA',
+      period: '2025 – 2026 · Sistemas Reais',
+      title: 'Sistemas em Python, Dados e Foco Atual em Agentes de IA',
+      body: 'Atuei no software do radiotelescópio BINGO (113 testes automáticos), organizei 105.582 linhas no PostgreSQL e hoje utilizo IA todos os dias, focando na criação de agentes de IA confiáveis.',
+      takeaway: 'Engenharia testada somada ao uso intensivo de IA e automação.'
     },
     en: {
-      tag: 'Chapter 04 · Production Systems',
-      period: '2025 – 2026 · Software & Data',
-      title: 'BINGO Telescope Software & PostgreSQL ETL (2025–2026)',
-      body: 'Built non-blocking background workers with 113 automated tests for BINGO radio astronomy, plus a 105,582-row PostgreSQL pipeline from 33 PDF reports.',
-      takeaway: 'Tested systems turning raw data into clean, understandable tools.'
+      tag: 'Chapter 04 · Data & AI Agents',
+      period: '2025 – 2026 · Real Systems',
+      title: 'Python Systems, Data & Current Focus on AI Agents',
+      body: 'Built non-blocking telemetry workers (113 tests) for BINGO, organized 105,582 rows in PostgreSQL, and rely daily on AI while building rule-validated AI agents.',
+      takeaway: 'Tested software paired with daily AI workflows and automation.'
     }
   }
 ];
@@ -464,17 +462,219 @@ if ('IntersectionObserver' in window) {
   });
 }
 
+// ─── Interactive Project 1: BINGO Async Toggle ───
+let bingoAsync = true;
+const btnBingoToggle = document.getElementById('btnBingoToggle');
+const bingoReadout = document.getElementById('bingoReadout');
+const bingoWire2 = document.getElementById('bingoWire2');
+const bingoMidBox = document.getElementById('bingoMidBox');
+const bingoMidTitle = document.getElementById('bingoMidTitle');
+const bingoMidSub = document.getElementById('bingoMidSub');
+const bingoEndBox = document.getElementById('bingoEndBox');
+const bingoEndSub = document.getElementById('bingoEndSub');
+
+function renderBingoState() {
+  if (!btnBingoToggle || !bingoReadout) return;
+  if (bingoAsync) {
+    btnBingoToggle.textContent = currentLang === 'pt' ? 'Simular tela sem fila' : 'Simulate blocking UI';
+    bingoReadout.textContent = currentLang === 'pt'
+      ? 'Modo atual: 2º plano ativo (tela fluida)'
+      : 'Current: background queue active (smooth UI)';
+    if (bingoMidBox) { bingoMidBox.classList.add('schema-box--accent'); bingoMidBox.classList.remove('schema-box--warn'); }
+    if (bingoEndBox) bingoEndBox.classList.remove('schema-box--warn');
+    if (bingoWire2) bingoWire2.classList.remove('schema-wire--warn');
+    if (bingoMidTitle) bingoMidTitle.textContent = currentLang === 'pt' ? '2º Plano' : 'Worker';
+    if (bingoMidSub) bingoMidSub.textContent = currentLang === 'pt' ? 'Fila isolada' : 'Queue active';
+    if (bingoEndSub) bingoEndSub.textContent = currentLang === 'pt' ? '113 testes OK' : '113 tests OK';
+  } else {
+    btnBingoToggle.textContent = currentLang === 'pt' ? 'Ativar 2º plano (BINGO)' : 'Enable background worker';
+    bingoReadout.textContent = currentLang === 'pt'
+      ? 'Sem fila: cálculo pesado trava a tela!'
+      : 'Blocking mode: heavy math freezes UI!';
+    if (bingoMidBox) { bingoMidBox.classList.remove('schema-box--accent'); bingoMidBox.classList.add('schema-box--warn'); }
+    if (bingoEndBox) bingoEndBox.classList.add('schema-box--warn');
+    if (bingoWire2) bingoWire2.classList.add('schema-wire--warn');
+    if (bingoMidTitle) bingoMidTitle.textContent = currentLang === 'pt' ? 'Na Tela' : 'Main UI';
+    if (bingoMidSub) bingoMidSub.textContent = currentLang === 'pt' ? 'Sem fila' : 'No queue';
+    if (bingoEndSub) bingoEndSub.textContent = currentLang === 'pt' ? 'Tela travada' : 'UI frozen';
+  }
+}
+
+if (btnBingoToggle) {
+  btnBingoToggle.addEventListener('click', () => {
+    bingoAsync = !bingoAsync;
+    renderBingoState();
+  });
+}
+
+// ─── Interactive Project 2: PDF Extractor & PostgreSQL Stepper ───
+let etlStepIdx = 0;
+const btnEtlStep = document.getElementById('btnEtlStep');
+const etlReadout = document.getElementById('etlReadout');
+const etlSteps = [
+  document.getElementById('etlStep0'),
+  document.getElementById('etlStep1'),
+  document.getElementById('etlStep2')
+];
+
+function renderEtlState() {
+  if (!etlReadout) return;
+  if (btnEtlStep) {
+    btnEtlStep.textContent = currentLang === 'pt' ? 'Simular próxima etapa' : 'Simulate next step';
+  }
+  const labelsPt = [
+    'Etapa 1/3: Lendo 33 relatórios em PDF',
+    'Etapa 2/3: Removendo linhas repetidas',
+    'Etapa 3/3: 105.582 registros salvos no banco'
+  ];
+  const labelsEn = [
+    'Step 1/3: Reading 33 PDF reports',
+    'Step 2/3: Cleaning duplicate records',
+    'Step 3/3: 105,582 rows saved in PostgreSQL'
+  ];
+  etlReadout.textContent = currentLang === 'pt' ? labelsPt[etlStepIdx] : labelsEn[etlStepIdx];
+  etlSteps.forEach((el, idx) => {
+    if (!el) return;
+    el.classList.toggle('is-dim', idx !== etlStepIdx);
+    const rect = el.querySelector('rect');
+    if (rect) rect.classList.toggle('schema-box--accent', idx === etlStepIdx);
+  });
+}
+
+if (btnEtlStep) {
+  btnEtlStep.addEventListener('click', () => {
+    etlStepIdx = (etlStepIdx + 1) % 3;
+    renderEtlState();
+  });
+}
+
+// ─── Interactive Copa 2026 Predictor ───
+const teamData = {
+  BRA: { name: 'Brasil', att: 1.55, def: 0.72 },
+  ARG: { name: 'Argentina', att: 1.48, def: 0.70 },
+  FRA: { name: 'França', att: 1.52, def: 0.75 },
+  ESP: { name: 'Espanha', att: 1.44, def: 0.78 },
+  ENG: { name: 'Inglaterra', att: 1.38, def: 0.79 },
+  GER: { name: 'Alemanha', att: 1.40, def: 0.84 }
+};
+
+const selTeamA = document.getElementById('teamA');
+const selTeamB = document.getElementById('teamB');
+const travelRange = document.getElementById('travelDist');
+const travelReadout = document.getElementById('travelDistVal');
+const copaSvgTitle = document.getElementById('copaSvgTitle');
+const copaSvgSub = document.getElementById('copaSvgSub');
+const copaBarA = document.getElementById('copaBarA');
+const copaBarB = document.getElementById('copaBarB');
+
+function poisson(k, lambda) {
+  let fact = 1;
+  for (let i = 2; i <= k; i += 1) fact *= i;
+  return (Math.pow(lambda, k) * Math.exp(-lambda)) / fact;
+}
+
+function renderCopaMini() {
+  if (!selTeamA || !selTeamB || !copaSvgTitle) return;
+  const a = teamData[selTeamA.value] || teamData.BRA;
+  const b = teamData[selTeamB.value] || teamData.ARG;
+  const km = Number(travelRange ? travelRange.value : 1500);
+  if (travelReadout) travelReadout.textContent = `${km} km`;
+
+  const fatiguePenalty = 1 - Math.min(0.18, (km / 10000) * 0.14);
+  const lamA = Math.max(0.25, a.att * b.def * 1.15);
+  const lamB = Math.max(0.25, b.att * a.def * fatiguePenalty);
+
+  let winA = 0;
+  let draw = 0;
+  let winB = 0;
+  for (let ga = 0; ga <= 4; ga += 1) {
+    for (let gb = 0; gb <= 4; gb += 1) {
+      const p = poisson(ga, lamA) * poisson(gb, lamB);
+      if (ga > gb) winA += p;
+      else if (ga === gb) draw += p;
+      else winB += p;
+    }
+  }
+  const tot = winA + draw + winB || 1;
+  const pA = Math.round((winA / tot) * 100);
+  const pD = Math.round((draw / tot) * 100);
+  const pB = 100 - pA - pD;
+
+  const drawLabel = currentLang === 'pt' ? 'Empate' : 'Draw';
+  copaSvgTitle.textContent = `${a.name} ${pA}% · ${drawLabel} ${pD}% · ${b.name} ${pB}%`;
+  if (copaSvgSub) {
+    copaSvgSub.textContent = currentLang === 'pt'
+      ? `Força histórica e ${km} km de viagem`
+      : `Historical strength and ${km} km travel`;
+  }
+  const totalW = 380;
+  const wA = Math.round((pA / 100) * totalW);
+  const wB = Math.round((pB / 100) * totalW);
+  if (copaBarA) copaBarA.setAttribute('width', String(wA));
+  if (copaBarB) {
+    copaBarB.setAttribute('x', String(40 + totalW - wB));
+    copaBarB.setAttribute('width', String(wB));
+  }
+}
+
+if (selTeamA && selTeamB && travelRange) {
+  selTeamA.addEventListener('change', renderCopaMini);
+  selTeamB.addEventListener('change', renderCopaMini);
+  travelRange.addEventListener('input', renderCopaMini);
+}
+
+// ─── Interactive AI Agents & Jobs Stepper ───
+let aiStepIdx = 0;
+const btnAiStep = document.getElementById('btnAiStep');
+const aiReadout = document.getElementById('aiReadout');
+const aiSteps = [
+  document.getElementById('aiStep0'),
+  document.getElementById('aiStep1'),
+  document.getElementById('aiStep2')
+];
+
+function renderAiState() {
+  if (!aiReadout) return;
+  if (btnAiStep) {
+    btnAiStep.textContent = currentLang === 'pt' ? 'Testar passo do agente' : 'Run next agent step';
+  }
+  const labelsPt = [
+    'Passo 1/3: Recebe vaga ou pedido',
+    'Passo 2/3: Agente de IA valida regras',
+    'Passo 3/3: Organiza painel pronto para uso'
+  ];
+  const labelsEn = [
+    'Step 1/3: Reads job feed or user request',
+    'Step 2/3: AI Agent checks structured rules',
+    'Step 3/3: Delivers sorted action board'
+  ];
+  aiReadout.textContent = currentLang === 'pt' ? labelsPt[aiStepIdx] : labelsEn[aiStepIdx];
+  aiSteps.forEach((el, idx) => {
+    if (!el) return;
+    el.classList.toggle('is-dim', idx !== aiStepIdx);
+    const rect = el.querySelector('rect');
+    if (rect) rect.classList.toggle('schema-box--accent', idx === aiStepIdx);
+  });
+}
+
+if (btnAiStep) {
+  btnAiStep.addEventListener('click', () => {
+    aiStepIdx = (aiStepIdx + 1) % 3;
+    renderAiState();
+  });
+}
+
 // ─── Personal Cards: Swimming & Language Passport ───
 const swimNotes = {
   pt: [
-    '50m Livre · 25m piscina · Parcial registrada com ritmo constante.',
-    '100m Livre · Saída limpa + 3 viradas rápidas.',
-    'Série aeróbica 8x100m · Foco em eficiência de braçada.'
+    '50m Livre · 25m piscina · Foco em saída limpa e ritmo constante.',
+    '100m Livre · Controle de respiração + viradas rápidas na parede.',
+    'Série aeróbica 8x100m · Consistência física que levo para o código.'
   ],
   en: [
-    '50m Freestyle · 25m pool · Consistent split cadence logged.',
-    '100m Freestyle · Clean break + 3 tight flip turns.',
-    '8x100m aerobic set · Stroke efficiency focus.'
+    '50m Freestyle · 25m pool · Clean start and steady pace focus.',
+    '100m Freestyle · Breathing rhythm + tight wall flip turns.',
+    '8x100m aerobic set · Physical consistency carried into engineering.'
   ]
 };
 let swimNoteIdx = 0;
@@ -495,7 +695,7 @@ function renderSwimNote(skipIncrement) {
 }
 
 const passportQuotes = {
-  pt: 'Português (Nativo): Documentação clara e comunicação objetiva com qualquer área da empresa.',
+  pt: 'Português (Nativo): Comunicação clara para alinhar requisitos e ensinar colegas.',
   en: 'English (Advanced): Fluent technical discussions, writing specs and daily collaboration with global teams.',
   fr: 'Français (Intermédiaire): Leitura de documentação e conversação estruturada no trabalho.',
   es: 'Español (Intermedio): Comunicación diaria e interacción fluida con equipos hispanohablantes.'
